@@ -4,133 +4,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#EEE8DF">
   <title>Katalog Kursus - Cendekia Beasiswa-Info</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <style>
+    /* =====================================================
+       PALET WARNA
+       Cream      #EEE8DF -> netral, warna dasar halaman (dominan)
+       Beige      #C4BCB0 -> warna kedua, panel / bidang pendukung
+       Deep Ocean #2C365A -> aksen "pemanis": teks, tombol, badge, penanda aktif
+       ===================================================== */
     :root {
-      --warna-utama: #2C365A;
-      --warna-latar: #EEE8DF;
-      --warna-garis: #C4BCB0;
+      --cream: #EEE8DF;
+      --beige: #C4BCB0;
+      --beige-soft: #DDD2C8;   /* campuran cream + beige */
+      --ocean: #2C365A;
+      --ocean-dark: #1F2742;
+
+      /* Timpa variabel Bootstrap agar seluruh komponen ikut palet */
+      --bs-body-bg: var(--cream);
+      --bs-body-bg-rgb: 238, 232, 223;
+      --bs-body-color: var(--ocean);
+      --bs-body-color-rgb: 44, 54, 90;
+      --bs-emphasis-color: var(--ocean);
+      --bs-heading-color: var(--ocean);
+      --bs-secondary-color: rgba(44, 54, 90, .75);
+      --bs-border-color: var(--beige);
+      --bs-link-color: var(--ocean);
+      --bs-link-color-rgb: 44, 54, 90;
+      --bs-link-hover-color: var(--ocean-dark);
+      --bs-link-hover-color-rgb: 31, 39, 66;
     }
 
-    .bg-main {
-      background-color: var(--warna-latar);
-    }
+    ::selection { background: var(--beige); color: var(--ocean); }
+    .font-serif, h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; }
 
-    .text-deep-ocean {
-      color: var(--warna-utama);
-    }
-
-    .bg-deep-ocean {
-      background-color: var(--warna-utama);
-    }
-
-    .border-beige {
-      border-color: var(--warna-garis);
-    }
-
-    .font-serif {
-      font-family: Georgia, 'Times New Roman', serif;
-    }
-
-    .navbar-custom {
-      background-color: var(--warna-latar);
-      border-bottom: 1px solid var(--warna-garis);
-    }
-
-    .navbar-custom .nav-link,
-    .navbar-custom .navbar-brand {
-      color: var(--warna-utama);
-    }
-
-    .brand-sub {
-      font-family: Arial, sans-serif;
-      font-size: 9px;
-      letter-spacing: 2px;
-    }
-
-    .dropdown-menu-custom {
-      background-color: var(--warna-latar);
-    }
-
-    @media (min-width: 992px) {
-      .dropdown-menu-custom {
-        min-width: 320px;
-      }
-    }
+    /* ---- Tombol ---- */
+    .btn:focus-visible { outline: none; box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .35); }
 
     .btn-ocean {
-      background-color: var(--warna-utama);
-      color: var(--warna-latar);
-      border: 1px solid var(--warna-utama);
+      background-color: var(--ocean);
+      color: var(--cream);
+      border: 1px solid var(--ocean);
     }
-
-    .btn-ocean:hover,
-    .btn-ocean:focus {
-      background-color: #1f2742;
-      color: var(--warna-latar);
+    .btn-ocean:hover, .btn-ocean:focus, .btn-ocean:active {
+      background-color: var(--ocean-dark);
+      border-color: var(--ocean-dark);
+      color: var(--cream);
     }
 
     .btn-outline-ocean {
-      color: var(--warna-utama);
-      border: 1px solid var(--warna-utama);
+      color: var(--ocean);
+      border: 1px solid var(--ocean);
+      background-color: transparent;
+    }
+    .btn-outline-ocean:hover, .btn-outline-ocean:focus, .btn-outline-ocean:active {
+      background-color: var(--ocean);
+      border-color: var(--ocean);
+      color: var(--cream);
     }
 
-    .btn-outline-ocean:hover {
-      background-color: var(--warna-utama);
-      color: var(--warna-latar);
+    .btn-cream {
+      background-color: var(--cream);
+      color: var(--ocean);
+      border: 1px solid var(--cream);
+    }
+    .btn-cream:hover, .btn-cream:focus, .btn-cream:active {
+      background-color: var(--beige-soft);
+      border-color: var(--beige-soft);
+      color: var(--ocean);
     }
 
-    .card-img-header {
-      height: 120px;
-      object-fit: cover;
+    /* ---- Navbar & dropdown ---- */
+    .navbar-custom {
+      background-color: var(--cream);
+      border-bottom: 1px solid var(--beige);
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link { color: var(--ocean); }
+    .navbar-custom .nav-link:hover { color: var(--ocean-dark); }
+    .navbar-custom .nav-link.active {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: .45rem;
+    }
+    .navbar-toggler { border-color: var(--beige); }
+    .brand-sub { font-family: Arial, sans-serif; font-size: 9px; letter-spacing: 2px; }
+
+    .dropdown-menu-custom {
+      --bs-dropdown-bg: var(--cream);
+      --bs-dropdown-border-color: var(--beige);
+      --bs-dropdown-link-color: var(--ocean);
+      --bs-dropdown-link-hover-color: var(--ocean);
+      --bs-dropdown-link-hover-bg: var(--beige-soft);
+      --bs-dropdown-divider-bg: var(--beige);
+    }
+    @media (min-width: 992px) { .dropdown-menu-custom { min-width: 320px; } }
+
+    /* ---- Breadcrumb & alert ---- */
+    .breadcrumb {
+      --bs-breadcrumb-divider-color: rgba(44, 54, 90, .6);
+      --bs-breadcrumb-item-active-color: rgba(44, 54, 90, .75);
+    }
+    .alert-palet {
+      --bs-alert-bg: var(--beige);
+      --bs-alert-color: var(--ocean);
+      --bs-alert-border-color: var(--beige);
+      border-left: 4px solid var(--ocean);
     }
 
-    .card {
+    /* ---- Panel & bidang warna ---- */
+    .panel-beige { background-color: var(--beige); border-radius: 1.5rem; padding: 1.25rem; }
+    @media (min-width: 768px) { .panel-beige { padding: 1.75rem; } }
+    .filter-bar { background-color: var(--beige); border-radius: 1rem; padding: 1rem 1.25rem; }
+    .footer-beige { background-color: var(--beige); border-top: 1px solid rgba(44, 54, 90, .25); }
+
+    /* ---- Form ---- */
+    .form-select {
+      background-color: var(--cream);
+      color: var(--ocean);
+      border-color: rgba(44, 54, 90, .35);
+    }
+    .form-select:focus {
+      border-color: var(--ocean);
+      box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .2);
+    }
+
+    /* ---- Kartu & badge ---- */
+    .card-kursus {
+      --bs-card-bg: var(--cream);
+      --bs-card-border-color: var(--beige);
+      border: 1px solid var(--beige);
       transition: transform .2s, box-shadow .2s;
     }
-
-    .card:hover {
+    .card-kursus:hover {
       transform: translateY(-4px);
-      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+      box-shadow: 0 .5rem 1rem rgba(44, 54, 90, .18);
     }
+    .card-img-header { height: 120px; object-fit: cover; }
+
+    .badge-kategori { background-color: var(--cream); color: var(--ocean); box-shadow: 0 1px 3px rgba(44, 54, 90, .2); }
+    .badge-ocean { background-color: var(--ocean); color: var(--cream); }
+    .badge-beige { background-color: var(--beige); color: var(--ocean); }
 
     /* ---- Carousel ---- */
-    .banner-img {
-      height: 240px;
-      object-fit: cover;
-    }
-
-    @media (min-width: 768px) {
-      .banner-img {
-        height: 340px;
-      }
-    }
+    .banner-img { height: 240px; object-fit: cover; }
+    @media (min-width: 768px) { .banner-img { height: 340px; } }
 
     .carousel-caption.caption-bg {
-      background: rgba(44, 54, 90, .75);
+      background: rgba(238, 232, 223, .92);
+      color: var(--ocean);
       border-radius: .75rem;
       padding: .75rem 1rem;
     }
+    .carousel-indicators [data-bs-target] { background-color: var(--cream); }
 
-    .carousel-kontrol-gelap .carousel-control-prev,
-    .carousel-kontrol-gelap .carousel-control-next {
-      width: 3rem;
+    /* Panah carousel berwarna Deep Ocean (untuk latar beige) */
+    .carousel-kontrol-ocean .carousel-control-prev,
+    .carousel-kontrol-ocean .carousel-control-next { width: 3rem; opacity: .9; }
+    .carousel-kontrol-ocean .carousel-control-prev-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232C365A'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+    }
+    .carousel-kontrol-ocean .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232C365A'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
     }
 
-    .carousel-kontrol-gelap .carousel-control-prev-icon,
-    .carousel-kontrol-gelap .carousel-control-next-icon {
-      filter: invert(1) grayscale(100);
-    }
-
-    .slide-info {
-      min-height: 200px;
-    }
+    /* Slide pengumuman */
+    .slide-info { min-height: 200px; --bs-heading-color: inherit; }
+    .slide-beige { background-color: var(--beige); color: var(--ocean); }
+    .slide-ocean { background-color: var(--ocean); color: var(--cream); }
+    .slide-soft { background-color: var(--beige-soft); color: var(--ocean); border: 1px solid var(--beige); }
   </style>
 </head>
 
-<body class="bg-main text-deep-ocean">
+<body>
 
   <!-- ================= NAVBAR ================= -->
   <nav class="navbar navbar-expand-lg navbar-custom sticky-top mb-4">
@@ -159,20 +207,20 @@
               aria-expanded="false">Cari Beasiswa</a>
             <div class="dropdown-menu dropdown-menu-custom border-0 shadow-lg rounded-4 p-4 mt-2">
               <h5 class="fw-bold mb-3 font-serif">Temukan Beasiswa Impianmu</h5>
-              <p class="small text-secondary mb-3">
+              <p class="small text-body-secondary mb-3">
                 Jelajahi berbagai peluang beasiswa yang sesuai dengan tujuan pendidikanmu.
               </p>
               <a class="dropdown-item rounded-3 py-2" href="cari-beasiswa.html">
                 🎓 Semua Beasiswa
-                <small class="d-block text-secondary">Lihat seluruh peluang beasiswa</small>
+                <small class="d-block text-body-secondary">Lihat seluruh peluang beasiswa</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="cari-beasiswa.html#dalam-negeri">
                 🇮🇩 Beasiswa Dalam Negeri
-                <small class="d-block text-secondary">Peluang beasiswa di Indonesia</small>
+                <small class="d-block text-body-secondary">Peluang beasiswa di Indonesia</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="cari-beasiswa.html#luar-negeri">
                 🌍 Beasiswa Luar Negeri
-                <small class="d-block text-secondary">Peluang studi internasional</small>
+                <small class="d-block text-body-secondary">Peluang studi internasional</small>
               </a>
               <hr>
               <a href="cari-beasiswa.html" class="btn btn-ocean w-100 rounded-pill">Jelajahi Beasiswa →</a>
@@ -185,28 +233,28 @@
               aria-expanded="false">Katalog Kursus</a>
             <div class="dropdown-menu dropdown-menu-custom border-0 shadow-lg rounded-4 p-4 mt-2">
               <h5 class="fw-bold mb-3 font-serif">Tingkatkan Kemampuanmu</h5>
-              <p class="small text-secondary mb-3">
+              <p class="small text-body-secondary mb-3">
                 Persiapkan dirimu menghadapi seleksi beasiswa melalui berbagai kursus pilihan.
               </p>
               <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html">
                 📚 Semua Kursus
-                <small class="d-block text-secondary">Jelajahi seluruh katalog pembelajaran</small>
+                <small class="d-block text-body-secondary">Jelajahi seluruh katalog pembelajaran</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html#esai">
                 ✍️ Penulisan Esai
-                <small class="d-block text-secondary">Pelajari cara menulis esai yang menarik</small>
+                <small class="d-block text-body-secondary">Pelajari cara menulis esai yang menarik</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html#bahasa">
                 🌐 Persiapan Tes Bahasa
-                <small class="d-block text-secondary">Tingkatkan kemampuan IELTS dan TOEFL</small>
+                <small class="d-block text-body-secondary">Tingkatkan kemampuan IELTS dan TOEFL</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html#wawancara">
                 🎤 Persiapan Wawancara
-                <small class="d-block text-secondary">Latihan menghadapi sesi wawancara</small>
+                <small class="d-block text-body-secondary">Latihan menghadapi sesi wawancara</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html#cv">
                 📄 CV dan Motivation Letter
-                <small class="d-block text-secondary">Siapkan dokumen pendaftaran terbaik</small>
+                <small class="d-block text-body-secondary">Siapkan dokumen pendaftaran terbaik</small>
               </a>
               <hr>
               <a href="katalog-kursus.html" class="btn btn-ocean w-100 rounded-pill">Lihat Semua Kursus →</a>
@@ -219,28 +267,28 @@
               aria-expanded="false">Artikel</a>
             <div class="dropdown-menu dropdown-menu-custom border-0 shadow-lg rounded-4 p-4 mt-2">
               <h5 class="fw-bold mb-3 font-serif">Wawasan Menuju Sukses</h5>
-              <p class="small text-secondary mb-3">
+              <p class="small text-body-secondary mb-3">
                 Temukan tips, panduan, dan informasi untuk membantu perjalanan beasiswamu.
               </p>
               <a class="dropdown-item rounded-3 py-2" href="artikel.html">
                 📰 Semua Artikel
-                <small class="d-block text-secondary">Baca seluruh informasi dan wawasan terbaru</small>
+                <small class="d-block text-body-secondary">Baca seluruh informasi dan wawasan terbaru</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="artikel.html#tips">
                 💡 Tips Mendapatkan Beasiswa
-                <small class="d-block text-secondary">Strategi meningkatkan peluang lolos seleksi</small>
+                <small class="d-block text-body-secondary">Strategi meningkatkan peluang lolos seleksi</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="artikel.html#dokumen">
                 📑 Panduan Dokumen
-                <small class="d-block text-secondary">Panduan menyiapkan dokumen pendaftaran</small>
+                <small class="d-block text-body-secondary">Panduan menyiapkan dokumen pendaftaran</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="artikel.html#wawancara">
                 🎯 Tips Wawancara
-                <small class="d-block text-secondary">Persiapan menghadapi wawancara beasiswa</small>
+                <small class="d-block text-body-secondary">Persiapan menghadapi wawancara beasiswa</small>
               </a>
               <a class="dropdown-item rounded-3 py-2" href="artikel.html#informasi">
                 🌍 Informasi Beasiswa
-                <small class="d-block text-secondary">Kenali peluang dan program beasiswa</small>
+                <small class="d-block text-body-secondary">Kenali peluang dan program beasiswa</small>
               </a>
               <hr>
               <a href="artikel.html" class="btn btn-ocean w-100 rounded-pill">Baca Semua Artikel →</a>
@@ -263,13 +311,13 @@
     <!-- Breadcrumb -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb small">
-        <li class="breadcrumb-item"><a href="index.html" class="text-deep-ocean">Beranda</a></li>
+        <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
         <li class="breadcrumb-item active" aria-current="page">Katalog Kursus</li>
       </ol>
     </nav>
 
     <!-- Alert -->
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-palet alert-dismissible fade show" role="alert">
       <strong>Info!</strong> Kursus baru Motivation Letter sudah tersedia. Daftar sekarang secara gratis.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Tutup"></button>
     </div>
@@ -278,32 +326,29 @@
     <section class="mb-5">
       <div id="carouselBanner" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Banner 1"></button>
+          <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Banner 1"></button>
           <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="1" aria-label="Banner 2"></button>
           <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="2" aria-label="Banner 3"></button>
         </div>
         <div class="carousel-inner rounded-4">
           <div class="carousel-item active" data-bs-interval="4000">
-            <img src="img/deepocean.jpg" class="d-block w-100 banner-img"
-              alt="Mahasiswa belajar bersama menyiapkan berkas beasiswa">
+            <img src="img/deepocean.jpg" class="d-block w-100 banner-img" alt="Mahasiswa belajar bersama menyiapkan berkas beasiswa">
             <div class="carousel-caption caption-bg d-none d-md-block">
-              <h5>Persiapan Beasiswa Lebih Terarah</h5>
+              <h5 class="font-serif">Persiapan Beasiswa Lebih Terarah</h5>
               <p class="mb-0">Kursus singkat yang disusun untuk setiap tahap seleksi.</p>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="6000">
-            <img src="img/deepocean.jpg" class="d-block w-100 banner-img"
-              alt="Peserta berlatih simulasi wawancara dan tes bahasa">
+            <img src="img/deepocean.jpg" class="d-block w-100 banner-img" alt="Peserta berlatih simulasi wawancara dan tes bahasa">
             <div class="carousel-caption caption-bg d-none d-md-block">
-              <h5>Latihan Wawancara dan Tes Bahasa</h5>
+              <h5 class="font-serif">Latihan Wawancara dan Tes Bahasa</h5>
               <p class="mb-0">Simulasi seleksi agar kamu siap dan percaya diri.</p>
             </div>
           </div>
           <div class="carousel-item" data-bs-interval="5000">
             <img src="img/deepocean.jpg" class="d-block w-100 banner-img" alt="Peserta kursus menulis esai beasiswa">
             <div class="carousel-caption caption-bg d-none d-md-block">
-              <h5>Tulis Esai yang Meyakinkan</h5>
+              <h5 class="font-serif">Tulis Esai yang Meyakinkan</h5>
               <p class="mb-0">Belajar menyusun cerita dan visimu dengan jelas.</p>
             </div>
           </div>
@@ -325,76 +370,67 @@
 
     <!-- Judul -->
     <div class="mb-4">
-      <h6 class="text-uppercase fw-bold text-secondary" style="letter-spacing: 1px;">Cendekia Belajar</h6>
-      <h1 class="fw-bold display-6 font-serif">Katalog Kursus Persiapan Beasiswa</h1>
-      <p class="text-muted mb-0">
+      <h6 class="text-uppercase fw-bold text-body-secondary" style="letter-spacing: 1px;">Cendekia Belajar</h6>
+      <h1 class="fw-bold display-6">Katalog Kursus Persiapan Beasiswa</h1>
+      <p class="text-body-secondary mb-0">
         Kursus singkat untuk membantu kamu lolos seleksi: motivation letter, tes bahasa, wawancara, dan lainnya.
       </p>
     </div>
 
-    <!-- B. KURSUS UNGGULAN (3 kartu per slide) -->
-    <section class="mb-5">
-      <h2 class="h5 fw-bold mb-3">Kursus Unggulan</h2>
-      <div id="carouselUnggulan" class="carousel slide carousel-kontrol-gelap" data-bs-wrap="false">
+    <!-- B. KURSUS UNGGULAN (panel beige, 3 kartu per slide) -->
+    <section class="mb-5 panel-beige">
+      <h2 class="h4 fw-bold mb-3">Kursus Unggulan</h2>
+      <div id="carouselUnggulan" class="carousel slide carousel-kontrol-ocean" data-bs-wrap="false">
         <div class="carousel-inner px-5">
 
           <div class="carousel-item active">
             <div class="row g-3 p-1">
               <div class="col-12 col-md-4">
-                <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+                <div class="card card-kursus h-100 rounded-4 overflow-hidden">
                   <div class="position-relative">
-                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                      alt="Peserta mengerjakan latihan soal IELTS">
-                    <span
-                      class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">TES
-                      BAHASA</span>
+                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Peserta mengerjakan latihan soal IELTS">
+                    <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">TES BAHASA</span>
                   </div>
-                  <div class="card-body p-4 bg-white">
-                    <h5 class="card-title fw-bold text-deep-ocean mb-2">Persiapan IELTS untuk Beasiswa Luar Negeri <span
-                        class="badge text-bg-success align-middle fs-6">Populer</span></h5>
-                    <p class="card-text text-secondary small mb-3">Kursus komprehensif untuk empat modul IELTS:
-                      listening, reading, writing, dan speaking.</p>
-                    <div class="text-secondary small fw-medium">Menengah &middot; 8 pelajaran &middot; 120 menit</div>
+                  <div class="card-body p-4">
+                    <h5 class="card-title fw-bold mb-2">Persiapan IELTS untuk Beasiswa Luar Negeri <span class="badge badge-ocean ms-1 align-middle">Populer</span></h5>
+                    <p class="card-text text-body-secondary small mb-3">Kursus komprehensif untuk empat modul IELTS: listening, reading, writing, dan speaking.</p>
+                    <div class="text-body-secondary small fw-medium">Menengah &middot; 8 pelajaran &middot; 120 menit</div>
                   </div>
-                  <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                      class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+                  <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+                    <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+                  </div>
                 </div>
               </div>
               <div class="col-md-4 d-none d-md-block">
-                <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+                <div class="card card-kursus h-100 rounded-4 overflow-hidden">
                   <div class="position-relative">
-                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                      alt="Mahasiswa menulis esai di meja belajar">
-                    <span
-                      class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">ESAI</span>
+                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Mahasiswa menulis esai di meja belajar">
+                    <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">ESAI</span>
                   </div>
-                  <div class="card-body p-4 bg-white">
-                    <h5 class="card-title fw-bold text-deep-ocean mb-2">Menulis Esai Beasiswa yang Menarik</h5>
-                    <p class="card-text text-secondary small mb-3">Pelajari struktur, gaya bahasa, dan strategi menulis
-                      esai yang meyakinkan panitia seleksi.</p>
-                    <div class="text-secondary small fw-medium">Menengah &middot; 8 pelajaran &middot; 120 menit</div>
+                  <div class="card-body p-4">
+                    <h5 class="card-title fw-bold mb-2">Menulis Esai Beasiswa yang Menarik</h5>
+                    <p class="card-text text-body-secondary small mb-3">Pelajari struktur, gaya bahasa, dan strategi menulis esai yang meyakinkan panitia seleksi.</p>
+                    <div class="text-body-secondary small fw-medium">Menengah &middot; 8 pelajaran &middot; 120 menit</div>
                   </div>
-                  <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                      class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+                  <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+                    <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+                  </div>
                 </div>
               </div>
               <div class="col-md-4 d-none d-md-block">
-                <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+                <div class="card card-kursus h-100 rounded-4 overflow-hidden">
                   <div class="position-relative">
-                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                      alt="Simulasi wawancara beasiswa dengan panelis">
-                    <span
-                      class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">WAWANCARA</span>
+                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Simulasi wawancara beasiswa dengan panelis">
+                    <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">WAWANCARA</span>
                   </div>
-                  <div class="card-body p-4 bg-white">
-                    <h5 class="card-title fw-bold text-deep-ocean mb-2">Latihan Wawancara Beasiswa <span
-                        class="badge text-bg-primary align-middle fs-6">Baru</span></h5>
-                    <p class="card-text text-secondary small mb-3">Simulasi pertanyaan wawancara yang sering muncul
-                      beserta tips menjawab dengan percaya diri.</p>
-                    <div class="text-secondary small fw-medium">Menengah &middot; 5 pelajaran &middot; 75 menit</div>
+                  <div class="card-body p-4">
+                    <h5 class="card-title fw-bold mb-2">Latihan Wawancara Beasiswa <span class="badge badge-beige ms-1 align-middle">Baru</span></h5>
+                    <p class="card-text text-body-secondary small mb-3">Simulasi pertanyaan wawancara yang sering muncul beserta tips menjawab dengan percaya diri.</p>
+                    <div class="text-body-secondary small fw-medium">Menengah &middot; 5 pelajaran &middot; 75 menit</div>
                   </div>
-                  <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                      class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+                  <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+                    <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -403,58 +439,51 @@
           <div class="carousel-item">
             <div class="row g-3 p-1">
               <div class="col-12 col-md-4">
-                <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+                <div class="card card-kursus h-100 rounded-4 overflow-hidden">
                   <div class="position-relative">
-                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                      alt="Draf motivation letter di atas meja">
-                    <span
-                      class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">CV</span>
+                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Draf motivation letter di atas meja">
+                    <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">CV</span>
                   </div>
-                  <div class="card-body p-4 bg-white">
-                    <h5 class="card-title fw-bold text-deep-ocean mb-2">Motivation Letter untuk Studi Luar Negeri <span
-                        class="badge text-bg-primary align-middle fs-6">Baru</span></h5>
-                    <p class="card-text text-secondary small mb-3">Rancang surat motivasi yang kuat: dari pembukaan,
-                      argumen, hingga penutup yang berkesan.</p>
-                    <div class="text-secondary small fw-medium">Lanjutan &middot; 7 pelajaran &middot; 110 menit</div>
+                  <div class="card-body p-4">
+                    <h5 class="card-title fw-bold mb-2">Motivation Letter untuk Studi Luar Negeri <span class="badge badge-beige ms-1 align-middle">Baru</span></h5>
+                    <p class="card-text text-body-secondary small mb-3">Rancang surat motivasi yang kuat: dari pembukaan, argumen, hingga penutup yang berkesan.</p>
+                    <div class="text-body-secondary small fw-medium">Lanjutan &middot; 7 pelajaran &middot; 110 menit</div>
                   </div>
-                  <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                      class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+                  <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+                    <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+                  </div>
                 </div>
               </div>
               <div class="col-md-4 d-none d-md-block">
-                <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+                <div class="card card-kursus h-100 rounded-4 overflow-hidden">
                   <div class="position-relative">
-                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                      alt="Contoh CV akademik di layar laptop">
-                    <span
-                      class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">CV</span>
+                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Contoh CV akademik di layar laptop">
+                    <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">CV</span>
                   </div>
-                  <div class="card-body p-4 bg-white">
-                    <h5 class="card-title fw-bold text-deep-ocean mb-2">Menyusun CV Akademik yang Efektif</h5>
-                    <p class="card-text text-secondary small mb-3">Panduan memilih konten, format, dan tata letak CV
-                      yang menonjolkan prestasimu.</p>
-                    <div class="text-secondary small fw-medium">Pemula &middot; 4 pelajaran &middot; 60 menit</div>
+                  <div class="card-body p-4">
+                    <h5 class="card-title fw-bold mb-2">Menyusun CV Akademik yang Efektif</h5>
+                    <p class="card-text text-body-secondary small mb-3">Panduan memilih konten, format, dan tata letak CV yang menonjolkan prestasimu.</p>
+                    <div class="text-body-secondary small fw-medium">Pemula &middot; 4 pelajaran &middot; 60 menit</div>
                   </div>
-                  <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                      class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+                  <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+                    <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+                  </div>
                 </div>
               </div>
               <div class="col-md-4 d-none d-md-block">
-                <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+                <div class="card card-kursus h-100 rounded-4 overflow-hidden">
                   <div class="position-relative">
-                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                      alt="Mahasiswa menyusun personal statement">
-                    <span
-                      class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">ESAI</span>
+                    <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Mahasiswa menyusun personal statement">
+                    <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">ESAI</span>
                   </div>
-                  <div class="card-body p-4 bg-white">
-                    <h5 class="card-title fw-bold text-deep-ocean mb-2">Personal Statement dan Esai Kepemimpinan</h5>
-                    <p class="card-text text-secondary small mb-3">Ceritakan pengalaman dan visimu secara jujur,
-                      terstruktur, dan berkesan bagi pembaca.</p>
-                    <div class="text-secondary small fw-medium">Lanjutan &middot; 8 pelajaran &middot; 130 menit</div>
+                  <div class="card-body p-4">
+                    <h5 class="card-title fw-bold mb-2">Personal Statement dan Esai Kepemimpinan</h5>
+                    <p class="card-text text-body-secondary small mb-3">Ceritakan pengalaman dan visimu secara jujur, terstruktur, dan berkesan bagi pembaca.</p>
+                    <div class="text-body-secondary small fw-medium">Lanjutan &middot; 8 pelajaran &middot; 130 menit</div>
                   </div>
-                  <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                      class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+                  <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+                    <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -474,227 +503,210 @@
 
     <!-- C. SEMUA KURSUS + FILTER -->
     <section class="mb-5">
-      <h2 class="h5 fw-bold mb-3">Semua Kursus</h2>
+      <h2 class="h4 fw-bold mb-3">Semua Kursus</h2>
 
-      <div class="row g-3 mb-4">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <label for="filterKategori" class="form-label small fw-semibold">Kategori</label>
-          <select id="filterKategori" class="form-select rounded-3 border-beige text-deep-ocean">
-            <option value="semua" selected>Semua Kategori</option>
-            <option value="esai">Esai</option>
-            <option value="bahasa">Tes Bahasa</option>
-            <option value="wawancara">Wawancara</option>
-            <option value="cv">CV</option>
-            <option value="umum">Umum</option>
-          </select>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <label for="filterLevel" class="form-label small fw-semibold">Level</label>
-          <select id="filterLevel" class="form-select rounded-3 border-beige text-deep-ocean">
-            <option value="semua" selected>Semua Level</option>
-            <option value="pemula">Pemula</option>
-            <option value="menengah">Menengah</option>
-            <option value="lanjutan">Lanjutan</option>
-          </select>
+      <div class="filter-bar mb-4">
+        <div class="row g-3">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <label for="filterKategori" class="form-label small fw-semibold">Kategori</label>
+            <select id="filterKategori" class="form-select rounded-3">
+              <option value="semua" selected>Semua Kategori</option>
+              <option value="esai">Esai</option>
+              <option value="bahasa">Tes Bahasa</option>
+              <option value="wawancara">Wawancara</option>
+              <option value="cv">CV</option>
+              <option value="umum">Umum</option>
+            </select>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <label for="filterLevel" class="form-label small fw-semibold">Level</label>
+            <select id="filterLevel" class="form-select rounded-3">
+              <option value="semua" selected>Semua Level</option>
+              <option value="pemula">Pemula</option>
+              <option value="menengah">Menengah</option>
+              <option value="lanjutan">Lanjutan</option>
+            </select>
+          </div>
         </div>
       </div>
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="daftarKursus">
 
         <div class="col" data-kategori="esai" data-level="menengah">
-          <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+          <div class="card card-kursus h-100 rounded-4 overflow-hidden">
             <div class="position-relative">
-              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                alt="Mahasiswa menulis esai di meja belajar" loading="lazy">
-              <span
-                class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">ESAI</span>
+              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Mahasiswa menulis esai di meja belajar" loading="lazy">
+              <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">ESAI</span>
             </div>
-            <div class="card-body p-4 bg-white">
-              <h5 class="card-title fw-bold text-deep-ocean mb-2">Menulis Esai Beasiswa yang Menarik</h5>
-              <p class="card-text text-secondary small mb-3">Pelajari struktur, gaya bahasa, dan strategi menulis esai
-                yang meyakinkan panitia seleksi.</p>
-              <div class="text-secondary small fw-medium">Menengah &middot; 8 pelajaran &middot; 120 menit</div>
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-2">Menulis Esai Beasiswa yang Menarik</h5>
+              <p class="card-text text-body-secondary small mb-3">Pelajari struktur, gaya bahasa, dan strategi menulis esai yang meyakinkan panitia seleksi.</p>
+              <div class="text-body-secondary small fw-medium">Menengah &middot; 8 pelajaran &middot; 120 menit</div>
             </div>
-            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+              <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+            </div>
           </div>
         </div>
 
         <div class="col" data-kategori="bahasa" data-level="menengah">
-          <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+          <div class="card card-kursus h-100 rounded-4 overflow-hidden">
             <div class="position-relative">
-              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                alt="Peserta mengerjakan latihan soal IELTS" loading="lazy">
-              <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">TES
-                BAHASA</span>
+              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Peserta mengerjakan latihan soal IELTS" loading="lazy">
+              <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">TES BAHASA</span>
             </div>
-            <div class="card-body p-4 bg-white">
-              <h5 class="card-title fw-bold text-deep-ocean mb-2">Persiapan IELTS untuk Beasiswa Luar Negeri <span
-                  class="badge text-bg-success align-middle fs-6">Populer</span></h5>
-              <p class="card-text text-secondary small mb-3">Kursus komprehensif untuk empat modul IELTS: listening,
-                reading, writing, dan speaking.</p>
-              <div class="text-secondary small fw-medium">Menengah &middot; 8 pelajaran &middot; 120 menit</div>
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-2">Persiapan IELTS untuk Beasiswa Luar Negeri <span class="badge badge-ocean ms-1 align-middle">Populer</span></h5>
+              <p class="card-text text-body-secondary small mb-3">Kursus komprehensif untuk empat modul IELTS: listening, reading, writing, dan speaking.</p>
+              <div class="text-body-secondary small fw-medium">Menengah &middot; 8 pelajaran &middot; 120 menit</div>
             </div>
-            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+              <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+            </div>
           </div>
         </div>
 
         <div class="col" data-kategori="bahasa" data-level="pemula">
-          <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+          <div class="card card-kursus h-100 rounded-4 overflow-hidden">
             <div class="position-relative">
-              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                alt="Peserta mempelajari format tes TOEFL iBT" loading="lazy">
-              <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">TES
-                BAHASA</span>
+              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Peserta mempelajari format tes TOEFL iBT" loading="lazy">
+              <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">TES BAHASA</span>
             </div>
-            <div class="card-body p-4 bg-white">
-              <h5 class="card-title fw-bold text-deep-ocean mb-2">Persiapan TOEFL iBT dari Dasar</h5>
-              <p class="card-text text-secondary small mb-3">Kenali format tes TOEFL iBT dan latih strategi menjawab
-                tiap bagian soal.</p>
-              <div class="text-secondary small fw-medium">Pemula &middot; 6 pelajaran &middot; 90 menit</div>
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-2">Persiapan TOEFL iBT dari Dasar</h5>
+              <p class="card-text text-body-secondary small mb-3">Kenali format tes TOEFL iBT dan latih strategi menjawab tiap bagian soal.</p>
+              <div class="text-body-secondary small fw-medium">Pemula &middot; 6 pelajaran &middot; 90 menit</div>
             </div>
-            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+              <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+            </div>
           </div>
         </div>
 
         <div class="col" data-kategori="wawancara" data-level="menengah">
-          <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+          <div class="card card-kursus h-100 rounded-4 overflow-hidden">
             <div class="position-relative">
-              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                alt="Simulasi wawancara beasiswa dengan panelis" loading="lazy">
-              <span
-                class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">WAWANCARA</span>
+              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Simulasi wawancara beasiswa dengan panelis" loading="lazy">
+              <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">WAWANCARA</span>
             </div>
-            <div class="card-body p-4 bg-white">
-              <h5 class="card-title fw-bold text-deep-ocean mb-2">Latihan Wawancara Beasiswa <span
-                  class="badge text-bg-primary align-middle fs-6">Baru</span></h5>
-              <p class="card-text text-secondary small mb-3">Simulasi pertanyaan wawancara yang sering muncul beserta
-                tips menjawab dengan percaya diri.</p>
-              <div class="text-secondary small fw-medium">Menengah &middot; 5 pelajaran &middot; 75 menit</div>
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-2">Latihan Wawancara Beasiswa <span class="badge badge-beige ms-1 align-middle">Baru</span></h5>
+              <p class="card-text text-body-secondary small mb-3">Simulasi pertanyaan wawancara yang sering muncul beserta tips menjawab dengan percaya diri.</p>
+              <div class="text-body-secondary small fw-medium">Menengah &middot; 5 pelajaran &middot; 75 menit</div>
             </div>
-            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+              <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+            </div>
           </div>
         </div>
 
         <div class="col" data-kategori="cv" data-level="pemula">
-          <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+          <div class="card card-kursus h-100 rounded-4 overflow-hidden">
             <div class="position-relative">
-              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                alt="Contoh CV akademik di layar laptop" loading="lazy">
-              <span
-                class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">CV</span>
+              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Contoh CV akademik di layar laptop" loading="lazy">
+              <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">CV</span>
             </div>
-            <div class="card-body p-4 bg-white">
-              <h5 class="card-title fw-bold text-deep-ocean mb-2">Menyusun CV Akademik yang Efektif</h5>
-              <p class="card-text text-secondary small mb-3">Panduan memilih konten, format, dan tata letak CV yang
-                menonjolkan prestasimu.</p>
-              <div class="text-secondary small fw-medium">Pemula &middot; 4 pelajaran &middot; 60 menit</div>
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-2">Menyusun CV Akademik yang Efektif</h5>
+              <p class="card-text text-body-secondary small mb-3">Panduan memilih konten, format, dan tata letak CV yang menonjolkan prestasimu.</p>
+              <div class="text-body-secondary small fw-medium">Pemula &middot; 4 pelajaran &middot; 60 menit</div>
             </div>
-            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+              <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+            </div>
           </div>
         </div>
 
         <div class="col" data-kategori="cv" data-level="lanjutan">
-          <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+          <div class="card card-kursus h-100 rounded-4 overflow-hidden">
             <div class="position-relative">
-              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                alt="Draf motivation letter di atas meja" loading="lazy">
-              <span
-                class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">CV</span>
+              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Draf motivation letter di atas meja" loading="lazy">
+              <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">CV</span>
             </div>
-            <div class="card-body p-4 bg-white">
-              <h5 class="card-title fw-bold text-deep-ocean mb-2">Motivation Letter untuk Studi Luar Negeri <span
-                  class="badge text-bg-primary align-middle fs-6">Baru</span></h5>
-              <p class="card-text text-secondary small mb-3">Rancang surat motivasi yang kuat: dari pembukaan, argumen,
-                hingga penutup yang berkesan.</p>
-              <div class="text-secondary small fw-medium">Lanjutan &middot; 7 pelajaran &middot; 110 menit</div>
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-2">Motivation Letter untuk Studi Luar Negeri <span class="badge badge-beige ms-1 align-middle">Baru</span></h5>
+              <p class="card-text text-body-secondary small mb-3">Rancang surat motivasi yang kuat: dari pembukaan, argumen, hingga penutup yang berkesan.</p>
+              <div class="text-body-secondary small fw-medium">Lanjutan &middot; 7 pelajaran &middot; 110 menit</div>
             </div>
-            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+              <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+            </div>
           </div>
         </div>
 
         <div class="col" data-kategori="umum" data-level="pemula">
-          <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+          <div class="card card-kursus h-100 rounded-4 overflow-hidden">
             <div class="position-relative">
-              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                alt="Kalender dan catatan rencana persiapan beasiswa" loading="lazy">
-              <span
-                class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">UMUM</span>
+              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Kalender dan catatan rencana persiapan beasiswa" loading="lazy">
+              <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">UMUM</span>
             </div>
-            <div class="card-body p-4 bg-white">
-              <h5 class="card-title fw-bold text-deep-ocean mb-2">Strategi dan Timeline Persiapan Beasiswa</h5>
-              <p class="card-text text-secondary small mb-3">Susun rencana persiapan dari memilih beasiswa hingga
-                pengumpulan berkas tepat waktu.</p>
-              <div class="text-secondary small fw-medium">Pemula &middot; 5 pelajaran &middot; 60 menit</div>
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-2">Strategi dan Timeline Persiapan Beasiswa</h5>
+              <p class="card-text text-body-secondary small mb-3">Susun rencana persiapan dari memilih beasiswa hingga pengumpulan berkas tepat waktu.</p>
+              <div class="text-body-secondary small fw-medium">Pemula &middot; 5 pelajaran &middot; 60 menit</div>
             </div>
-            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+              <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+            </div>
           </div>
         </div>
 
         <div class="col" data-kategori="esai" data-level="lanjutan">
-          <div class="card h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+          <div class="card card-kursus h-100 rounded-4 overflow-hidden">
             <div class="position-relative">
-              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover"
-                alt="Mahasiswa menyusun personal statement" loading="lazy">
-              <span
-                class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">ESAI</span>
+              <img src="img/deepocean.jpg" class="card-img-top card-img-header img-fluid object-fit-cover" alt="Mahasiswa menyusun personal statement" loading="lazy">
+              <span class="badge badge-kategori rounded-pill position-absolute bottom-0 start-0 m-3">ESAI</span>
             </div>
-            <div class="card-body p-4 bg-white">
-              <h5 class="card-title fw-bold text-deep-ocean mb-2">Personal Statement dan Esai Kepemimpinan</h5>
-              <p class="card-text text-secondary small mb-3">Ceritakan pengalaman dan visimu secara jujur, terstruktur,
-                dan berkesan bagi pembaca.</p>
-              <div class="text-secondary small fw-medium">Lanjutan &middot; 8 pelajaran &middot; 130 menit</div>
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-2">Personal Statement dan Esai Kepemimpinan</h5>
+              <p class="card-text text-body-secondary small mb-3">Ceritakan pengalaman dan visimu secara jujur, terstruktur, dan berkesan bagi pembaca.</p>
+              <div class="text-body-secondary small fw-medium">Lanjutan &middot; 8 pelajaran &middot; 130 menit</div>
             </div>
-            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0"><a href="#"
-                class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a></div>
+            <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+              <a href="#" class="btn btn-sm btn-ocean rounded-pill px-3">Selengkapnya</a>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <div id="pesanKosong" class="alert alert-info d-none mt-4" role="alert">
+      <div id="pesanKosong" class="alert alert-palet d-none mt-4" role="alert">
         Belum ada kursus yang sesuai dengan filter yang dipilih.
       </div>
     </section>
 
     <!-- D. PENGUMUMAN (crossfade) -->
     <section class="mb-5">
-      <h2 class="h5 fw-bold mb-3">Pengumuman</h2>
+      <h2 class="h4 fw-bold mb-3">Pengumuman</h2>
       <div id="carouselInfo" class="carousel slide carousel-fade">
         <div class="carousel-inner rounded-3">
-          <div class="carousel-item active bg-main">
-            <div class="d-flex flex-column justify-content-center bg-primary-subtle p-5 rounded-3 slide-info">
+          <div class="carousel-item active bg-body">
+            <div class="d-flex flex-column justify-content-center slide-beige p-5 rounded-3 slide-info">
               <h3 class="font-serif">Kursus Baru: Motivation Letter</h3>
               <p class="mb-3">Kelas lanjutan sudah dibuka dan gratis untuk semua anggota.</p>
-              <div><a class="btn btn-primary" href="#">Lihat kursus</a></div>
+              <div><a class="btn btn-ocean rounded-pill px-4" href="#">Lihat kursus</a></div>
             </div>
           </div>
-          <div class="carousel-item bg-main">
-            <div class="d-flex flex-column justify-content-center bg-success-subtle p-5 rounded-3 slide-info">
+          <div class="carousel-item bg-body">
+            <div class="d-flex flex-column justify-content-center slide-ocean p-5 rounded-3 slide-info">
               <h3 class="font-serif">Sesi Latihan Wawancara Mingguan</h3>
               <p class="mb-3">Terbuka untuk semua peserta. Daftar sebelum kuota penuh.</p>
-              <div><a class="btn btn-success" href="#">Lihat jadwal</a></div>
+              <div><a class="btn btn-cream rounded-pill px-4" href="#">Lihat jadwal</a></div>
             </div>
           </div>
-          <div class="carousel-item bg-main">
-            <div class="d-flex flex-column justify-content-center bg-warning-subtle p-5 rounded-3 slide-info">
+          <div class="carousel-item bg-body">
+            <div class="d-flex flex-column justify-content-center slide-soft p-5 rounded-3 slide-info">
               <h3 class="font-serif">Tenggat Beasiswa Semester Ini</h3>
               <p class="mb-3">Cek tanggal penutupan pendaftaran agar tidak terlewat.</p>
-              <div><a class="btn btn-warning" href="#">Cari beasiswa</a></div>
+              <div><a class="btn btn-ocean rounded-pill px-4" href="#">Cari beasiswa</a></div>
             </div>
           </div>
         </div>
         <div class="d-flex justify-content-center gap-2 mt-2">
-          <button class="btn btn-sm btn-outline-ocean rounded-pill px-3" type="button" data-bs-target="#carouselInfo"
-            data-bs-slide="prev">Sebelumnya</button>
-          <button class="btn btn-sm btn-outline-ocean rounded-pill px-3" type="button" data-bs-target="#carouselInfo"
-            data-bs-slide="next">Berikutnya</button>
+          <button class="btn btn-sm btn-outline-ocean rounded-pill px-3" type="button"
+            data-bs-target="#carouselInfo" data-bs-slide="prev">Sebelumnya</button>
+          <button class="btn btn-sm btn-outline-ocean rounded-pill px-3" type="button"
+            data-bs-target="#carouselInfo" data-bs-slide="next">Berikutnya</button>
         </div>
       </div>
     </section>
@@ -702,7 +714,7 @@
   </div>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="bg-deep-ocean text-white mt-5 py-4">
+  <footer class="footer-beige mt-5 py-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
       <div class="fw-bold font-serif">Cendekia. <span class="small fw-normal">Beasiswa-Info</span></div>
       <div class="small">&copy; 2026 Cendekia Beasiswa-Info. Semua hak dilindungi.</div>
