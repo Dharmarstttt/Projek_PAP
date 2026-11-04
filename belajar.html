@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beasiswa-Info</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .bg-main {
+      background-color: #EEE8DF;
+    }
+
+    .text-deep-ocean {
+      color: #2C365A;
+    }
+
+    .bg-deep-ocean {
+      background-color: #2C365A;
+    }
+
+    .border-beige {
+      border-color: #C4BCB0;
+    }
+
+    .card-img-header {
+      height: 120px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body class="bg-main text-deep-ocean">
+
+  <nav class="navbar navbar-expand-lg sticky-top mb-5"
+    style="background-color: #EEE8DF; border-bottom: 1px solid #C4BCB0;">
+  
+    <div class="container">
+
+      <a class="navbar-brand fw-bold" href="#" style="color: #2C365A; font-family: Georgia, serif; font-size: 25px;">
+        Cendekia.
+        <span class="d-block text-uppercase" style="font-family: Arial; font-size: 9px; letter-spacing: 2px;">
+          Beasiswa-Info
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBeasiswa">
+  
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarBeasiswa">
+  
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+  
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#" style="color: #2C365A;">
+              Beranda
+            </a>
+          </li>
+  
+        <!-- DROPDOWN CARI BEASISWA -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            style="color: #2C365A;">
+        
+            Cari Beasiswa
+          </a>
+        
+          <div class="dropdown-menu border-0 shadow-lg rounded-4 p-4 mt-2" style="background-color: #EEE8DF; min-width: 320px;">
+        
+            <h5 class="fw-bold mb-3" style="color: #2C365A; font-family: Georgia, serif;">
+              Temukan Beasiswa Impianmu
+            </h5>
+        
+            <p class="small text-secondary mb-3">
+              Jelajahi berbagai peluang beasiswa
+              yang sesuai dengan tujuan pendidikanmu.
+            </p>
+        
+            <a class="dropdown-item rounded-3 py-2" href="cari-beasiswa.html">
+              🎓 Semua Beasiswa
+              <small class="d-block text-secondary">
+                Lihat seluruh peluang beasiswa
+              </small>
+            </a>
+        
+            <a class="dropdown-item rounded-3 py-2" href="cari-beasiswa.html#dalam-negeri">
+              🇮🇩 Beasiswa Dalam Negeri
+              <small class="d-block text-secondary">
+                Peluang beasiswa di Indonesia
+              </small>
+            </a>
+        
+            <a class="dropdown-item rounded-3 py-2" href="cari-beasiswa.html#luar-negeri">
+              🌍 Beasiswa Luar Negeri
+              <small class="d-block text-secondary">
+                Peluang studi internasional
+              </small>
+            </a>
+        
+            <hr>
+        
+            <a href="cari-beasiswa.html" class="btn w-100 rounded-pill" style="background-color: #2C365A; color: #EEE8DF;">
+              Jelajahi Beasiswa →
+            </a>
+        
+          </div>
+        </li>
+
+  
+        <!-- DROPDOWN KATALOG KURSUS -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            style="color: #2C365A;">
+        
+            Katalog Kursus
+          </a>
+        
+          <div class="dropdown-menu border-0 shadow-lg rounded-4 p-4 mt-2" style="background-color: #EEE8DF; min-width: 320px;">
+        
+            <h5 class="fw-bold mb-3" style="color: #2C365A; font-family: Georgia, serif;">
+              Tingkatkan Kemampuanmu
+            </h5>
+        
+            <p class="small text-secondary mb-3">
+              Persiapkan dirimu menghadapi seleksi beasiswa
+              melalui berbagai kursus pilihan.
+            </p>
+        
+            <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html">
+              📚 Semua Kursus
+              <small class="d-block text-secondary">
+                Jelajahi seluruh katalog pembelajaran
+              </small>
+            </a>
+        
+            <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html#esai">
+              ✍️ Penulisan Esai
+              <small class="d-block text-secondary">
+                Pelajari cara menulis esai yang menarik
+              </small>
+            </a>
+        
+            <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html#bahasa">
+              🌐 Persiapan Tes Bahasa
+              <small class="d-block text-secondary">
+                Tingkatkan kemampuan IELTS dan TOEFL
+              </small>
+            </a>
+        
+            <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html#wawancara">
+              🎤 Persiapan Wawancara
+              <small class="d-block text-secondary">
+                Latihan menghadapi sesi wawancara
+              </small>
+            </a>
+        
+            <a class="dropdown-item rounded-3 py-2" href="katalog-kursus.html#cv">
+              📄 CV dan Motivation Letter
+              <small class="d-block text-secondary">
+                Siapkan dokumen pendaftaran terbaik
+              </small>
+            </a>
+        
+            <hr>
+        
+            <a href="katalog-kursus.html" class="btn w-100 rounded-pill" style="background-color: #2C365A; color: #EEE8DF;">
+              Lihat Semua Kursus →
+            </a>
+        
+          </div>
+        </li>
+
+  
+          <!-- DROPDOWN ARTIKEL -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              style="color: #2C365A;">
+          
+              Artikel
+            </a>
+          
+            <div class="dropdown-menu border-0 shadow-lg rounded-4 p-4 mt-2" style="background-color: #EEE8DF; min-width: 320px;">
+          
+              <h5 class="fw-bold mb-3" style="color: #2C365A; font-family: Georgia, serif;">
+                Wawasan Menuju Sukses
+              </h5>
+          
+              <p class="small text-secondary mb-3">
+                Temukan tips, panduan, dan informasi
+                untuk membantu perjalanan beasiswamu.
+              </p>
+          
+              <a class="dropdown-item rounded-3 py-2" href="artikel.html">
+                📰 Semua Artikel
+                <small class="d-block text-secondary">
+                  Baca seluruh informasi dan wawasan terbaru
+                </small>
+              </a>
+          
+              <a class="dropdown-item rounded-3 py-2" href="artikel.html#tips">
+                💡 Tips Mendapatkan Beasiswa
+                <small class="d-block text-secondary">
+                  Strategi meningkatkan peluang lolos seleksi
+                </small>
+              </a>
+          
+              <a class="dropdown-item rounded-3 py-2" href="artikel.html#dokumen">
+                📑 Panduan Dokumen
+                <small class="d-block text-secondary">
+                  Panduan menyiapkan dokumen pendaftaran
+                </small>
+              </a>
+          
+              <a class="dropdown-item rounded-3 py-2" href="artikel.html#wawancara">
+                🎯 Tips Wawancara
+                <small class="d-block text-secondary">
+                  Persiapan menghadapi wawancara beasiswa
+                </small>
+              </a>
+          
+              <a class="dropdown-item rounded-3 py-2" href="artikel.html#informasi">
+                🌍 Informasi Beasiswa
+                <small class="d-block text-secondary">
+                  Kenali peluang dan program beasiswa
+                </small>
+              </a>
+          
+              <hr>
+          
+              <a href="artikel.html" class="btn w-100 rounded-pill" style="background-color: #2C365A; color: #EEE8DF;">
+                Baca Semua Artikel →
+              </a>
+          
+            </div>
+          </li>
+
+  
+        </ul>
+  
+        <!-- BUTTON -->
+        <div class="d-flex gap-2">
+  
+          <a href="#" class="btn rounded-pill px-4" style="color: #2C365A; border: 1px solid #2C365A;">
+            Masuk
+          </a>
+  
+          <a href="#" class="btn rounded-pill px-4" style="background-color: #2C365A; color: #EEE8DF;">
+            Daftar Gratis
+          </a>
+  
+        </div>
+  
+      </div>
+    </div>
+  </nav>
+
+  
+
+  <div class="container">
+
+    <div class="mb-4">
+      <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">CENDEKIA BELAJAR
+      </h6>
+      <h1 class="fw-bold display-6" style="font-family: 'Times New Roman', Times, serif;">Katalog Kursus Persiapan Beasiswa</h1>
+      <p class="text-muted">
+        Kursus singkat untuk membantu kamu lolos seleksi: motivasi letter, tes bahasa, wawancara, dan lainnya.
+      </p>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-2">
+        <select class="form-select rounded-3 border-beige text-deep-ocean p-2">
+          <option selected>Semua Kategori</option>
+          <option value="1">Esai</option>
+          <option value="2">Tes Bahasa</option>
+          <option value="3">Wawancara</option>
+          <option value="4">CV</option>
+          <option value="5">Umum</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <select class="form-select rounded-3 border-beige text-deep-ocean p-2">
+          <option selected>Semua Level</option>
+          <option value="1">Pemula</option>
+          <option value="2">Menengah</option>
+          <option value="3">Lanjutan</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+          <div class="position-relative">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
+              ESAI
+            </span>
+          </div>
+          <div class="card-body p-4 bg-white">
+            <h5 class="card-title fw-bold text-deep-ocean mb-2">
+              Pelajari struktur, gaya bahasa, dan strategi menulis             </h5>
+            <p class="card-text text-secondary small mb-3">
+              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+            </p>
+            <div class="text-secondary small fw-medium">
+              Menengah &middot; 8 pelajaran &middot; 120 menit
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+          <div class="position-relative">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
+              TES BAHASA
+            </span>
+          </div>
+          <div class="card-body p-4 bg-white">
+            <h5 class="card-title fw-bold text-deep-ocean mb-2">
+              Persiapan IELTS untuk Beasiswa Luar Negeri
+            </h5>
+            <p class="card-text text-secondary small mb-3">
+              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+            </p>
+            <div class="text-secondary small fw-medium">
+              Menengah &middot; 8 pelajaran &middot; 120 menit
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+          <div class="position-relative">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
+              TES BAHASA
+            </span>
+          </div>
+          <div class="card-body p-4 bg-white">
+            <h5 class="card-title fw-bold text-deep-ocean mb-2">
+              Persiapan IELTS untuk Beasiswa Luar Negeri
+            </h5>
+            <p class="card-text text-secondary small mb-3">
+              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+            </p>
+            <div class="text-secondary small fw-medium">
+              Menengah &middot; 8 pelajaran &middot; 120 menit
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+          <div class="position-relative">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
+              TES BAHASA
+            </span>
+          </div>
+          <div class="card-body p-4 bg-white">
+            <h5 class="card-title fw-bold text-deep-ocean mb-2">
+              Persiapan IELTS untuk Beasiswa Luar Negeri
+            </h5>
+            <p class="card-text text-secondary small mb-3">
+              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+            </p>
+            <div class="text-secondary small fw-medium">
+              Menengah &middot; 8 pelajaran &middot; 120 menit
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+          <div class="position-relative">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
+              TES BAHASA
+            </span>
+          </div>
+          <div class="card-body p-4 bg-white">
+            <h5 class="card-title fw-bold text-deep-ocean mb-2">
+              Persiapan IELTS untuk Beasiswa Luar Negeri
+            </h5>
+            <p class="card-text text-secondary small mb-3">
+              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+            </p>
+            <div class="text-secondary small fw-medium">
+              Menengah &middot; 8 pelajaran &middot; 120 menit
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+          <div class="position-relative">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
+              TES BAHASA
+            </span>
+          </div>
+          <div class="card-body p-4 bg-white">
+            <h5 class="card-title fw-bold text-deep-ocean mb-2">
+              Persiapan IELTS untuk Beasiswa Luar Negeri
+            </h5>
+            <p class="card-text text-secondary small mb-3">
+              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+            </p>
+            <div class="text-secondary small fw-medium">
+              Menengah &middot; 8 pelajaran &middot; 120 menit
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+          <div class="position-relative">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
+              TES BAHASA
+            </span>
+          </div>
+          <div class="card-body p-4 bg-white">
+            <h5 class="card-title fw-bold text-deep-ocean mb-2">
+              Persiapan IELTS untuk Beasiswa Luar Negeri
+            </h5>
+            <p class="card-text text-secondary small mb-3">
+              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+            </p>
+            <div class="text-secondary small fw-medium">
+              Menengah &middot; 8 pelajaran &middot; 120 menit
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+          <div class="position-relative">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
+              TES BAHASA
+            </span>
+          </div>
+          <div class="card-body p-4 bg-white">
+            <h5 class="card-title fw-bold text-deep-ocean mb-2">
+              Persiapan IELTS untuk Beasiswa Luar Negeri
+            </h5>
+            <p class="card-text text-secondary small mb-3">
+              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+            </p>
+            <div class="text-secondary small fw-medium">
+              Menengah &middot; 8 pelajaran &middot; 120 menit
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
