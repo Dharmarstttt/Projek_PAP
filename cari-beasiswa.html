@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cari-Beasiswa</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Bootstrap Icons (modul subbab 2.7) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    /* ===== Warna & tombol (sama dengan halaman lain) ===== */
+    .bg-main {
+      background-color: #EEE8DF;
+    }
+
+    .text-deep-ocean {
+      color: #2C365A;
+    }
+
+    .bg-deep-ocean {
+      background-color: #2C365A;
+    }
+
+    .border-beige {
+      border-color: #C4BCB0;
+    }
+
+    .btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .35);
+    }
+
+    .btn-ocean {
+      background-color: #2C365A;
+      color: #EEE8DF;
+      border: 1px solid #2C365A;
+    }
+
+    .btn-ocean:hover,
+    .btn-ocean:focus,
+    .btn-ocean:active {
+      background-color: #1F2742;
+      border-color: #1F2742;
+      color: #EEE8DF;
+    }
+
+    .btn-outline-ocean {
+      color: #2C365A;
+      border: 1px solid #2C365A;
+      background-color: transparent;
+    }
+
+    .btn-outline-ocean:hover,
+    .btn-outline-ocean:focus,
+    .btn-outline-ocean:active {
+      background-color: #2C365A;
+      border-color: #2C365A;
+      color: #EEE8DF;
+    }
+
+    .btn-cream {
+      background-color: #EEE8DF;
+      color: #2C365A;
+      border: 1px solid #EEE8DF;
+    }
+
+    .btn-cream:hover,
+    .btn-cream:focus,
+    .btn-cream:active {
+      background-color: #DDD2C8;
+      border-color: #DDD2C8;
+      color: #2C365A;
+    }
+
+    .footer {
+      background-color: #2C365A;
+    }
+
+    .placeholder-kecil::placeholder {
+      font-size: 0.875rem;
+    }
+
+    .pagination-custom .page-link {
+      color: #1f2937;
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px !important;
+      padding: 8px 14px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    }
+
+    .pagination-custom .page-link:hover {
+      background-color: #2C365A;
+      color: #ffffff;
+      border-color: #d1d5db;
+    }
+
+    .pagination-custom .page-item.active .page-link {
+      background-color: #2C365A;
+      border-color: #2C365A;
+      color: #ffffff;
+    }
+
+    .pagination-custom .page-item.disabled .page-link {
+      color: #9ca3af;
+      background-color: #ffffff;
+      border-color: #e5e7eb;
+    }
+
+    .badge-ocean {
+      background-color: #2C365A;
+      color: #EEE8DF;
+    }
+
+    .badge-krem {
+      background-color: #EEE8DF;
+      color: #2C365A;
+      border: 1px solid #C4BCB0;
+    }
+
+    .card-beasiswa {
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .card-beasiswa:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 .5rem 1rem rgba(44, 54, 90, .15) !important;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #2C365A;
+      box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .25);
+    }
+
+    .form-check-input:checked {
+      background-color: #2C365A;
+      border-color: #2C365A;
+    }
+
+    .form-check-input:focus {
+      border-color: #2C365A;
+      box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .25);
+    }
+
+    .accordion-button {
+      color: #2C365A;
+      font-weight: 600;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background-color: rgba(44, 54, 90, .08);
+      color: #2C365A;
+      box-shadow: none;
+    }
+
+    .accordion-button:focus {
+      box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .25);
+    }
+
+    .alert-cendekia {
+      background-color: rgba(44, 54, 90, .08);
+      border: 1px solid #C4BCB0;
+      color: #2C365A;
+    }
+
+    #hasilBeasiswa {
+      scroll-margin-top: 110px;
+    }
+
+    @media (min-width: 992px) {
+      .filter-sticky {
+        position: sticky;
+        top: 110px;
+        max-height: calc(100vh - 130px);
+        overflow-y: auto;
+      }
+    }
+
+    .modal-cendekia {
+      background-color: #EEE8DF;
+      color: #2C365A;
+      border: 1px solid #C4BCB0;
+    }
+
+    .modal-cendekia .modal-header,
+    .modal-cendekia .modal-footer {
+      border-color: #C4BCB0;
+    }
+
+    .modal-cendekia .modal-title {
+      font-family: Georgia, serif;
+      font-weight: 700;
+    }
+
+    .modal-cendekia .form-control {
+      background-color: #fff;
+      border-color: #C4BCB0;
+      color: #2C365A;
+    }
+
+    #toastNotif {
+      background-color: #EEE8DF;
+      color: #2C365A;
+      border: 1px solid #C4BCB0;
+    }
+
+    #toastNotif .toast-header {
+      background-color: #EEE8DF;
+      color: #2C365A;
+      border-bottom: 1px solid #C4BCB0;
+    }
+  </style>
+</head>
+
+<body class="bg-main text-deep-ocean">
+
+  <nav class="navbar navbar-expand-lg sticky-top mb-5"
+    style="background-color: #EEE8DF; border-bottom: 1px solid #C4BCB0;">
+
+    <div class="container">
+
+      <a class="navbar-brand fw-bold" href="#" style="color: #2C365A; font-family: Georgia, serif; font-size: 25px;">
+        Cendekia.
+        <span class="d-block text-uppercase" style="font-family: Arial; font-size: 9px; letter-spacing: 2px;">
+          Beasiswa-Info
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBeasiswa">
+
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarBeasiswa">
+
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="beranda.html" style="color: #2C365A;">
+              Beranda
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" style="color: #2C365A;">
+              Jelajah
+            </a>
+
+            <div class="dropdown-menu border-0 shadow-lg rounded-4 p-4 mt-2"
+              style="background-color: #EEE8DF; min-width: 340px;">
+
+              <h6 class="fw-bold mb-2 small text-uppercase fw-bold text-secondary tracking-wider"
+                style="letter-spacing: 1px;">
+                JELAJAHI CENDEKIA
+              </h6>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap"
+                href="cari-beasiswa.html">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Cari Beasiswa</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Lihat seluruh peluang beasiswa
+                  </small>
+                </div>
+              </a>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap"
+                href="cari-beasiswa.html">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+                    <path
+                      d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Kalender Deadline</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Lihat seluruh jadwal batas pendaftaran
+                  </small>
+                </div>
+              </a>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap"
+                href="cari-beasiswa.html#dalam-negeri">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                      d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Jadi Kontributor</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Peluang beasiswa di Indonesia
+                  </small>
+                </div>
+              </a>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap"
+                href="cari-beasiswa.html#luar-negeri">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z" />
+                    <path
+                      d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Deadline Terdekat</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Peluang studi internasional
+                  </small>
+                </div>
+              </a>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 text-wrap"
+                href="cari-beasiswa.html#luar-negeri">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                      d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Komunitas</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Bergabung dengan sesama pejuang beasiswa
+                  </small>
+                </div>
+              </a>
+
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" style="color: #2C365A;">
+              Belajar
+            </a>
+
+            <div class="dropdown-menu border-0 shadow-lg rounded-4 p-4 mt-2"
+              style="background-color: #EEE8DF; min-width: 340px;">
+
+              <h6 class="fw-bold mb-2 small text-uppercase fw-bold text-secondary tracking-wider"
+                style="letter-spacing: 1px;">
+                CENDEKIA BELAJAR
+              </h6>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap" href="katalog.html">
+
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                    class="bi bi-layout-split" viewBox="0 0 16 16">
+                    <path
+                      d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.5-1v12H14a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm-1 0H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h5.5z" />
+                  </svg>
+                </div>
+
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Katalog Kursus</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Kursus motivation letter, tes bahasa, dan wawancara
+                  </small>
+                </div>
+              </a>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 text-wrap" href="artikel.html">
+
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                    class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                    <path
+                      d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+                    <path
+                      d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Artikel</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Tips dan Panduan praktis seputar beasiswa.
+                  </small>
+                </div>
+              </a>
+              <hr class="my-3">
+              <a href="belajar.html" class="btn w-100 rounded-pill py-2 fw-semibold"
+                style="background-color: #2C365A; color: #EEE8DF;">
+                Lihat Semua Kursus →
+              </a>
+
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" style="color: #2C365A;">
+              Bantuan
+            </a>
+
+            <div class="dropdown-menu border-0 shadow-lg rounded-4 p-4 mt-2"
+              style="background-color: #EEE8DF; min-width: 340px;">
+
+              <h6 class="fw-bold mb-3 small text-uppercase text-secondary" style="letter-spacing: 1px;">
+                BANTUAN & DUKUNGAN
+              </h6>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap" href="artikel.html">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path
+                      d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">FAQ & Panduan</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Jawaban atas pertanyaan yang sering diajukan.
+                  </small>
+                </div>
+              </a>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap"
+                href="artikel.html#tips">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Donasi</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Dukungan operasional Cendekia secara sukarela.
+                  </small>
+                </div>
+              </a>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap"
+                href="artikel.html#dokumen">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path
+                      d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Tentang Kami</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Kenali misi dan cerita di balik Cendekia.
+                  </small>
+                </div>
+              </a>
+
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 text-wrap"
+                href="artikel.html#wawancara">
+                <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
+                  style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
+                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                      d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" />
+                    <path
+                      d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="fw-semibold" style="color: #2C365A;">Lapor Data Salah</div>
+                  <small class="d-block text-secondary lh-sm">
+                    Laporkan info beasiswa yang tidak akurat.
+                  </small>
+                </div>
+              </a>
+
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="d-flex gap-2">
+          <button type="button" class="btn btn-outline-ocean rounded-pill px-4" data-bs-toggle="modal"
+            data-bs-target="#modalMasuk">Masuk</button>
+          <a href="#" class="btn btn-ocean rounded-pill px-4">Daftar Gratis</a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mb-5">
+
+    <div class="mb-4">
+      <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">CENDEKIA JELAJAH</h6>
+      <h1 class="fw-bold display-6" style="font-family: 'Times New Roman', Times, serif;">Cari Beasiswa</h1>
+      <p class="text-muted mb-0">
+        Temukan beasiswa dalam dan luar negeri untuk semua jenjang. Saring berdasarkan jenjang, negara, dan cakupan
+        pembiayaan. Data bersumber dari beasiswa.info, selalu verifikasi kembali ke penyelenggara sebelum mendaftar.
+      </p>
+    </div>
+
+    <div class="input-group input-group-lg shadow-sm rounded-3 mb-4 bg-white border">
+      <span class="input-group-text bg-transparent border-0 pe-2 text-muted p-3">
+        <i class="bi bi-search small"></i>
+      </span>
+      <label for="inputCari" class="visually-hidden">Cari beasiswa</label>
+      <input type="text" id="inputCari" class="form-control fs-6 border-0 shadow-none ps-1 p-3 placeholder-kecil"
+        placeholder="Cari nama beasiswa, penyelenggara, atau negara...">
+    </div>
+
+    <div class="row g-4">
+
+      <aside class="col-12 col-lg-3">
+
+        <button class="btn btn-outline-ocean rounded-pill w-100 d-lg-none mb-3" type="button"
+          data-bs-toggle="collapse" data-bs-target="#panelFilter" aria-expanded="false" aria-controls="panelFilter">
+          <i class="bi bi-funnel me-1"></i>Tampilkan / Sembunyikan Filter
+        </button>
+
+        <div class="collapse d-lg-block filter-sticky" id="panelFilter">
+          <form id="formFilter" class="card border-0 shadow-sm rounded-4 bg-white overflow-hidden">
+
+            <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+              <h2 class="h6 fw-bold mb-0"><i class="bi bi-sliders me-2"></i>Filter</h2>
+            </div>
+
+            <div class="accordion accordion-flush" id="accFilter">
+
+              <!-- Jenjang -->
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fJenjang"
+                    aria-expanded="true" aria-controls="fJenjang">Jenjang</button>
+                </h3>
+                <div id="fJenjang" class="accordion-collapse collapse show">
+                  <div class="accordion-body">
+                    <div class="row g-2">
+                      <div class="col-6 form-check ps-5">
+                        <input class="form-check-input" type="checkbox" name="jenjang" value="SD" id="jSD">
+                        <label class="form-check-label" for="jSD">SD</label>
+                      </div>
+                      <div class="col-6 form-check ps-5">
+                        <input class="form-check-input" type="checkbox" name="jenjang" value="SMP" id="jSMP">
+                        <label class="form-check-label" for="jSMP">SMP</label>
+                      </div>
+                      <div class="col-6 form-check ps-5">
+                        <input class="form-check-input" type="checkbox" name="jenjang" value="SMA/SMK Sederajat"
+                          id="jSMA">
+                        <label class="form-check-label" for="jSMA">SMA/SMK</label>
+                      </div>
+                      <div class="col-6 form-check ps-5">
+                        <input class="form-check-input" type="checkbox" name="jenjang" value="D3" id="jD3">
+                        <label class="form-check-label" for="jD3">D3</label>
+                      </div>
+                      <div class="col-6 form-check ps-5">
+                        <input class="form-check-input" type="checkbox" name="jenjang" value="S1" id="jS1">
+                        <label class="form-check-label" for="jS1">S1</label>
+                      </div>
+                      <div class="col-6 form-check ps-5">
+                        <input class="form-check-input" type="checkbox" name="jenjang" value="S2" id="jS2">
+                        <label class="form-check-label" for="jS2">S2</label>
+                      </div>
+                      <div class="col-6 form-check ps-5">
+                        <input class="form-check-input" type="checkbox" name="jenjang" value="S3" id="jS3">
+                        <label class="form-check-label" for="jS3">S3</label>
+                      </div>
+                      <div class="col-6 form-check ps-5">
+                        <input class="form-check-input" type="checkbox" name="jenjang" value="Non-gelar" id="jNon">
+                        <label class="form-check-label" for="jNon">Non-gelar</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lokasi studi -->
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fLokasi"
+                    aria-expanded="true" aria-controls="fLokasi">Lokasi studi</button>
+                </h3>
+                <div id="fLokasi" class="accordion-collapse collapse show">
+                  <div class="accordion-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="lokasi" value="" id="lSemua" checked>
+                      <label class="form-check-label" for="lSemua">Semua lokasi</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="lokasi" value="Dalam Negeri" id="lDalam">
+                      <label class="form-check-label" for="lDalam">Dalam Negeri</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="lokasi" value="Luar Negeri" id="lLuar">
+                      <label class="form-check-label" for="lLuar">Luar Negeri</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Negara tujuan -->
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#fNegara" aria-expanded="false" aria-controls="fNegara">Negara tujuan</button>
+                </h3>
+                <div id="fNegara" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <label for="selectNegara" class="visually-hidden">Negara tujuan</label>
+                    <select id="selectNegara" class="form-select rounded-3 border-beige text-deep-ocean">
+                      <option value="" selected>Semua negara</option>
+                      <!-- opsi negara diisi oleh JavaScript -->
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </form>
+        </div>
+      </aside>
+
+      <section class="col-12 col-lg-9" aria-label="Hasil pencarian beasiswa">
+
+        <div id="hasilBeasiswa"
+          class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-3">
+          <div aria-live="polite"><strong id="jumlahHasil">0</strong> beasiswa ditemukan</div>
+          <div class="d-flex align-items-center gap-2">
+            <label for="selectUrut" class="small text-secondary text-nowrap">Urutkan</label>
+            <select id="selectUrut" class="form-select form-select-sm rounded-3 border-beige text-deep-ocean">
+              <option value="deadline" selected>Deadline terdekat</option>
+              <option value="nama">Nama (A-Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="daftarBeasiswa" class="row row-cols-1 row-cols-md-2 g-4"></div>
+
+        <div id="kosong" class="text-center py-5 d-none">
+          <i class="bi bi-search display-4 text-secondary"></i>
+          <h2 class="h5 fw-bold mt-3">Tidak ada beasiswa yang cocok</h2>
+          <p class="text-secondary">Coba ubah kata kunci atau kurangi filter yang dipilih.</p>
+        </div>
+
+        <!-- Pagination (diisi oleh JavaScript) -->
+        <nav aria-label="Navigasi halaman" class="my-5">
+          <ul id="paging" class="pagination pagination-custom justify-content-center gap-2"></ul>
+        </nav>
+
+      </section>
+    </div>
+  </main>
+  <!-- ==================== AKHIR KONTEN ==================== -->
+
+  <footer class="pt-5 pb-4" style="background-color: #1E253D; color: #EEE8DF;">
+    <div class="container">
+
+      <div class="row g-4 pb-5">
+
+        <div class="col-lg-4 col-md-6 pe-lg-5">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div>
+              <div class="fw-bold lh-1" style="font-family: Georgia, serif; font-size: 1.1rem;">Cendekia.</div>
+              <small style="font-size: 0.65rem; letter-spacing: 1.5px; color: #EEE8DF;">BEASISWA-INFO</small>
+            </div>
+          </div>
+          <p class="small opacity-75 lh-base mb-0">
+            Direktori beasiswa Indonesia yang tepercaya. Data dari sumber resmi — selalu verifikasi kembali ke
+            penyelenggara sebelum mendaftar.
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold mb-3 small">Jelajah</h6>
+          <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Cari beasiswa</a></li>
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Deadline terdekat</a></li>
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Komunitas</a></li>
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Jadi kontributor</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold mb-3 small">Belajar</h6>
+          <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
+            <li><a href="katalog.html" class="text-decoration-none text-light opacity-75">Katalog kursus</a></li>
+            <li><a href="artikel.html" class="text-decoration-none text-light opacity-75">Artikel & panduan</a></li>
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Kursus saya</a></li>
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Sertifikat saya</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold mb-3 small">Bantuan</h6>
+          <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
+            <li><a href="#" class="text-decoration-none text-light opacity-75">FAQ & panduan</a></li>
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Lapor data salah</a></li>
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Tentang kami</a></li>
+            <li><a href="#" class="text-decoration-none text-light opacity-75">Donasi</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div
+        class="pt-4 border-top border-secondary border-opacity-25 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 small opacity-75"
+        style="font-size: 0.78rem;">
+        <div>
+          <div class="mb-1">© 2026 Cendekia Beasiswa Info. Dibuat untuk pencari beasiswa Indonesia.</div>
+          <div class="d-flex gap-3">
+            <a href="#" class="text-decoration-none text-light">Syarat & Ketentuan</a>
+            <a href="#" class="text-decoration-none text-light">Kebijakan Privasi</a>
+            <a href="#" class="text-decoration-none text-light">Kebijakan Hapus Data</a>
+          </div>
+        </div>
+        <div class="text-md-end">
+          Data diperbarui setiap hari · Semua link menuju halaman resmi
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL DETAIL BEASISWA ==================== -->
+  <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="judulDetail" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content modal-cendekia rounded-4">
+        <div class="modal-header">
+          <h5 class="modal-title" id="judulDetail">Detail Beasiswa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body" id="isiDetail"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL MASUK ==================== -->
+  <div class="modal fade" id="modalMasuk" tabindex="-1" aria-labelledby="judulMasuk" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-cendekia rounded-4">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="judulMasuk">Masuk</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+
+        <form id="formMasuk" class="needs-validation" novalidate>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="nama@email.com" required>
+              <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+            </div>
+
+            <div class="mb-1">
+              <label for="inputPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="inputPassword" minlength="6" required>
+              <div class="invalid-feedback">Password wajib diisi (min. 6 karakter).</div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-ocean rounded-pill px-4">Masuk</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFIKASI ==================== -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toastNotif" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Notifikasi</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Tutup"></button>
+      </div>
+      <div class="toast-body" id="pesanToast"></div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const DATA = [
+        {
+          id: 'ubc', judul: 'UBC International Scholars Program 2027',
+          penyelenggara: 'University of British Columbia (UBC)',
+          jenjang: ['S1'], lokasi: 'Luar Negeri', negara: 'Kanada',
+          deadline: '2026-11-15',
+          url: 'https://beasiswa.info/beasiswa/ubc-international-scholars-program-2027'
+        },
+        {
+          id: 'eth', judul: 'ETH Zurich Excellence Scholarship & Opportunity Programme 2027',
+          penyelenggara: 'ETH Zurich',
+          jenjang: ['S2'], lokasi: 'Luar Negeri', negara: 'Swiss',
+          deadline: '2026-11-30',
+          url: 'https://beasiswa.info/beasiswa/eth-zurich-excellence-scholarship-opportunity-programme-2027'
+        },
+        {
+          id: 'swiss', judul: 'Swiss Government Excellence Scholarship 2027-2028',
+          penyelenggara: 'Pemerintah Swiss - SBFI',
+          jenjang: ['S3', 'Non-gelar'], lokasi: 'Luar Negeri', negara: 'Swiss',
+          deadline: '2026-11-30',
+          url: 'https://beasiswa.info/beasiswa/swiss-government-excellence-scholarship-2027-2028'
+        },
+        {
+          id: 'peo', judul: 'P.E.O. International Peace Scholarship 2026/2027',
+          penyelenggara: 'P.E.O. International (The Philanthropic Educational Organization)',
+          jenjang: ['S2'], lokasi: 'Luar Negeri', negara: 'Amerika Serikat & Kanada',
+          deadline: '2026-12-15',
+          url: 'https://beasiswa.info/beasiswa/peo-international-peace-scholarship-20262027'
+        },
+        {
+          id: 'kyoto', judul: 'Kyoto University MEXT Scholarship (University Recommendation) 2027',
+          penyelenggara: 'Kyoto University',
+          jenjang: ['S2', 'S3'], lokasi: 'Luar Negeri', negara: 'Jepang',
+          deadline: '2026-12-15',
+          url: 'https://beasiswa.info/beasiswa/kyoto-university-mext-scholarship-university-recommendation-2027'
+        },
+        {
+          id: 'tsinghua', judul: 'Tsinghua University Scholarship 2027',
+          penyelenggara: 'Tsinghua University',
+          jenjang: ['S2', 'S3'], lokasi: 'Luar Negeri', negara: 'Tiongkok',
+          deadline: '2026-12-15',
+          url: 'https://beasiswa.info/beasiswa/tsinghua-university-scholarship-2027'
+        },
+        {
+          id: 'pip', judul: 'Program Indonesia Pintar (PIP) 2026',
+          penyelenggara: 'Kementerian Pendidikan Dasar dan Menengah (Kemendikdasmen)',
+          jenjang: ['SD', 'SMP', 'SMA/SMK Sederajat'], lokasi: 'Dalam Negeri', negara: 'Indonesia',
+          deadline: '2026-12-31',
+          url: 'https://beasiswa.info/beasiswa/program-indonesia-pintar-pip-2026'
+        },
+        {
+          id: 'gates', judul: 'Gates Cambridge Scholarship 2026/2027',
+          penyelenggara: 'Gates Cambridge Trust - University of Cambridge',
+          jenjang: ['S2', 'S3'], lokasi: 'Luar Negeri', negara: 'Inggris',
+          deadline: '2027-01-07',
+          url: 'https://beasiswa.info/beasiswa/gates-cambridge-scholarship-20262027'
+        }
+      ];
+
+      const PER_HALAMAN = 6;
+      let halamanAktif = 1;
+      const disimpan = new Set(); // id beasiswa yang sudah di-bookmark
+
+      const elDaftar = document.getElementById('daftarBeasiswa');
+      const elJumlah = document.getElementById('jumlahHasil');
+      const elKosong = document.getElementById('kosong');
+      const elPaging = document.getElementById('paging');
+      const elCari = document.getElementById('inputCari');
+      const elUrut = document.getElementById('selectUrut');
+      const elNegara = document.getElementById('selectNegara');
+      const formFilter = document.getElementById('formFilter');
+      const elToast = document.getElementById('toastNotif');
+      const elPesan = document.getElementById('pesanToast');
+
+
+      const BULAN = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+
+      const parseTanggal = (s) => {
+        const p = s.split('-');
+        return new Date(+p[0], +p[1] - 1, +p[2]);
+      };
+
+      const formatTanggal = (s) => {
+        const d = parseTanggal(s);
+        return d.getDate() + ' ' + BULAN[d.getMonth()] + ' ' + d.getFullYear();
+      };
+
+      // Selisih hari antara hari ini dan deadline (dihitung otomatis dari tanggal komputer)
+      const sisaHari = (s) => {
+        const hariIni = new Date();
+        hariIni.setHours(0, 0, 0, 0);
+        return Math.round((parseTanggal(s) - hariIni) / 86400000);
+      };
+
+      const labelSisa = (n) => n < 0 ? 'Ditutup' : (n === 0 ? 'Hari ini' : n + ' hari lagi');
+
+      const kelasSisa = (n) => {
+        if (n < 0) return 'text-bg-secondary';
+        if (n <= 7) return 'text-bg-danger';
+        if (n <= 30) return 'text-bg-warning';
+        return 'badge-ocean';
+      };
+
+      const tampilToast = (pesan) => {
+        elPesan.textContent = pesan;
+        bootstrap.Toast.getOrCreateInstance(elToast).show();
+      };
+
+
+      const ambilFilter = () => ({
+        q: elCari.value.trim().toLowerCase(),
+        jenjang: Array.from(document.querySelectorAll('input[name="jenjang"]:checked')).map(i => i.value),
+        lokasi: document.querySelector('input[name="lokasi"]:checked').value,
+        negara: elNegara.value
+      });
+
+      const cocok = (b, f) => {
+        const teks = (b.judul + ' ' + b.penyelenggara + ' ' + b.negara).toLowerCase();
+        if (f.q && !teks.includes(f.q)) return false;
+        if (f.jenjang.length && !b.jenjang.some(j => f.jenjang.includes(j))) return false;
+        if (f.lokasi && b.lokasi !== f.lokasi) return false;
+        if (f.negara && b.negara !== f.negara) return false;
+        return true;
+      };
+
+      const urutkan = (a, b) => {
+        if (elUrut.value === 'nama') return a.judul.localeCompare(b.judul, 'id');
+        // Deadline terdekat; yang sudah ditutup ditaruh paling akhir
+        const tutupA = sisaHari(a.deadline) < 0 ? 1 : 0;
+        const tutupB = sisaHari(b.deadline) < 0 ? 1 : 0;
+        return (tutupA - tutupB) || a.deadline.localeCompare(b.deadline);
+      };
+
+      const buatKartu = (b) => {
+        const sisa = sisaHari(b.deadline);
+        const tersimpan = disimpan.has(b.id);
+        return `
+        <div class="col">
+          <div class="card card-beasiswa h-100 rounded-4 border-0 shadow-sm overflow-hidden">
+            <div class="card-body p-4 bg-white d-flex flex-column">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <span class="badge rounded-pill badge-krem">
+                  <i class="bi bi-patch-check-fill me-1"></i>Terverifikasi
+                </span>
+                <button type="button" class="btn btn-sm btn-outline-ocean rounded-circle btn-simpan"
+                  data-id="${b.id}" data-bs-toggle="tooltip"
+                  data-bs-title="${tersimpan ? 'Hapus dari simpanan' : 'Simpan beasiswa'}"
+                  aria-label="Simpan ${b.judul}">
+                  <i class="bi ${tersimpan ? 'bi-bookmark-fill' : 'bi-bookmark'}"></i>
+                </button>
+              </div>
+
+              <div class="small text-secondary mb-1">${b.penyelenggara}</div>
+              <h3 class="h5 card-title fw-bold text-deep-ocean mb-3">${b.judul}</h3>
+
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <span class="badge rounded-pill badge-krem">${b.jenjang.join(' · ')}</span>
+                <span class="badge rounded-pill badge-krem">${b.lokasi}</span>
+                <span class="badge rounded-pill badge-krem">${b.negara}</span>
+              </div>
+
+
+              <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-end gap-2">
+                <div>
+                  <div class="small text-secondary"><i class="bi bi-calendar-event me-1"></i>Deadline</div>
+                  <div class="fw-semibold">${formatTanggal(b.deadline)}</div>
+                  <span class="badge ${kelasSisa(sisa)}">${labelSisa(sisa)}</span>
+                </div>
+                <button type="button" class="btn btn-ocean btn-sm rounded-pill px-3 btn-detail" data-id="${b.id}">
+                  Lihat detail &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      };
+
+      const buatPagination = (jumlahHalaman) => {
+        if (jumlahHalaman <= 1) {
+          elPaging.innerHTML = '';
+          return;
+        }
+        let html = `
+          <li class="page-item ${halamanAktif === 1 ? 'disabled' : ''}">
+            <a class="page-link" href="#" data-halaman="${halamanAktif - 1}">&laquo; Sebelumnya</a>
+          </li>`;
+        for (let i = 1; i <= jumlahHalaman; i++) {
+          html += `
+          <li class="page-item ${i === halamanAktif ? 'active' : ''}">
+            <a class="page-link" href="#" data-halaman="${i}" ${i === halamanAktif ? 'aria-current="page"' : ''}>${i}</a>
+          </li>`;
+        }
+        html += `
+          <li class="page-item ${halamanAktif === jumlahHalaman ? 'disabled' : ''}">
+            <a class="page-link" href="#" data-halaman="${halamanAktif + 1}">Berikutnya &raquo;</a>
+          </li>`;
+        elPaging.innerHTML = html;
+      };
+
+      // Fungsi utama: saring, urutkan, lalu tampilkan
+      const render = () => {
+        const f = ambilFilter();
+        const hasil = DATA.filter(b => cocok(b, f)).sort(urutkan);
+        const total = hasil.length;
+        const jumlahHalaman = Math.max(1, Math.ceil(total / PER_HALAMAN));
+        if (halamanAktif > jumlahHalaman) halamanAktif = jumlahHalaman;
+
+        const mulai = (halamanAktif - 1) * PER_HALAMAN;
+        const tampil = hasil.slice(mulai, mulai + PER_HALAMAN);
+
+        // Bersihkan tooltip lama sebelum kartu diganti
+        elDaftar.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+          const t = bootstrap.Tooltip.getInstance(el);
+          if (t) t.dispose();
+        });
+
+        elDaftar.innerHTML = tampil.map(buatKartu).join('');
+        elDaftar.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+
+        elJumlah.textContent = total;
+        elKosong.classList.toggle('d-none', total !== 0);
+        buatPagination(jumlahHalaman);
+      };
+
+      // 5. DETAIL BEASISWA DAN SIMPAN
+      const elModalDetail = document.getElementById('modalDetail');
+
+      function bukaDetail(id) {
+        const b = DATA.find(item => item.id === id);
+        if (!b) return;
+
+        const sisa = sisaHari(b.deadline);
+        document.getElementById('judulDetail').textContent = b.judul;
+
+        document.getElementById('isiDetail').innerHTML = `
+          <p>${b.penyelenggara}</p>
+          <p><b>Jenjang:</b> ${b.jenjang.join(', ')}</p>
+          <p><b>Lokasi:</b> ${b.lokasi}</p>
+          <p><b>Negara:</b> ${b.negara}</p>
+          <p><b>Deadline:</b> ${formatTanggal(b.deadline)}
+          <span class="badge ${kelasSisa(sisa)}">${labelSisa(sisa)}</span></p>
+        `;
+
+        bootstrap.Modal.getOrCreateInstance(elModalDetail).show();
+      }
+
+      function toggleSimpan(btn) {
+        const b = DATA.find(item => item.id === btn.dataset.id);
+        if (!b) return;
+
+        const ikon = btn.querySelector('i');
+
+        if (disimpan.has(b.id)) {
+          disimpan.delete(b.id);
+          ikon.className = 'bi bi-bookmark';
+          tampilToast('Dihapus dari simpanan: ' + b.judul);
+        } else {
+          disimpan.add(b.id);
+          ikon.className = 'bi bi-bookmark-fill';
+          tampilToast('Berhasil disimpan: ' + b.judul);
+        }
+      }
+
+      // 6. EVENT / AKSI PENGGUNA
+      elCari.addEventListener('input', function () {
+        halamanAktif = 1;
+        render();
+      });
+
+      formFilter.addEventListener('change', function () {
+        halamanAktif = 1;
+        render();
+      });
+
+      formFilter.addEventListener('submit', function (e) {
+        e.preventDefault();
+      });
+
+      elUrut.addEventListener('change', function () {
+        halamanAktif = 1;
+        render();
+      });
+
+
+      elDaftar.addEventListener('click', function (e) {
+        const detail = e.target.closest('.btn-detail');
+        const simpan = e.target.closest('.btn-simpan');
+
+        if (detail) {
+          bukaDetail(detail.dataset.id);
+        }
+
+        if (simpan) {
+          toggleSimpan(simpan);
+        }
+      });
+
+      elPaging.addEventListener('click', function (e) {
+        e.preventDefault();
+        const link = e.target.closest('[data-halaman]');
+
+        if (!link || link.closest('.page-item').classList.contains('disabled')) return;
+
+        halamanAktif = Number(link.dataset.halaman);
+        render();
+        document.getElementById('hasilBeasiswa').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // 7. FORM MASUK
+      const formMasuk = document.getElementById('formMasuk');
+      const modalMasuk = document.getElementById('modalMasuk');
+
+      formMasuk.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (formMasuk.checkValidity() === false) {
+          formMasuk.classList.add('was-validated');
+          return;
+        }
+
+        bootstrap.Modal.getInstance(modalMasuk).hide();
+        formMasuk.reset();
+        formMasuk.classList.remove('was-validated');
+        tampilToast('Berhasil masuk. Selamat datang!');
+      });
+
+      modalMasuk.addEventListener('hidden.bs.modal', function () {
+        formMasuk.reset();
+        formMasuk.classList.remove('was-validated');
+      });
+
+      const daftarNegara = [];
+
+      DATA.forEach(function (beasiswa) {
+        if (!daftarNegara.includes(beasiswa.negara)) {
+          daftarNegara.push(beasiswa.negara);
+        }
+      });
+
+      daftarNegara.sort();
+
+      daftarNegara.forEach(function (negara) {
+        const pilihan = document.createElement('option');
+        pilihan.value = negara;
+        pilihan.textContent = negara;
+        elNegara.appendChild(pilihan);
+      });
+
+      // Filter otomatis dari menu navbar
+      function terapkanHash() {
+        if (location.hash === '#dalam-negeri') {
+          document.querySelector('input[name="lokasi"][value="Dalam Negeri"]').checked = true;
+        } else if (location.hash === '#luar-negeri') {
+          document.querySelector('input[name="lokasi"][value="Luar Negeri"]').checked = true;
+        } else {
+          return;
+        }
+
+        halamanAktif = 1;
+        render();
+      }
+
+      window.addEventListener('hashchange', terapkanHash);
+
+            render();
+      terapkanHash();
+    });
+  </script>
+</body>
+
+</html>
