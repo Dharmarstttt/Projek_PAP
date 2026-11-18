@@ -73,6 +73,17 @@
       color: #2C365A;
     }
 
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+      background-color: rgba(44, 54, 90, 0.08);
+      color: inherit;
+    }
+
+    .dropdown-item:active {
+      background-color: rgba(44, 54, 90, 0.15) !important;
+      color: inherit !important;
+    }
+
     .footer {
       background-color: #2C365A;
     }
@@ -514,7 +525,8 @@
   <main class="container mb-5">
 
     <div class="mb-4">
-      <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">CENDEKIA JELAJAH</h6>
+      <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">CENDEKIA JELAJAH
+      </h6>
       <h1 class="fw-bold display-6" style="font-family: 'Times New Roman', Times, serif;">Cari Beasiswa</h1>
       <p class="text-muted mb-0">
         Temukan beasiswa dalam dan luar negeri untuk semua jenjang. Saring berdasarkan jenjang, negara, dan cakupan
@@ -535,8 +547,8 @@
 
       <aside class="col-12 col-lg-3">
 
-        <button class="btn btn-outline-ocean rounded-pill w-100 d-lg-none mb-3" type="button"
-          data-bs-toggle="collapse" data-bs-target="#panelFilter" aria-expanded="false" aria-controls="panelFilter">
+        <button class="btn btn-outline-ocean rounded-pill w-100 d-lg-none mb-3" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelFilter" aria-expanded="false" aria-controls="panelFilter">
           <i class="bi bi-funnel me-1"></i>Tampilkan / Sembunyikan Filter
         </button>
 
@@ -1175,7 +1187,7 @@
 
       window.addEventListener('hashchange', terapkanHash);
 
-            render();
+      render();
       terapkanHash();
     });
   </script>
