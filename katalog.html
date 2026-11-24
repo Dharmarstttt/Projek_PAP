@@ -32,43 +32,110 @@
       background-color: #C4BCB0;
     }
 
-    
-    .btn:focus-visible { 
-      outline: none; 
-      box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .35); 
+    .course-card {
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 .5rem 1rem rgba(44, 54, 90, 0.12) !important;
+    }
+
+    .badge-pill-soft {
+      background-color: #EEE8DF;
+      color: #2C365A;
+      border: 1px solid #C4BCB0;
+    }
+
+    .materi-item {
+      border: 1px solid #EFECE6;
+      background-color: #FAF8F5;
+      transition: background-color 0.15s;
+    }
+
+    .materi-item:hover {
+      background-color: #F3EFE8;
+    }
+
+    .btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .35);
     }
 
     .btn-ocean {
-      background-color:  #2C365A;
+      background-color: #2C365A;
       color: #EEE8DF;
-      border: 1px solid  #2C365A;
+      border: 1px solid #2C365A;
     }
-    .btn-ocean:hover, .btn-ocean:focus, .btn-ocean:active {
-      background-color:  #1F2742;
-      border-color:  #1F2742;
+
+    .btn-ocean:hover,
+    .btn-ocean:focus,
+    .btn-ocean:active {
+      background-color: #1F2742;
+      border-color: #1F2742;
       color: #EEE8DF;
     }
 
     .btn-outline-ocean {
-      color:  #2C365A;
-      border: 1px solid  #2C365A;
+      color: #2C365A;
+      border: 1px solid #2C365A;
       background-color: transparent;
     }
-    .btn-outline-ocean:hover, .btn-outline-ocean:focus, .btn-outline-ocean:active {
+
+    .btn-outline-ocean:hover,
+    .btn-outline-ocean:focus,
+    .btn-outline-ocean:active {
       background-color: #2C365A;
       border-color: #2C365A;
       color: #EEE8DF;
     }
 
     .btn-cream {
-      background-color:  #EEE8DF;
+      background-color: #EEE8DF;
       color: #2C365A;
-      border: 1px solid  #EEE8DF;
+      border: 1px solid #EEE8DF;
     }
-    .btn-cream:hover, .btn-cream:focus, .btn-cream:active {
-      background-color:#DDD2C8;
-      border-color:#DDD2C8;
-      color:  #2C365A;
+
+    .btn-cream:hover,
+    .btn-cream:focus,
+    .btn-cream:active {
+      background-color: #DDD2C8;
+      border-color: #DDD2C8;
+      color: #2C365A;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+      background-color: rgba(44, 54, 90, 0.08);
+      color: inherit;
+    }
+
+    .dropdown-item:active {
+      background-color: rgba(44, 54, 90, 0.15) !important;
+      color: inherit !important;
+    }
+
+    .modal-cendekia {
+      background-color: #EEE8DF;
+      color: #2C365A;
+      border: 1px solid #C4BCB0;
+    }
+
+    .modal-cendekia .modal-header,
+    .modal-cendekia .modal-footer {
+      border-color: #C4BCB0;
+    }
+
+    .modal-cendekia .modal-title {
+      font-family: Georgia, serif;
+      font-weight: 700;
+    }
+
+    .modal-cendekia .form-control {
+      background-color: #fff;
+      border-color: #C4BCB0;
+      color: #2C365A;
     }
 
     .footer {
@@ -83,7 +150,8 @@
 
     <div class="container">
 
-      <a class="navbar-brand fw-bold" href="#" style="color: #2C365A; font-family: Georgia, serif; font-size: 25px;">
+      <a class="navbar-brand fw-bold" href="#" onclick="kembaliKeKatalog(); return false;"
+        style="color: #2C365A; font-family: Georgia, serif; font-size: 25px;">
         Cendekia.
         <span class="d-block text-uppercase" style="font-family: Arial; font-size: 9px; letter-spacing: 2px;">
           Beasiswa-Info
@@ -91,7 +159,6 @@
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBeasiswa">
-
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -123,7 +190,7 @@
                 href="cari-beasiswa.html">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path
                       d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                   </svg>
@@ -140,7 +207,7 @@
                 href="cari-beasiswa.html">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
                     <path
                       d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
@@ -158,7 +225,7 @@
                 href="cari-beasiswa.html#dalam-negeri">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path
                       d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                     <path fill-rule="evenodd"
@@ -177,7 +244,7 @@
                 href="cari-beasiswa.html#luar-negeri">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z" />
                     <path
                       d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1" />
@@ -195,7 +262,7 @@
                 href="cari-beasiswa.html#luar-negeri">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path
                       d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
                   </svg>
@@ -225,7 +292,8 @@
                 CENDEKIA BELAJAR
               </h6>
 
-              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap" href="katalog.html">
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap" href="#"
+                onclick="kembaliKeKatalog(); return false;">
 
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
@@ -264,7 +332,7 @@
                 </div>
               </a>
               <hr class="my-3">
-              <a href="belajar.html" class="btn w-100 rounded-pill py-2 fw-semibold"
+              <a href="#" onclick="kembaliKeKatalog(); return false;" class="btn w-100 rounded-pill py-2 fw-semibold"
                 style="background-color: #2C365A; color: #EEE8DF;">
                 Lihat Semua Kursus →
               </a>
@@ -288,7 +356,7 @@
               <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap" href="artikel.html">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                     <path
                       d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
@@ -306,7 +374,7 @@
                 href="artikel.html#tips">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path
                       d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
                   </svg>
@@ -323,7 +391,7 @@
                 href="artikel.html#dokumen">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
                     <path
                       d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
@@ -341,7 +409,7 @@
                 href="artikel.html#wawancara">
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
-                  <svg xmlns="http://w3.org" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
                     <path
                       d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" />
                     <path
@@ -362,15 +430,16 @@
         </ul>
 
         <div class="d-flex gap-2">
-          <a href="#" class="btn btn-outline-ocean rounded-pill px-4">Masuk</a>
+          <button type="button" class="btn btn-outline-ocean rounded-pill px-4" data-bs-toggle="modal"
+            data-bs-target="#modalMasuk">Masuk</button>
           <a href="#" class="btn btn-ocean rounded-pill px-4">Daftar Gratis</a>
         </div>
 
       </div>
     </div>
   </nav>
- 
-  <div class="container">
+
+  <div id="view-katalog" class="container">
     <div class="mb-4">
       <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">CENDEKIA BELAJAR
       </h6>
@@ -382,7 +451,7 @@
     </div>
 
     <div class="row g-3 mb-4">
-      <div class="col-2">
+      <div class="col-md-2 col-6">
         <select class="form-select rounded-3 border-beige text-deep-ocean p-2">
           <option selected>Semua Kategori</option>
           <option value="1">Esai</option>
@@ -392,7 +461,7 @@
           <option value="5">Umum</option>
         </select>
       </div>
-      <div class="col-2">
+      <div class="col-md-2 col-6">
         <select class="form-select rounded-3 border-beige text-deep-ocean p-2">
           <option selected>Semua Level</option>
           <option value="1">Pemula</option>
@@ -404,18 +473,20 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
-        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden course-card h-100" style="max-width: 380px;"
+          onclick="bukaDetail('motivation-letter')">
           <div class="position-relative">
-            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus Motivation Letter">
             <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
               ESAI
             </span>
           </div>
           <div class="card-body p-4 bg-white">
             <h5 class="card-title fw-bold text-deep-ocean mb-2">
-              Pelajari struktur, gaya bahasa, dan strategi menulis </h5>
+              Menulis Motivation Letter & Personal Statement untuk Beasiswa
+            </h5>
             <p class="card-text text-secondary small mb-3">
-              Kursus komprehensif mempersiapkan empat modul IELTS (listening, reading, writing)...
+              Pelajari struktur, gaya bahasa, dan strategi menulis motivation letter yang meyakinkan...
             </p>
             <div class="text-secondary small fw-medium">
               Menengah &middot; 8 pelajaran &middot; 120 menit
@@ -423,8 +494,10 @@
           </div>
         </div>
       </div>
+
       <div class="col">
-        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden course-card h-100" style="max-width: 380px;"
+          onclick="bukaDetail('ielts')">
           <div class="position-relative">
             <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
             <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
@@ -444,10 +517,12 @@
           </div>
         </div>
       </div>
+
       <div class="col">
-        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden course-card h-100" style="max-width: 380px;"
+          onclick="bukaDetail('cv-akademik')">
           <div class="position-relative">
-            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus CV">
             <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
               CV
             </span>
@@ -465,20 +540,22 @@
           </div>
         </div>
       </div>
+
       <div class="col">
-        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden course-card h-100" style="max-width: 380px;"
+          onclick="bukaDetail('mext')">
           <div class="position-relative">
-            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus MEXT">
             <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
               TES BAHASA
             </span>
           </div>
           <div class="card-body p-4 bg-white">
             <h5 class="card-title fw-bold text-deep-ocean mb-2">
-              Dasar Bahasa Jepang untuk Beasiswa MEXT 
+              Dasar Bahasa Jepang untuk Beasiswa MEXT
             </h5>
             <p class="card-text text-secondary small mb-3">
-              Pengantar bahasa Jepang praktis dan gambaran sertifikasi JLPT yang relevan untuk..
+              Pengantar bahasa Jepang praktis dan gambaran sertifikasi JLPT yang relevan untuk...
             </p>
             <div class="text-secondary small fw-medium">
               Menengah &middot; 4 pelajaran &middot; 38 menit
@@ -486,17 +563,19 @@
           </div>
         </div>
       </div>
+
       <div class="col">
-        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden course-card h-100" style="max-width: 380px;"
+          onclick="bukaDetail('wawancara')">
           <div class="position-relative">
-            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus Wawancara">
             <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
               WAWANCARA
             </span>
           </div>
           <div class="card-body p-4 bg-white">
             <h5 class="card-title fw-bold text-deep-ocean mb-2">
-              Lolos Wawancara & Tes Substasi Beasiswa 
+              Lolos Wawancara & Tes Substansi Beasiswa
             </h5>
             <p class="card-text text-secondary small mb-3">
               Simulasi dan strategi menjawab pertanyaan wawancara serta tes substansi yang paling...
@@ -507,10 +586,12 @@
           </div>
         </div>
       </div>
+
       <div class="col">
-        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden course-card h-100" style="max-width: 380px;"
+          onclick="bukaDetail('study-plan')">
           <div class="position-relative">
-            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus Study Plan">
             <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
               ESAI
             </span>
@@ -520,7 +601,7 @@
               Menulis Study Plan & Rencana Riset untuk Beasiswa S2/S3
             </h5>
             <p class="card-text text-secondary small mb-3">
-              Panduan menyusun study plan dan research proposal yanng menyakinkan untuk beasiswa...
+              Panduan menyusun study plan dan research proposal yang meyakinkan untuk beasiswa...
             </p>
             <div class="text-secondary small fw-medium">
               Menengah &middot; 4 pelajaran &middot; 35 menit
@@ -528,10 +609,12 @@
           </div>
         </div>
       </div>
+
       <div class="col">
-        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden course-card h-100" style="max-width: 380px;"
+          onclick="bukaDetail('lpdp')">
           <div class="position-relative">
-            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus LPDP">
             <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
               UMUM
             </span>
@@ -549,20 +632,22 @@
           </div>
         </div>
       </div>
+
       <div class="col">
-        <div class="card rounded-4 border-0 shadow-sm overflow-hidden" style="max-width: 380px;">
+        <div class="card rounded-4 border-0 shadow-sm overflow-hidden course-card h-100" style="max-width: 380px;"
+          onclick="bukaDetail('dalam-negeri')">
           <div class="position-relative">
-            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus IELTS">
+            <img src="img/deepocean.jpg" class="card-img-top card-img-header" alt="Kursus Beasiswa Dalam Negeri">
             <span class="badge bg-white text-dark rounded-pill position-absolute bottom-0 start-0 m-3 shadow-sm">
               UMUM
             </span>
           </div>
           <div class="card-body p-4 bg-white">
             <h5 class="card-title fw-bold text-deep-ocean mb-2">
-              Strategi Lolos Seleksi Beasiswa Dalam Negeri untuk Pelajar 
+              Strategi Lolos Seleksi Beasiswa Dalam Negeri untuk Pelajar
             </h5>
             <p class="card-text text-secondary small mb-3">
-              Panduan praktis bagi pelajar SD hingga SMA dan mhasiswa baru untuk memahami dan...
+              Panduan praktis bagi pelajar SD hingga SMA dan mahasiswa baru untuk memahami dan...
             </p>
             <div class="text-secondary small fw-medium">
               Lanjutan &middot; 4 pelajaran &middot; 32 menit
@@ -571,10 +656,69 @@
         </div>
       </div>
     </div>
+  </div>
 
-  </div> <br>
+  <div id="view-detail" class="container d-none">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
 
- <footer class="pt-5 pb-4" style="background-color: #1E253D; color: #EEE8DF;">
+        <button type="button" class="btn btn-link text-decoration-none text-deep-ocean fw-semibold ps-0 mb-3"
+          onclick="kembaliKeKatalog()">
+          &larr; Kembali ke Katalog Kursus
+        </button>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mb-4 bg-white">
+          <div class="mb-3">
+            <span id="detail-kategori" class="badge badge-pill-soft rounded-pill px-3 py-2 me-2 fw-medium">Esai</span>
+            <span id="detail-level" class="badge badge-pill-soft rounded-pill px-3 py-2 fw-medium">Menengah</span>
+          </div>
+
+          <h1 id="detail-judul" class="fw-bold display-6 text-deep-ocean mb-3"
+            style="font-family: Georgia, 'Times New Roman', serif;">
+            Menulis Motivation Letter & Personal Statement untuk Beasiswa
+          </h1>
+
+          <p id="detail-deskripsi" class="text-secondary lh-base mb-3">
+            Pelajari struktur, gaya bahasa, dan strategi menulis motivation letter/personal statement yang meyakinkan
+            tim seleksi, dari beasiswa dalam negeri seperti LPDP hingga beasiswa internasional seperti Chevening dan
+            Fulbright.
+          </p>
+
+          <p class="text-muted small mb-4">Oleh Kontributor Cendekia</p>
+
+          <div>
+            <button type="button" class="btn btn-ocean rounded-3 px-4 py-2 fw-semibold" data-bs-toggle="modal"
+              data-bs-target="#modalMasuk">
+              Masuk untuk memulai
+            </button>
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 mb-4 bg-white">
+          <h4 class="fw-bold text-deep-ocean mb-3" style="font-family: Georgia, 'Times New Roman', serif;">
+            Materi Kursus
+          </h4>
+
+          <div id="detail-materi">
+          </div>
+        </div>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+          <h4 class="fw-bold text-deep-ocean mb-3" style="font-family: Georgia, 'Times New Roman', serif;">
+            Relevan untuk Beasiswa
+          </h4>
+          <div id="detail-relevan" class="d-flex flex-wrap gap-2">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <footer class="pt-5 pb-4" style="background-color: #1E253D; color: #EEE8DF;">
     <div class="container">
 
       <div class="row g-4 pb-5">
@@ -605,7 +749,8 @@
         <div class="col-lg-3 col-md-6">
           <h6 class="fw-bold mb-3 small">Belajar</h6>
           <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
-            <li><a href="katalog.html" class="text-decoration-none text-light opacity-75">Katalog kursus</a></li>
+            <li><a href="#" onclick="kembaliKeKatalog(); return false;"
+                class="text-decoration-none text-light opacity-75">Katalog kursus</a></li>
             <li><a href="artikel.html" class="text-decoration-none text-light opacity-75">Artikel & panduan</a></li>
             <li><a href="#" class="text-decoration-none text-light opacity-75">Kursus saya</a></li>
             <li><a href="#" class="text-decoration-none text-light opacity-75">Sertifikat saya</a></li>
@@ -643,8 +788,235 @@
     </div>
   </footer>
 
-
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    const dataKursus = {
+      'motivation-letter': {
+        kategori: 'Esai',
+        level: 'Menengah',
+        judul: 'Menulis Motivation Letter & Personal Statement untuk Beasiswa',
+        deskripsi: 'Pelajari struktur, gaya bahasa, dan strategi menulis motivation letter/personal statement yang meyakinkan tim seleksi, dari beasiswa dalam negeri seperti LPDP hingga beasiswa internasional seperti Chevening dan Fulbright.',
+        bab: [
+          {
+            judulBab: 'Dasar-Dasar Motivation Letter',
+            materi: [
+              { tipe: 'teks', judul: 'Apa itu motivation letter & mengapa penting', durasi: '8 mnt', gratis: true },
+              { tipe: 'teks', judul: 'Struktur motivation letter yang efektif', durasi: '10 mnt', gratis: false }
+            ]
+          },
+          {
+            judulBab: 'Menulis & Merevisi',
+            materi: [
+              { tipe: 'video', judul: 'Menulis paragraf pembuka yang kuat', durasi: '12 mnt', gratis: false },
+              { tipe: 'teks', judul: 'Menghindari klise dan kesalahan umum', durasi: '9 mnt', gratis: false },
+              { tipe: 'kuis', judul: 'Kuis: Siap kirim motivation letter?', durasi: '5 mnt', gratis: false }
+            ]
+          }
+        ],
+        relevan: ['Beasiswa LPDP', 'Chevening Scholarship', 'Fulbright Scholarship', 'AAS (Australia Awards)']
+      },
+      'ielts': {
+        kategori: 'Tes Bahasa',
+        level: 'Menengah',
+        judul: 'Persiapan IELTS untuk Beasiswa Luar Negeri',
+        deskripsi: 'Kursus komprehensif mempersiapkan empat modul IELTS (Listening, Reading, Writing, Speaking) untuk mencapai skor band minimal syarat pendaftaran beasiswa internasional.',
+        bab: [
+          {
+            judulBab: 'Pengenalan & Strategi Modul IELTS',
+            materi: [
+              { tipe: 'teks', judul: 'Mengenal format tes IELTS Academic & sistem penilaian band', durasi: '10 mnt', gratis: true },
+              { tipe: 'video', judul: 'Teknik skimming & scanning untuk IELTS Reading', durasi: '15 mnt', gratis: false }
+            ]
+          },
+          {
+            judulBab: 'Latihan Writing & Speaking',
+            materi: [
+              { tipe: 'teks', judul: 'Struktur esai IELTS Writing Task 1 dan Task 2', durasi: '20 mnt', gratis: false },
+              { tipe: 'kuis', judul: 'Kuis: Evaluasi Kosakata Akademik IELTS', durasi: '10 mnt', gratis: false }
+            ]
+          }
+        ],
+        relevan: ['Chevening Scholarship', 'LPDP Luar Negeri', 'Erasmus Mundus', 'Australia Awards']
+      },
+      'cv-akademik': {
+        kategori: 'CV',
+        level: 'Pemula',
+        judul: 'Menyusun CV Akademik dan Portofolio Prestasi',
+        deskripsi: 'Panduan lengkap menyusun CV akademik yang ringkas, terstruktur, dan menonjolkan pencapaian riset, organisasi, serta kepemimpinan sesuai standar seleksi beasiswa.',
+        bab: [
+          {
+            judulBab: 'Struktur CV Akademik Standar Beasiswa',
+            materi: [
+              { tipe: 'teks', judul: 'Perbedaan CV Akademik dengan CV melamar kerja', durasi: '7 mnt', gratis: true },
+              { tipe: 'video', judul: 'Cara menulis pengalaman riset, publikasi, dan penghargaan', durasi: '14 mnt', gratis: false },
+              { tipe: 'kuis', judul: 'Kuis: Cek Kelengkapan CV Akademik', durasi: '5 mnt', gratis: false }
+            ]
+          }
+        ],
+        relevan: ['Swiss Government Excellence (ESKAS)', 'DAAD Germany', 'Beasiswa Unggulan']
+      },
+      'mext': {
+        kategori: 'Tes Bahasa',
+        level: 'Menengah',
+        judul: 'Dasar Bahasa Jepang untuk Beasiswa MEXT',
+        deskripsi: 'Pengantar bahasa Jepang praktis, kosakata akademik dasar, serta gambaran sertifikasi JLPT yang relevan untuk persiapan seleksi beasiswa pemerintah Jepang (MEXT).',
+        bab: [
+          {
+            judulBab: 'Fondasi Bahasa Jepang & JLPT',
+            materi: [
+              { tipe: 'teks', judul: 'Mengenal Hiragana, Katakana, dan sistem ujian bahasa MEXT', durasi: '10 mnt', gratis: true },
+              { tipe: 'video', judul: 'Kosakata dan perkenalan diri formal dalam wawancara Jepang', durasi: '15 mnt', gratis: false },
+              { tipe: 'kuis', judul: 'Kuis: Latihan Dasar JLPT N5', durasi: '8 mnt', gratis: false }
+            ]
+          }
+        ],
+        relevan: ['MEXT Research Student', 'MEXT Undergraduate (Gakubu)', 'Mitsui-Bussan Scholarship']
+      },
+      'wawancara': {
+        kategori: 'Wawancara',
+        level: 'Menengah',
+        judul: 'Lolos Wawancara & Tes Substansi Beasiswa',
+        deskripsi: 'Simulasi dan strategi menjawab pertanyaan wawancara panelis serta tes substansi akademik yang paling sering muncul dalam seleksi beasiswa.',
+        bab: [
+          {
+            judulBab: 'Teknik Menjawab Pertanyaan Panelis',
+            materi: [
+              { tipe: 'teks', judul: 'Memahami pola pikir panelis pewawancara beasiswa', durasi: '9 mnt', gratis: true },
+              { tipe: 'video', judul: 'Metode STAR untuk menjawab pertanyaan pengalaman & kepemimpinan', durasi: '16 mnt', gratis: false },
+              { tipe: 'kuis', judul: 'Kuis: Simulasi Studi Kasus Wawancara', durasi: '10 mnt', gratis: false }
+            ]
+          }
+        ],
+        relevan: ['Beasiswa LPDP', 'Beasiswa Bakti BCA', 'Djarum Beasiswa Plus', 'Chevening']
+      },
+      'study-plan': {
+        kategori: 'Esai',
+        level: 'Menengah',
+        judul: 'Menulis Study Plan & Rencana Riset untuk Beasiswa S2/S3',
+        deskripsi: 'Panduan menyusun study plan dan research proposal yang sistematis, realistis, dan selaras dengan kepakaran calon profesor pembimbing di universitas tujuan.',
+        bab: [
+          {
+            judulBab: 'Kerangka Proposal Riset & Study Plan',
+            materi: [
+              { tipe: 'teks', judul: 'Menentukan topik riset yang relevan dan berdampak', durasi: '8 mnt', gratis: true },
+              { tipe: 'teks', judul: 'Menyusun rumusan masalah, metodologi, dan timeline studi', durasi: '15 mnt', gratis: false },
+              { tipe: 'kuis', judul: 'Kuis: Validasi Kelayakan Proposal Riset', durasi: '7 mnt', gratis: false }
+            ]
+          }
+        ],
+        relevan: ['GKS (Global Korea Scholarship)', 'Swiss ESKAS', 'MEXT University-to-University', 'LPDP']
+      },
+      'lpdp': {
+        kategori: 'Umum',
+        level: 'Menengah',
+        judul: 'Panduan Lengkap Mendaftar LPDP dari A-Z',
+        deskripsi: 'Pahami seluruh alur pendaftaran beasiswa LPDP, mulai dari memilih skema yang tepat (Reguler, PTUD, Afirmasi), pemberkasan, tes bakat skolastik, hingga seleksi substansi.',
+        bab: [
+          {
+            judulBab: 'Tahapan Seleksi Beasiswa LPDP',
+            materi: [
+              { tipe: 'teks', judul: 'Memilih jalur skema LPDP dan membaca buku panduan resmi', durasi: '9 mnt', gratis: true },
+              { tipe: 'video', judul: 'Strategi menghadapi Tes Bakat Skolastik (TBS)', durasi: '14 mnt', gratis: false },
+              { tipe: 'kuis', judul: 'Kuis: Cek Kesiapan Dokumen Administrasi LPDP', durasi: '6 mnt', gratis: false }
+            ]
+          }
+        ],
+        relevan: ['LPDP Reguler', 'LPDP PTUD', 'LPDP Afirmasi', 'LPDP Targeted']
+      },
+      'dalam-negeri': {
+        kategori: 'Umum',
+        level: 'Lanjutan',
+        judul: 'Strategi Lolos Seleksi Beasiswa Dalam Negeri untuk Pelajar',
+        deskripsi: 'Panduan praktis bagi pelajar maupun mahasiswa baru untuk memahami persyaratan administrasi, esai singkat, dan wawancara beasiswa dalam negeri.',
+        bab: [
+          {
+            judulBab: 'Persiapan Administrasi & Seleksi Awal',
+            materi: [
+              { tipe: 'teks', judul: 'Memetakan jadwal dan syarat berbagai beasiswa nasional', durasi: '8 mnt', gratis: true },
+              { tipe: 'teks', judul: 'Tips menulis esai motivasi singkat yang berkesan', durasi: '12 mnt', gratis: false }
+            ]
+          }
+        ],
+        relevan: ['Beasiswa Unggulan', 'Beasiswa Bank Indonesia', 'KIP Kuliah', 'Bakti BCA']
+      }
+    };
+
+    function dapatkanIkonMateri(tipe) {
+      if (tipe === 'video') {
+        return `
+          <span class="d-inline-flex align-items-center justify-content-center rounded-1 flex-shrink-0"
+            style="width: 18px; height: 18px; background-color: #3B82F6; color: #FFFFFF;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" viewBox="0 0 16 16">
+              <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+            </svg>
+          </span>
+        `;
+      }
+      if (tipe === 'kuis') {
+        return `
+          <span class="d-inline-flex align-items-center justify-content-center flex-shrink-0 text-secondary fw-bold"
+            style="width: 18px; height: 18px; font-size: 0.85rem;">
+            ?
+          </span>
+        `;
+      }
+      return `
+        <span class="d-inline-flex align-items-center justify-content-center flex-shrink-0 text-secondary"
+          style="width: 18px; height: 18px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2z"/>
+          </svg>
+        </span>
+      `;
+    }
+
+    function bukaDetail(idKursus) {
+      const kursus = dataKursus[idKursus];
+      if (!kursus) return;
+
+      document.getElementById('detail-kategori').textContent = kursus.kategori;
+      document.getElementById('detail-level').textContent = kursus.level;
+      document.getElementById('detail-judul').textContent = kursus.judul;
+      document.getElementById('detail-deskripsi').textContent = kursus.deskripsi;
+
+      const containerMateri = document.getElementById('detail-materi');
+      containerMateri.innerHTML = kursus.bab.map((kelompok, index) => `
+        <div class="${index > 0 ? 'mt-4' : 'mt-2'}">
+          <p class="fw-bold text-deep-ocean small mb-2">${kelompok.judulBab}</p>
+          <div class="d-flex flex-column gap-2">
+            ${kelompok.materi.map(item => `
+              <div class="materi-item d-flex justify-content-between align-items-center rounded-3 px-3 py-2">
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                  ${dapatkanIkonMateri(item.tipe)}
+                  <span class="${item.gratis ? 'text-deep-ocean fw-medium' : 'text-secondary'} small">${item.judul}</span>
+                  ${item.gratis ? '<span class="badge rounded-pill px-2 py-1" style="background-color: #D8EDE3; color: #196944; font-size: 0.7rem; font-weight: 600;">Pratinjau gratis</span>' : ''}
+                </div>
+                <span class="text-secondary small flex-shrink-0 ms-2" style="font-size: 0.8rem;">${item.durasi}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      const containerRelevan = document.getElementById('detail-relevan');
+      containerRelevan.innerHTML = (kursus.relevan || []).map(nama => `
+        <a href="cari-beasiswa.html" class="badge badge-pill-soft text-decoration-none rounded-pill px-3 py-2 fw-medium">
+          ${nama}
+        </a>
+      `).join('');
+
+      document.getElementById('view-katalog').classList.add('d-none');
+      document.getElementById('view-detail').classList.remove('d-none');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function kembaliKeKatalog() {
+      document.getElementById('view-detail').classList.add('d-none');
+      document.getElementById('view-katalog').classList.remove('d-none');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 
 </html>
