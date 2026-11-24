@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cari-Beasiswa</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- Bootstrap Icons (modul subbab 2.7) -->
+  <!-- MATERI: Bootstrap Icons - memuat ikon antarmuka dari pustaka Bootstrap. -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
-    /* ===== Warna & tombol (sama dengan halaman lain) ===== */
+    /* ===== MATERI: CSS - PENGATURAN WARNA DASAR ===== */
+    /* Mengatur warna latar, teks utama, dan garis tepi halaman. */
     .bg-main {
       background-color: #EEE8DF;
     }
@@ -26,6 +27,8 @@
       border-color: #C4BCB0;
     }
 
+    /* ===== MATERI: CSS - KOMPONEN TOMBOL ===== */
+    /* Mengatur tampilan tombol utama, tombol outline, dan efek saat tombol fokus. */
     .btn:focus-visible {
       outline: none;
       box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .35);
@@ -73,21 +76,12 @@
       color: #2C365A;
     }
 
-    .dropdown-item:hover,
-    .dropdown-item:focus {
-      background-color: rgba(44, 54, 90, 0.08);
-      color: inherit;
-    }
-
-    .dropdown-item:active {
-      background-color: rgba(44, 54, 90, 0.15) !important;
-      color: inherit !important;
-    }
-
     .footer {
       background-color: #2C365A;
     }
 
+    /* ===== MATERI: CSS - PLACEHOLDER, PAGINATION, DAN BADGE ===== */
+    /* Mengatur teks petunjuk, nomor halaman, serta label status beasiswa. */
     .placeholder-kecil::placeholder {
       font-size: 0.875rem;
     }
@@ -132,6 +126,8 @@
       border: 1px solid #C4BCB0;
     }
 
+    /* ===== MATERI: CSS + BOOTSTRAP - CARD BEASISWA ===== */
+    /* Menambahkan animasi naik dan bayangan saat card beasiswa disentuh mouse. */
     .card-beasiswa {
       transition: transform .2s, box-shadow .2s;
     }
@@ -141,6 +137,7 @@
       box-shadow: 0 .5rem 1rem rgba(44, 54, 90, .15) !important;
     }
 
+    /* ===== MATERI: CSS - FOKUS FORM, CHECKBOX, ACCORDION, DAN ALERT ===== */
     .form-control:focus,
     .form-select:focus {
       border-color: #2C365A;
@@ -178,6 +175,7 @@
       color: #2C365A;
     }
 
+    /* ===== MATERI: CSS - LAYOUT RESPONSIVE DAN POSITION STICKY ===== */
     #hasilBeasiswa {
       scroll-margin-top: 110px;
     }
@@ -191,6 +189,8 @@
       }
     }
 
+    /* ===== MATERI: BOOTSTRAP - MODAL DAN TOAST ===== */
+    /* Menyamakan warna modal detail, modal masuk, dan toast dengan tema situs. */
     .modal-cendekia {
       background-color: #EEE8DF;
       color: #2C365A;
@@ -229,6 +229,8 @@
 
 <body class="bg-main text-deep-ocean">
 
+  <!-- ==================== MATERI: HTML + BOOTSTRAP - NAVBAR ==================== -->
+  <!-- Membuat menu atas responsif dengan logo, dropdown, dan tombol masuk. -->
   <nav class="navbar navbar-expand-lg sticky-top mb-5"
     style="background-color: #EEE8DF; border-bottom: 1px solid #C4BCB0;">
 
@@ -521,12 +523,14 @@
       </div>
     </div>
   </nav>
+  <!-- ==================== AKHIR MATERI: NAVBAR ==================== -->
 
+  <!-- ==================== MATERI: HTML - KONTEN PENCARIAN ==================== -->
+  <!-- Menyusun judul halaman, kolom pencarian, filter, hasil, dan pagination. -->
   <main class="container mb-5">
 
     <div class="mb-4">
-      <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">CENDEKIA JELAJAH
-      </h6>
+      <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">CENDEKIA JELAJAH</h6>
       <h1 class="fw-bold display-6" style="font-family: 'Times New Roman', Times, serif;">Cari Beasiswa</h1>
       <p class="text-muted mb-0">
         Temukan beasiswa dalam dan luar negeri untuk semua jenjang. Saring berdasarkan jenjang, negara, dan cakupan
@@ -545,10 +549,11 @@
 
     <div class="row g-4">
 
+      <!-- ========== MATERI: HTML + BOOTSTRAP - PANEL FILTER BEASISWA ========= -->
       <aside class="col-12 col-lg-3">
 
-        <button class="btn btn-outline-ocean rounded-pill w-100 d-lg-none mb-3" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panelFilter" aria-expanded="false" aria-controls="panelFilter">
+        <button class="btn btn-outline-ocean rounded-pill w-100 d-lg-none mb-3" type="button"
+          data-bs-toggle="collapse" data-bs-target="#panelFilter" aria-expanded="false" aria-controls="panelFilter">
           <i class="bi bi-funnel me-1"></i>Tampilkan / Sembunyikan Filter
         </button>
 
@@ -561,7 +566,7 @@
 
             <div class="accordion accordion-flush" id="accFilter">
 
-              <!-- Jenjang -->
+              <!-- MATERI: HTML Form - CHECKBOX JENJANG -->
               <div class="accordion-item">
                 <h3 class="accordion-header">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fJenjang"
@@ -581,7 +586,7 @@
                       <div class="col-6 form-check ps-5">
                         <input class="form-check-input" type="checkbox" name="jenjang" value="SMA/SMK Sederajat"
                           id="jSMA">
-                        <label class="form-check-label" for="jSMA">SMA/SMK</label>
+                        <label class="form-check-label" for="jSMA">SLTA</label>
                       </div>
                       <div class="col-6 form-check ps-5">
                         <input class="form-check-input" type="checkbox" name="jenjang" value="D3" id="jD3">
@@ -608,7 +613,7 @@
                 </div>
               </div>
 
-              <!-- Lokasi studi -->
+              <!-- MATERI: HTML Form - RADIO BUTTON LOKASI STUDI -->
               <div class="accordion-item">
                 <h3 class="accordion-header">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#fLokasi"
@@ -632,7 +637,7 @@
                 </div>
               </div>
 
-              <!-- Negara tujuan -->
+              <!-- MATERI: HTML Form + JavaScript - DROPDOWN NEGARA TUJUAN -->
               <div class="accordion-item">
                 <h3 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -643,7 +648,7 @@
                     <label for="selectNegara" class="visually-hidden">Negara tujuan</label>
                     <select id="selectNegara" class="form-select rounded-3 border-beige text-deep-ocean">
                       <option value="" selected>Semua negara</option>
-                      <!-- opsi negara diisi oleh JavaScript -->
+                      <!-- MATERI: JavaScript DOM - opsi negara akan ditambahkan secara dinamis. -->
                     </select>
                   </div>
                 </div>
@@ -655,6 +660,7 @@
         </div>
       </aside>
 
+      <!-- ========== MATERI: BOOTSTRAP Grid - DAFTAR HASIL DAN PAGINATION ========= -->
       <section class="col-12 col-lg-9" aria-label="Hasil pencarian beasiswa">
 
         <div id="hasilBeasiswa"
@@ -677,7 +683,7 @@
           <p class="text-secondary">Coba ubah kata kunci atau kurangi filter yang dipilih.</p>
         </div>
 
-        <!-- Pagination (diisi oleh JavaScript) -->
+        <!-- MATERI: JavaScript DOM - pagination dibuat dan diperbarui otomatis. -->
         <nav aria-label="Navigasi halaman" class="my-5">
           <ul id="paging" class="pagination pagination-custom justify-content-center gap-2"></ul>
         </nav>
@@ -685,8 +691,9 @@
       </section>
     </div>
   </main>
-  <!-- ==================== AKHIR KONTEN ==================== -->
+  <!-- ==================== AKHIR MATERI: HTML - KONTEN PENCARIAN ==================== -->
 
+  <!-- ==================== MATERI: HTML + BOOTSTRAP - FOOTER ==================== -->
   <footer class="pt-5 pb-4" style="background-color: #1E253D; color: #EEE8DF;">
     <div class="container">
 
@@ -756,7 +763,7 @@
     </div>
   </footer>
 
-  <!-- ==================== MODAL DETAIL BEASISWA ==================== -->
+  <!-- ==================== MATERI: BOOTSTRAP - MODAL DETAIL BEASISWA ==================== -->
   <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="judulDetail" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content modal-cendekia rounded-4">
@@ -772,7 +779,7 @@
     </div>
   </div>
 
-  <!-- ==================== MODAL MASUK ==================== -->
+  <!-- ==================== MATERI: HTML Form + Bootstrap - MODAL MASUK ==================== -->
   <div class="modal fade" id="modalMasuk" tabindex="-1" aria-labelledby="judulMasuk" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content modal-cendekia rounded-4">
@@ -807,7 +814,7 @@
     </div>
   </div>
 
-  <!-- ==================== TOAST NOTIFIKASI ==================== -->
+  <!-- ==================== MATERI: BOOTSTRAP - TOAST NOTIFIKASI ==================== -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="toastNotif" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
@@ -821,8 +828,11 @@
   <script src="js/bootstrap.bundle.min.js"></script>
 
   <script>
+    // MATERI: JavaScript DOM - jalankan kode setelah halaman selesai dimuat.
     document.addEventListener('DOMContentLoaded', () => {
 
+      // ===== MATERI: JavaScript Array dan Object - DATA BEASISWA =====
+      // Setiap object menyimpan satu data beasiswa beserta atributnya.
       const DATA = [
         {
           id: 'ubc', judul: 'UBC International Scholars Program 2027',
@@ -882,6 +892,8 @@
         }
       ];
 
+      // ===== MATERI: JavaScript Variabel, Set, dan DOM =====
+      // Konfigurasi jumlah card per halaman dan referensi elemen HTML.
       const PER_HALAMAN = 6;
       let halamanAktif = 1;
       const disimpan = new Set(); // id beasiswa yang sudah di-bookmark
@@ -897,7 +909,7 @@
       const elToast = document.getElementById('toastNotif');
       const elPesan = document.getElementById('pesanToast');
 
-
+      // ===== MATERI: JavaScript Function dan Date - PENGOLAHAN TANGGAL =====
       const BULAN = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
 
       const parseTanggal = (s) => {
@@ -931,7 +943,7 @@
         bootstrap.Toast.getOrCreateInstance(elToast).show();
       };
 
-
+      // ===== MATERI: JavaScript Array Method dan Filter - PENCARIAN =====
       const ambilFilter = () => ({
         q: elCari.value.trim().toLowerCase(),
         jenjang: Array.from(document.querySelectorAll('input[name="jenjang"]:checked')).map(i => i.value),
@@ -948,6 +960,7 @@
         return true;
       };
 
+      // ===== MATERI: JavaScript Sort - PENGURUTAN DATA =====
       const urutkan = (a, b) => {
         if (elUrut.value === 'nama') return a.judul.localeCompare(b.judul, 'id');
         // Deadline terdekat; yang sudah ditutup ditaruh paling akhir
@@ -956,6 +969,7 @@
         return (tutupA - tutupB) || a.deadline.localeCompare(b.deadline);
       };
 
+      // ===== MATERI: JavaScript Template Literal - PEMBUATAN CARD =====
       const buatKartu = (b) => {
         const sisa = sisaHari(b.deadline);
         const tersimpan = disimpan.has(b.id);
@@ -1000,6 +1014,7 @@
         </div>`;
       };
 
+      // ===== MATERI: JavaScript Loop dan DOM - PAGINATION =====
       const buatPagination = (jumlahHalaman) => {
         if (jumlahHalaman <= 1) {
           elPaging.innerHTML = '';
@@ -1022,7 +1037,7 @@
         elPaging.innerHTML = html;
       };
 
-      // Fungsi utama: saring, urutkan, lalu tampilkan
+      // ===== MATERI: JavaScript Filter, Sort, Slice, dan Render =====
       const render = () => {
         const f = ambilFilter();
         const hasil = DATA.filter(b => cocok(b, f)).sort(urutkan);
@@ -1047,7 +1062,7 @@
         buatPagination(jumlahHalaman);
       };
 
-      // 5. DETAIL BEASISWA DAN SIMPAN
+      // ===== MATERI: JavaScript Function dan Bootstrap Modal - DETAIL =====
       const elModalDetail = document.getElementById('modalDetail');
 
       function bukaDetail(id) {
@@ -1086,7 +1101,7 @@
         }
       }
 
-      // 6. EVENT / AKSI PENGGUNA
+      // ===== MATERI: JavaScript Event Listener - INTERAKSI PENGGUNA =====
       elCari.addEventListener('input', function () {
         halamanAktif = 1;
         render();
@@ -1131,7 +1146,7 @@
         document.getElementById('hasilBeasiswa').scrollIntoView({ behavior: 'smooth' });
       });
 
-      // 7. FORM MASUK
+      // ===== MATERI: JavaScript Form Validation - MODAL MASUK =====
       const formMasuk = document.getElementById('formMasuk');
       const modalMasuk = document.getElementById('modalMasuk');
 
@@ -1154,6 +1169,7 @@
         formMasuk.classList.remove('was-validated');
       });
 
+      // ===== MATERI: JavaScript Array dan DOM - PILIHAN NEGARA =====
       const daftarNegara = [];
 
       DATA.forEach(function (beasiswa) {
@@ -1171,7 +1187,7 @@
         elNegara.appendChild(pilihan);
       });
 
-      // Filter otomatis dari menu navbar
+      // ===== MATERI: JavaScript URL Hash dan Event - FILTER NAVBAR =====
       function terapkanHash() {
         if (location.hash === '#dalam-negeri') {
           document.querySelector('input[name="lokasi"][value="Dalam Negeri"]').checked = true;
@@ -1187,7 +1203,7 @@
 
       window.addEventListener('hashchange', terapkanHash);
 
-      render();
+            render();
       terapkanHash();
     });
   </script>
