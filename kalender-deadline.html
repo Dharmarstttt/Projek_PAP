@@ -7,6 +7,8 @@
   <title>Kalender Deadline - Beasiswa-Info</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <style>
+    /* ===== MATERI: CSS - WARNA DASAR HALAMAN ===== */
+    /* Mengatur warna latar, teks utama, garis tepi, dan gambar card. */
     .bg-main {
       background-color: #EEE8DF;
     }
@@ -90,7 +92,8 @@
       background-color: #2C365A;
     }
 
-    /* ===== [DITAMBAHKAN] CSS Modal Masuk ===== */
+    /* ===== MATERI: CSS + BOOTSTRAP - MODAL MASUK ===== */
+    /* Memodifikasi warna isi, judul, input, garis tepi, dan efek fokus modal masuk. */
     #modalMasuk .modal-content {
       background-color: #EEE8DF;
       color: #2C365A;
@@ -118,8 +121,8 @@
       box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .25);
     }
 
-    /* ===== [AKHIR TAMBAHAN] ===== */
-
+    /* ===== MATERI: CSS + BOOTSTRAP - MODAL DAFTAR ===== */
+    /* Mengatur tampilan modal pendaftaran, checkbox persetujuan, dan input form. */
     #modalDaftar .modal-content {
       background-color: #EEE8DF;
       color: #2C365A;
@@ -170,6 +173,8 @@
 
 <body class="bg-main text-deep-ocean">
 
+  <!-- ==================== MATERI: HTML + BOOTSTRAP - NAVBAR ==================== -->
+  <!-- Membuat menu atas responsif berisi logo, dropdown navigasi, dan tombol akun. -->
   <nav class="navbar navbar-expand-lg sticky-top mb-5"
     style="background-color: #EEE8DF; border-bottom: 1px solid #C4BCB0;">
     <div class="container">
@@ -455,8 +460,11 @@
     </div>
   </nav>
 
+  <!-- ==================== MATERI: HTML - KONTEN UTAMA ==================== -->
+  <!-- Membungkus breadcrumb, judul, sorotan, kalender, panduan, tabel, dan footer. -->
   <main class="container mb-5">
 
+    <!-- MATERI: HTML + Bootstrap - BREADCRUMB; menunjukkan posisi halaman saat ini. -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="beranda.html" class="text-decoration-none text-deep-ocean">Beranda</a></li>
@@ -469,7 +477,8 @@
     <h1 class="fw-bold text-deep-ocean" style="font-family: Georgia, serif; color: #2C365A;">Kalender Deadline Beasiswa
     </h1>
 
-    <!-- ==================== SOROTAN DEADLINE TERDEKAT ==================== -->
+    <!-- ==================== MATERI: Bootstrap Carousel + Card - SOROTAN ==================== -->
+    <!-- Menampilkan beasiswa yang memiliki deadline terdekat dalam slide card. -->
 
     <section class="my-5">
       <h2 class="h4 fw-bold text-deep-ocean mb-3" style="font-family: Georgia, serif;">Sorotan Deadline Terdekat</h2>
@@ -585,7 +594,8 @@
       </div>
     </section>
 
-    <!-- ==================== KALENDER 12 BULAN ==================== -->
+    <!-- ==================== MATERI: Bootstrap Tab - KALENDER 12 BULAN ==================== -->
+    <!-- Membagi jadwal pendidikan menjadi dua periode semester dalam tab. -->
 
     <section class="my-5">
       <h2 class="h4 fw-bold text-deep-ocean mb-3" style="font-family: Georgia, serif;">Kalender Pendidikan &amp;
@@ -1163,7 +1173,8 @@
       </div>
     </section>
 
-    <!-- ==================== PANDUAN ALUR PERSIAPAN ==================== -->
+    <!-- ==================== MATERI: HTML Figure + Bootstrap Grid - PANDUAN ==================== -->
+    <!-- Menjelaskan tahap persiapan berkas dan tahap pendaftaran dengan gambar. -->
 
     <section class="my-5">
       <h2 class="h4 fw-bold text-deep-ocean mb-3" style="font-family: Georgia, serif;">Panduan Alur Persiapan</h2>
@@ -1187,7 +1198,8 @@
       </div>
     </section>
 
-    <!-- ==================== REKAPITULASI DEADLINE AKTIF ==================== -->
+    <!-- ==================== MATERI: Bootstrap Table - REKAPITULASI ==================== -->
+    <!-- Menyajikan daftar deadline dalam tabel yang dapat berganti halaman. -->
 
     <section class="my-5">
       <h2 class="h4 fw-bold text-deep-ocean mb-3" style="font-family: Georgia, serif;">Rekapitulasi Deadline Aktif</h2>
@@ -1356,6 +1368,7 @@
         </table>
       </div>
 
+      <!-- MATERI: Bootstrap Pagination - navigasi antara halaman tabel rekapitulasi. -->
       <nav aria-label="Navigasi halaman rekap">
         <ul class="pagination justify-content-center"
           style="--bs-pagination-color: #2C365A; --bs-pagination-hover-color: #2C365A; --bs-pagination-focus-color: #2C365A; --bs-pagination-active-bg: #2C365A; --bs-pagination-active-border-color: #2C365A; --bs-pagination-focus-box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .25);">
@@ -1555,6 +1568,8 @@
   </div>
 
 
+  <!-- ==================== MATERI: HTML + Bootstrap - FOOTER ==================== -->
+  <!-- Menampilkan identitas situs, tautan, hak cipta, dan kebijakan halaman. -->
   <footer class="pt-5 pb-4" style="background-color: #1E253D; color: #EEE8DF;">
     <div class="container">
 
@@ -1623,6 +1638,8 @@
     </div>
   </footer>
 
+  <!-- ==================== MATERI: Bootstrap Modal + HTML Form - MODAL MASUK ==================== -->
+  <!-- Menyediakan form pop-up untuk validasi email dan password. -->
   <div class="modal fade" id="modalMasuk" tabindex="-1" aria-labelledby="judulMasuk" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content rounded-4">
@@ -1657,6 +1674,8 @@
     </div>
   </div>
 
+  <!-- ==================== MATERI: Bootstrap Modal + HTML Form - MODAL DAFTAR ==================== -->
+  <!-- Mengumpulkan nama, email, password, konfirmasi password, dan persetujuan pengguna. -->
   <div class="modal fade" id="modalDaftar" tabindex="-1" aria-labelledby="judulDaftar" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content rounded-4">
@@ -1717,6 +1736,8 @@
     </div>
   </div>
 
+  <!-- ==================== MATERI: Bootstrap Toast - NOTIFIKASI ==================== -->
+  <!-- Menampilkan pesan singkat setelah masuk atau mendaftar berhasil. -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="toastMasuk" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
@@ -1738,8 +1759,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
+    // MATERI: JavaScript DOM - MENUNGGU HALAMAN SIAP
+    // Kode dijalankan setelah struktur HTML selesai dimuat browser.
     document.addEventListener('DOMContentLoaded', function () {
 
+      // ===== MATERI: JavaScript Event + Form Validation - MODAL MASUK =====
+      // Memvalidasi email dan password sebelum menutup modal serta menampilkan toast.
       var formMasuk = document.getElementById('formMasuk');
       var modalMasuk = document.getElementById('modalMasuk');
       var toastMasuk = document.getElementById('toastMasuk');
@@ -1763,6 +1788,8 @@
         formMasuk.classList.remove('was-validated');
       });
 
+      // ===== MATERI: JavaScript DOM + Form Validation - MODAL DAFTAR =====
+      // Mengambil data pendaftaran dan membandingkan password dengan konfirmasinya.
       var formDaftar = document.getElementById('formDaftar');
       var modalDaftar = document.getElementById('modalDaftar');
       var toastDaftar = document.getElementById('toastDaftar');
@@ -1770,6 +1797,8 @@
       var pwKonfirmasi = document.getElementById('daftarKonfirmasi');
       var pesanKonfirmasi = document.getElementById('pesanKonfirmasi');
 
+      // MATERI: JavaScript Function - CEK KONFIRMASI PASSWORD
+      // Memberi pesan validasi jika konfirmasi kosong atau berbeda dari password.
       function cekKonfirmasi() {
         if (pwKonfirmasi.value === '') {
           pwKonfirmasi.setCustomValidity('Konfirmasi password wajib diisi.');
@@ -1804,7 +1833,8 @@
         pwKonfirmasi.setCustomValidity('');
       });
 
-      // ===== Pagination tabel rekap =====
+      // ===== MATERI: JavaScript DOM + Event Listener - PAGINATION TABEL =====
+      // Menampilkan satu halaman tabel dan mengatur status tombol sebelumnya/berikutnya.
       var halaman = document.querySelectorAll('.halaman-tabel');
       var tombol = document.querySelectorAll('.btn-halaman');
       var btnSebelumnya = document.getElementById('btnSebelumnya');
