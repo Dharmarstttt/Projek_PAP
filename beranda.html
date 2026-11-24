@@ -7,6 +7,8 @@
   <title>Beasiswa-Info</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <style>
+    /* ===== MATERI: CSS - WARNA DASAR ===== */
+    /* Mengatur warna latar, teks, dan garis tepi utama halaman. */
     .bg-main {
       background-color: #EEE8DF;
     }
@@ -28,6 +30,8 @@
       object-fit: cover;
     }
 
+    /* ===== MATERI: CSS - DESAIN TOMBOL ===== */
+    /* Mengatur warna, hover, serta efek fokus pada semua jenis tombol. */
     .btn:focus-visible {
       outline: none;
       box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .35);
@@ -90,7 +94,8 @@
       background-color: #2C365A;
     }
 
-    /* ===== [DITAMBAHKAN] CSS Modal Masuk ===== */
+    /* ===== MATERI: CSS + BOOTSTRAP - MODAL MASUK ===== */
+    /* Memodifikasi warna, judul, input, dan efek fokus pada pop-up masuk. */
     #modalMasuk .modal-content {
       background-color: #EEE8DF;
       color: #2C365A;
@@ -118,8 +123,8 @@
       box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .25);
     }
 
-    /* ===== [AKHIR TAMBAHAN] ===== */
-
+    /* ===== MATERI: CSS + BOOTSTRAP - MODAL DAFTAR ===== */
+    /* Mengatur tampilan form pendaftaran, checkbox, input, dan tautan persetujuan. */
     #modalDaftar .modal-content {
       background-color: #EEE8DF;
       color: #2C365A;
@@ -170,6 +175,8 @@
 
 <body class="bg-main text-deep-ocean">
 
+  <!-- ==================== MATERI: HTML + BOOTSTRAP - NAVBAR ==================== -->
+  <!-- Membuat menu atas responsif berisi logo, dropdown, dan tombol masuk atau daftar. -->
   <nav class="navbar navbar-expand-lg sticky-top mb-5"
     style="background-color: #EEE8DF; border-bottom: 1px solid #C4BCB0;">
     <div class="container">
@@ -454,13 +461,15 @@
       </div>
     </div>
   </nav>
+  <!-- ==================== AKHIR NAVBAR ==================== -->
 
-  <!-- ==================== AWAL CAROUSEL ==================== -->
+  <!-- ==================== MATERI: BOOTSTRAP - CAROUSEL BANNER ==================== -->
+  <!-- Menampilkan beberapa gambar bergerak beserta indikator dan tombol navigasi. -->
 
   <section class="container mb-5">
     <div id="carouselBanner" class="carousel slide" data-bs-ride="carousel">
 
-      <!-- Indikator -->
+      <!-- MATERI: HTML - INDIKATOR SLIDE; tombol untuk langsung memilih banner. -->
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active" aria-current="true"
           aria-label="Banner 1"></button>
@@ -506,7 +515,7 @@
 
       </div>
 
-      <!-- Tombol sebelumnya / berikutnya -->
+      <!-- MATERI: Bootstrap - KONTROL SLIDE; berpindah ke gambar sebelumnya atau berikutnya. -->
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Slide sebelumnya</span>
@@ -517,7 +526,7 @@
       </button>
     </div>
 
-    <!-- Tombol Jeda / Putar -->
+    <!-- MATERI: JavaScript + Bootstrap - TOMBOL JEDA; menghentikan atau melanjutkan carousel. -->
     <div class="mt-2 text-end">
       <button id="btnJeda" type="button" class="btn btn-sm btn-outline-ocean rounded-pill px-3"
         aria-label="Jeda banner">Jeda</button>
@@ -528,318 +537,309 @@
 
   <br>
 
-<!-- AWAL TENGAH -->
+  <!-- ==================== MATERI: Bootstrap Grid - PENCARIAN & DEADLINE ==================== -->
+  <!-- Membagi konten menjadi pencarian beasiswa di kiri dan daftar deadline di kanan. -->
 
-<section class="container mb-5">
-  <div class="row align-items-center g-4">
+  <section class="container mb-5">
+    <div class="row align-items-center g-4">
 
-    <!-- Bagian Kiri -->
-    <div class="col-lg-6">
-      <span class="badge rounded-pill px-3 py-2 mb-3"
-        style="background-color: #E9F0E9; color: #2C365A;">
-        128+ beasiswa terverifikasi · diperbarui tiap hari
-      </span>
+      <!-- MATERI: HTML - BAGIAN PENCARIAN; berisi judul, deskripsi, dan form filter. -->
+      <div class="col-lg-6">
+        <span class="badge rounded-pill px-3 py-2 mb-3" style="background-color: #E9F0E9; color: #2C365A;">
+          128+ beasiswa terverifikasi · diperbarui tiap hari
+        </span>
 
-      <h1 style="font-family: Georgia, serif; font-size: 42px; color: #102F27;">
-        Temukan beasiswa yang tepat, dari sumber yang
-        <em style="color: #2C365A;">tepercaya.</em>
-      </h1>
+        <h1 style="font-family: Georgia, serif; font-size: 42px; color: #102F27;">
+          Temukan beasiswa yang tepat, dari sumber yang
+          <em style="color: #2C365A;">tepercaya.</em>
+        </h1>
 
-      <p class="text-secondary mt-3">
-        Satu direktori untuk beasiswa dalam & luar negeri, semua jenjang.
-        Saring berdasarkan kebutuhanmu, cek kelayakan, dan lamar lewat link
-        resmi yang sudah dicek admin.
-      </p>
+        <p class="text-secondary mt-3">
+          Satu direktori untuk beasiswa dalam & luar negeri, semua jenjang.
+          Saring berdasarkan kebutuhanmu, cek kelayakan, dan lamar lewat link
+          resmi yang sudah dicek admin.
+        </p>
 
-      <!-- Form Pencarian -->
-      <div class="bg-white rounded-4 shadow-sm p-3 mt-4">
-        <div class="input-group mb-3">
-          <span class="input-group-text bg-white border-0">⌕</span>
-          <input type="text" class="form-control border-0"
-            placeholder="Cari nama beasiswa, negara, atau bidang...">
-        </div>
-
-        <hr>
-
-        <div class="row g-2">
-          <div class="col-md-4">
-            <select class="form-select">
-              <option>Semua jenjang</option>
-              <option>SMA</option>
-              <option>D3</option>
-              <option>S1</option>
-              <option>S2</option>
-              <option>S3</option>
-            </select>
+        <!-- MATERI: HTML Form - FORM PENCARIAN; menerima kata kunci, jenjang, dan lokasi. -->
+        <div class="bg-white rounded-4 shadow-sm p-3 mt-4">
+          <div class="input-group mb-3">
+            <span class="input-group-text bg-white border-0">⌕</span>
+            <input type="text" class="form-control border-0" placeholder="Cari nama beasiswa, negara, atau bidang...">
           </div>
 
-          <div class="col-md-4">
-            <select class="form-select">
-              <option>Semua lokasi</option>
-              <option>Dalam negeri</option>
-              <option>Luar negeri</option>
-            </select>
-          </div>
+          <hr>
 
-          <div class="col-md-4">
-            <button class="btn btn-forest w-100">
-              Cari beasiswa
-            </button>
-          </div>
-        </div>
-      </div>
+          <div class="row g-2">
+            <div class="col-md-4">
+              <select class="form-select">
+                <option>Semua jenjang</option>
+                <option>SMA</option>
+                <option>D3</option>
+                <option>S1</option>
+                <option>S2</option>
+                <option>S3</option>
+              </select>
+            </div>
 
-      <div class="mt-3 small text-secondary">
-        Populer:
-        <span class="badge rounded-pill text-dark" style="background:#EEECE3;">LPDP</span>
-        <span class="badge rounded-pill text-dark" style="background:#EEECE3;">S2 luar negeri</span>
-        <span class="badge rounded-pill text-dark" style="background:#EEECE3;">Beasiswa penuh</span>
-      </div>
-    </div>
+            <div class="col-md-4">
+              <select class="form-select">
+                <option>Semua lokasi</option>
+                <option>Dalam negeri</option>
+                <option>Luar negeri</option>
+              </select>
+            </div>
 
-    <!-- Bagian Kanan: Deadline -->
-    <div class="col-lg-5 offset-lg-1">
-      <div class="p-4 rounded-4 shadow"
-        style="background-color: #2C365A; color: white;">
-
-        <h5 class="mb-4" style="font-family: Georgia, serif;">
-          Deadline terdekat <span class="float-end">◷</span>
-        </h5>
-
-        <div class="p-3 rounded-3 mb-2"
-          style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">
-          <div class="d-flex justify-content-between gap-2">
-            <strong class="small">ETH Zurich Excellence Scholarship & Opportunity Programme 2027</strong>
-            <span class="badge rounded-pill align-self-start text-dark"
-              style="background:#F5EBD2;">12 hari lagi</span>
-          </div>
-          <small style="color:#C9D8D0;">ETH Zurich · tutup 30 Nov 2026</small>
-        </div>
-
-        <div class="p-3 rounded-3 mb-2"
-          style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">
-          <div class="d-flex justify-content-between gap-2">
-            <strong class="small">Swiss Government Excellence Scholarship 2027–2028</strong>
-            <span class="badge rounded-pill align-self-start text-dark"
-              style="background:#F5EBD2;">12 hari lagi</span>
-          </div>
-          <small style="color:#C9D8D0;">Pemerintah Swiss - SBFI · tutup 30 Nov 2026</small>
-        </div>
-
-        <div class="p-3 rounded-3 mb-3"
-          style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">
-          <div class="d-flex justify-content-between gap-2">
-            <strong class="small">P.E.O. International Peace Scholarship 2026/2027</strong>
-            <span class="badge rounded-pill align-self-start text-dark"
-              style="background:#D9EDE5;">27 hari lagi</span>
-          </div>
-          <small style="color:#C9D8D0;">P.E.O. International · tutup 15 Des 2026</small>
-        </div>
-
-        <a href="cari-beasiswa.html"
-          class="text-decoration-none fw-bold small"
-          style="color:#F2B544;">
-          Lihat semua deadline →
-        </a>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- AKHIR TENGAH -->
-
-<!-- ==================== STATISTIK BEASISWA ==================== -->
-
-<section class="container mb-5">
-  <div class="row g-0"
-    style="border-top: 1px solid #DDD8CA; border-bottom: 1px solid #DDD8CA;">
-
-    <div class="col-6 col-md-3 p-3"
-      style="border-right: 1px solid #DDD8CA;">
-      <h2 style="font-family: Georgia, serif; color: #123D32;">
-        128+
-      </h2>
-      <small class="text-secondary">Beasiswa aktif</small>
-    </div>
-
-    <div class="col-6 col-md-3 p-3"
-      style="border-right: 1px solid #DDD8CA;">
-      <h2 style="font-family: Georgia, serif; color: #2C365A;">
-        28
-      </h2>
-      <small class="text-secondary">Negara tujuan</small>
-    </div>
-
-    <div class="col-6 col-md-3 p-3"
-      style="border-right: 1px solid #DDD8CA;">
-      <h2 style="font-family: Georgia, serif; color: #2C365A;">
-        105
-      </h2>
-      <small class="text-secondary">Penyelenggara terverifikasi</small>
-    </div>
-
-    <div class="col-6 col-md-3 p-3">
-      <h2 style="font-family: Georgia, serif; color: #2C365A;">
-        Harian
-      </h2>
-      <small class="text-secondary">Pembaruan data</small>
-    </div>
-
-  </div>
-</section>
-
-<!-- ==================== AKHIR STATISTIK ==================== -->
-
-
-<!-- Beasiswa Unggulan Minggu Ini -->
-<section class="container mb-5">
-
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <div>
-      <small class="text-warning fw-bold">SEGERA TUTUP</small>
-      <h2 style="font-family: Georgia, serif;">Beasiswa unggulan minggu ini</h2>
-    </div>
-    <a href="cari-beasiswa.html" class="btn btn-outline-success rounded-pill">
-      Jelajahi semua →
-    </a>
-  </div>
-
-  <div class="row g-3">
-
-    <div class="col-md-3">
-      <div class="card h-100 p-3 rounded-4">
-        <small class="text-secondary mt-3">ETH Zurich</small>
-        <h5>ETH Zurich Excellence Scholarship & Opportunity Programme 2027</h5>
-        <div class="mb-3">
-          <span class="badge bg-success-subtle text-success">Beasiswa Penuh</span>
-          <span class="badge bg-light text-dark">S2</span>
-          <span class="badge bg-light text-dark">Swiss</span>
-        </div>
-        <hr>
-        <small>Tutup 30 Nov 2026</small>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card h-100 p-3 rounded-4">
-        <small class="text-secondary mt-3">Pemerintah Swiss - SBFI</small>
-        <h5>Swiss Government Excellence Scholarship 2027-2028</h5>
-        <div class="mb-3">
-          <span class="badge bg-success-subtle text-success">Beasiswa Penuh</span>
-          <span class="badge bg-light text-dark">S3</span>
-          <span class="badge bg-light text-dark">Swiss</span>
-        </div>
-        <hr>
-        <small>Tutup 30 Nov 2026</small>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card h-100 p-3 rounded-4">
-        <small class="text-secondary mt-3">P.E.O. International</small>
-        <h5>P.E.O. International Peace Scholarship 2026/2027</h5>
-        <div class="mb-3">
-          <span class="badge bg-warning-subtle text-warning">Beasiswa Parsial</span>
-          <span class="badge bg-light text-dark">S2</span>
-          <span class="badge bg-light text-dark">Amerika & Kanada</span>
-        </div>
-        <hr>
-        <small>Tutup 15 Des 2026</small>
-      </div>
-    </div>
-
-    <div class="col-md-3">
-      <div class="card h-100 p-3 rounded-4">
-        <small class="text-secondary mt-3">Kyoto University</small>
-        <h5>Kyoto University MEXT Scholarship 2027</h5>
-        <div class="mb-3">
-          <span class="badge bg-success-subtle text-success">Beasiswa Penuh</span>
-          <span class="badge bg-light text-dark">S2-S3</span>
-          <span class="badge bg-light text-dark">Jepang</span>
-        </div>
-        <hr>
-        <small>Tutup 15 Des 2026</small>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- AKHIR CARD -->
-
-
-<!-- FAQ -->
-<section class="container mb-5">
-
-  <h2 class="text-center mb-4" style="font-family: Georgia, serif;">
-    Pertanyaan yang sering diajukan
-  </h2>
-
-  <div class="row justify-content-center">
-    <div class="col-lg-6">
-
-      <div class="accordion" id="faqAccordion">
-
-        <div class="accordion-item rounded-3 mb-2">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button"
-              data-bs-toggle="collapse" data-bs-target="#faq1">
-              Apakah Cendekia gratis?
-            </button>
-          </h2>
-          <div id="faq1" class="accordion-collapse collapse show"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Ya. Mencari, menyaring, dan melihat detail beasiswa sepenuhnya gratis.
-              Fitur seperti bookmark dan reminder membutuhkan akun gratis.
+            <div class="col-md-4">
+              <button class="btn btn-forest w-100">
+                Cari beasiswa
+              </button>
             </div>
           </div>
         </div>
 
-        <div class="accordion-item rounded-3 mb-2">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button"
-              data-bs-toggle="collapse" data-bs-target="#faq2">
-              Dari mana sumber datanya?
-            </button>
-          </h2>
-          <div id="faq2" class="accordion-collapse collapse"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Data berasal dari situs resmi penyelenggara, dikumpulkan lewat
-              input manual tim kurasi dan crawling otomatis terjadwal, lalu
-              diverifikasi sebelum dipublikasikan.
+        <div class="mt-3 small text-secondary">
+          Populer:
+          <span class="badge rounded-pill text-dark" style="background:#EEECE3;">LPDP</span>
+          <span class="badge rounded-pill text-dark" style="background:#EEECE3;">S2 luar negeri</span>
+          <span class="badge rounded-pill text-dark" style="background:#EEECE3;">Beasiswa penuh</span>
+        </div>
+      </div>
+
+      <!-- MATERI: HTML - DAFTAR DEADLINE; menampilkan beasiswa yang segera ditutup. -->
+      <div class="col-lg-5 offset-lg-1">
+        <div class="p-4 rounded-4 shadow" style="background-color: #2C365A; color: white;">
+
+          <h5 class="mb-4" style="font-family: Georgia, serif;">
+            Deadline terdekat <span class="float-end">◷</span>
+          </h5>
+
+          <div class="p-3 rounded-3 mb-2"
+            style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">
+            <div class="d-flex justify-content-between gap-2">
+              <strong class="small">ETH Zurich Excellence Scholarship & Opportunity Programme 2027</strong>
+              <span class="badge rounded-pill align-self-start text-dark" style="background:#F5EBD2;">12 hari
+                lagi</span>
+            </div>
+            <small style="color:#C9D8D0;">ETH Zurich · tutup 30 Nov 2026</small>
+          </div>
+
+          <div class="p-3 rounded-3 mb-2"
+            style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">
+            <div class="d-flex justify-content-between gap-2">
+              <strong class="small">Swiss Government Excellence Scholarship 2027–2028</strong>
+              <span class="badge rounded-pill align-self-start text-dark" style="background:#F5EBD2;">12 hari
+                lagi</span>
+            </div>
+            <small style="color:#C9D8D0;">Pemerintah Swiss - SBFI · tutup 30 Nov 2026</small>
+          </div>
+
+          <div class="p-3 rounded-3 mb-3"
+            style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);">
+            <div class="d-flex justify-content-between gap-2">
+              <strong class="small">P.E.O. International Peace Scholarship 2026/2027</strong>
+              <span class="badge rounded-pill align-self-start text-dark" style="background:#D9EDE5;">27 hari
+                lagi</span>
+            </div>
+            <small style="color:#C9D8D0;">P.E.O. International · tutup 15 Des 2026</small>
+          </div>
+
+          <a href="cari-beasiswa.html" class="text-decoration-none fw-bold small" style="color:#F2B544;">
+            Lihat semua deadline →
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== AKHIR PENCARIAN & DEADLINE ==================== -->
+
+  <!-- ==================== MATERI: Bootstrap Grid - STATISTIK BEASISWA ==================== -->
+  <!-- Menampilkan angka ringkasan beasiswa, negara tujuan, penyelenggara, dan pembaruan. -->
+
+  <section class="container mb-5">
+    <div class="row g-0" style="border-top: 1px solid #DDD8CA; border-bottom: 1px solid #DDD8CA;">
+
+      <div class="col-6 col-md-3 p-3" style="border-right: 1px solid #DDD8CA;">
+        <h2 style="font-family: Georgia, serif; color: #123D32;">
+          128+
+        </h2>
+        <small class="text-secondary">Beasiswa aktif</small>
+      </div>
+
+      <div class="col-6 col-md-3 p-3" style="border-right: 1px solid #DDD8CA;">
+        <h2 style="font-family: Georgia, serif; color: #2C365A;">
+          28
+        </h2>
+        <small class="text-secondary">Negara tujuan</small>
+      </div>
+
+      <div class="col-6 col-md-3 p-3" style="border-right: 1px solid #DDD8CA;">
+        <h2 style="font-family: Georgia, serif; color: #2C365A;">
+          105
+        </h2>
+        <small class="text-secondary">Penyelenggara terverifikasi</small>
+      </div>
+
+      <div class="col-6 col-md-3 p-3">
+        <h2 style="font-family: Georgia, serif; color: #2C365A;">
+          Harian
+        </h2>
+        <small class="text-secondary">Pembaruan data</small>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== AKHIR STATISTIK ==================== -->
+
+
+  <!-- ==================== MATERI: Bootstrap Card - BEASISWA UNGGULAN ==================== -->
+  <!-- Setiap card menampilkan penyelenggara, nama, jenis beasiswa, jenjang, dan deadline. -->
+  <section class="container mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <small class="text-warning fw-bold">SEGERA TUTUP</small>
+        <h2 style="font-family: Georgia, serif;">Beasiswa unggulan minggu ini</h2>
+      </div>
+      <a href="cari-beasiswa.html" class="btn btn-outline-success rounded-pill">
+        Jelajahi semua →
+      </a>
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col-md-3">
+        <div class="card h-100 p-3 rounded-4">
+          <small class="text-secondary mt-3">ETH Zurich</small>
+          <h5>ETH Zurich Excellence Scholarship & Opportunity Programme 2027</h5>
+          <div class="mb-3">
+            <span class="badge bg-success-subtle text-success">Beasiswa Penuh</span>
+            <span class="badge bg-light text-dark">S2</span>
+            <span class="badge bg-light text-dark">Swiss</span>
+          </div>
+          <hr>
+          <small>Tutup 30 Nov 2026</small>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-3 rounded-4">
+          <small class="text-secondary mt-3">Pemerintah Swiss - SBFI</small>
+          <h5>Swiss Government Excellence Scholarship 2027-2028</h5>
+          <div class="mb-3">
+            <span class="badge bg-success-subtle text-success">Beasiswa Penuh</span>
+            <span class="badge bg-light text-dark">S3</span>
+            <span class="badge bg-light text-dark">Swiss</span>
+          </div>
+          <hr>
+          <small>Tutup 30 Nov 2026</small>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-3 rounded-4">
+          <small class="text-secondary mt-3">P.E.O. International</small>
+          <h5>P.E.O. International Peace Scholarship 2026/2027</h5>
+          <div class="mb-3">
+            <span class="badge bg-warning-subtle text-warning">Beasiswa Parsial</span>
+            <span class="badge bg-light text-dark">S2</span>
+            <span class="badge bg-light text-dark">Amerika & Kanada</span>
+          </div>
+          <hr>
+          <small>Tutup 15 Des 2026</small>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 p-3 rounded-4">
+          <small class="text-secondary mt-3">Kyoto University</small>
+          <h5>Kyoto University MEXT Scholarship 2027</h5>
+          <div class="mb-3">
+            <span class="badge bg-success-subtle text-success">Beasiswa Penuh</span>
+            <span class="badge bg-light text-dark">S2-S3</span>
+            <span class="badge bg-light text-dark">Jepang</span>
+          </div>
+          <hr>
+          <small>Tutup 15 Des 2026</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== AKHIR BEASISWA UNGGULAN ==================== -->
+
+
+  <!-- ==================== MATERI: Bootstrap Accordion - FAQ ==================== -->
+  <!-- Membuat pertanyaan yang dapat dibuka dan ditutup untuk melihat jawabannya. -->
+  <section class="container mb-5">
+
+    <h2 class="text-center mb-4" style="font-family: Georgia, serif;">
+      Pertanyaan yang sering diajukan
+    </h2>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+
+        <div class="accordion" id="faqAccordion">
+
+          <div class="accordion-item rounded-3 mb-2">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                Apakah Cendekia gratis?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Ya. Mencari, menyaring, dan melihat detail beasiswa sepenuhnya gratis.
+                Fitur seperti bookmark dan reminder membutuhkan akun gratis.
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="accordion-item rounded-3 mb-2">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button"
-              data-bs-toggle="collapse" data-bs-target="#faq3">
-              Seberapa sering data diperbarui?
-            </button>
-          </h2>
-          <div id="faq3" class="accordion-collapse collapse"
-            data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Crawler berjalan terjadwal dan tim memverifikasi entri baru.
-              Setiap listing menampilkan label tanggal pembaruan terakhir
-              dan status verifikasinya.
+          <div class="accordion-item rounded-3 mb-2">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                Dari mana sumber datanya?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Data berasal dari situs resmi penyelenggara, dikumpulkan lewat
+                input manual tim kurasi dan crawling otomatis terjadwal, lalu
+                diverifikasi sebelum dipublikasikan.
+              </div>
             </div>
           </div>
-        </div>
 
+          <div class="accordion-item rounded-3 mb-2">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Seberapa sering data diperbarui?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Crawler berjalan terjadwal dan tim memverifikasi entri baru.
+                Setiap listing menampilkan label tanggal pembaruan terakhir
+                dan status verifikasinya.
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- AKHIR FAQ -->
+  <!-- ==================== AKHIR FAQ ==================== -->
 
 
+  <!-- ==================== MATERI: HTML + Bootstrap - FOOTER ==================== -->
+  <!-- Menampilkan identitas situs, tautan bantuan, hak cipta, dan kebijakan. -->
   <footer class="pt-5 pb-4" style="background-color: #1E253D; color: #EEE8DF;">
     <div class="container">
 
@@ -908,6 +908,8 @@
     </div>
   </footer>
 
+  <!-- ==================== MATERI: Bootstrap Modal + HTML Form - MODAL MASUK ==================== -->
+  <!-- Menyediakan form pop-up untuk memasukkan email dan password. -->
   <div class="modal fade" id="modalMasuk" tabindex="-1" aria-labelledby="judulMasuk" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content rounded-4">
@@ -942,6 +944,8 @@
     </div>
   </div>
 
+  <!-- ==================== MATERI: Bootstrap Modal + HTML Form - MODAL DAFTAR ==================== -->
+  <!-- Menyediakan form pop-up untuk nama, email, password, dan persetujuan akun. -->
   <div class="modal fade" id="modalDaftar" tabindex="-1" aria-labelledby="judulDaftar" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content rounded-4">
@@ -1002,6 +1006,8 @@
     </div>
   </div>
 
+  <!-- ==================== MATERI: Bootstrap Toast - NOTIFIKASI ==================== -->
+  <!-- Menampilkan pesan singkat setelah proses masuk atau pendaftaran berhasil. -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="toastMasuk" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
@@ -1023,8 +1029,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
+    // MATERI: JavaScript DOM - MENUNGGU HALAMAN SIAP
+    // Code dijalankan setelah seluruh struktur HTML selesai dimuat browser.
     document.addEventListener('DOMContentLoaded', function () {
 
+      // ===== MATERI: JavaScript DOM + Bootstrap - KONTROL CAROUSEL =====
+      // Mengambil elemen carousel dan mengubah kondisi putar atau jeda saat tombol diklik.
       var el = document.getElementById('carouselBanner');
       var btn = document.getElementById('btnJeda');
       var carousel = bootstrap.Carousel.getOrCreateInstance(el);
@@ -1047,6 +1057,8 @@
         console.log('Slide aktif:', event.to);
       });
 
+      // ===== MATERI: JavaScript Event + Form Validation - MODAL MASUK =====
+      // Memeriksa email dan password sebelum menutup modal serta menampilkan toast.
       var formMasuk = document.getElementById('formMasuk');
       var modalMasuk = document.getElementById('modalMasuk');
       var toastMasuk = document.getElementById('toastMasuk');
@@ -1070,6 +1082,8 @@
         formMasuk.classList.remove('was-validated');
       });
 
+      // ===== MATERI: JavaScript DOM + Form Validation - MODAL DAFTAR =====
+      // Mengambil input pendaftaran, memeriksa data, dan mengatur konfirmasi password.
       var formDaftar = document.getElementById('formDaftar');
       var modalDaftar = document.getElementById('modalDaftar');
       var toastDaftar = document.getElementById('toastDaftar');
@@ -1077,6 +1091,8 @@
       var pwKonfirmasi = document.getElementById('daftarKonfirmasi');
       var pesanKonfirmasi = document.getElementById('pesanKonfirmasi');
 
+      // MATERI: JavaScript Function - CEK KONFIRMASI PASSWORD
+      // Membandingkan password utama dan konfirmasi agar keduanya sama.
       function cekKonfirmasi() {
         if (pwKonfirmasi.value === '') {
           pwKonfirmasi.setCustomValidity('Konfirmasi password wajib diisi.');
