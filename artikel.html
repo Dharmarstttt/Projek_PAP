@@ -32,6 +32,21 @@
       background-color: #C4BCB0;
     }
 
+    /* Style link card artikel */
+    .article-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 20px;
+    }
+
+    .article-card-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 .5rem 1rem rgba(44, 54, 90, 0.12) !important;
+      color: inherit;
+    }
+
     .btn:focus-visible {
       outline: none;
       box-shadow: 0 0 0 .2rem rgba(44, 54, 90, .35);
@@ -101,15 +116,27 @@
     }
 
     .pagination-custom .page-item.active .page-link {
-      background-color: #2C365A;
-      border-color: #2C365A;
-      color: #ffffff;
+      background-color: #2C365A !important;
+      border-color: #2C365A !important;
+      color: #ffffff !important;
+      font-weight: 700;
     }
 
     .pagination-custom .page-item.disabled .page-link {
       color: #9ca3af;
       background-color: #ffffff;
       border-color: #e5e7eb;
+    }
+
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+      background-color: rgba(44, 54, 90, 0.08);
+      color: inherit;
+    }
+
+    .dropdown-item:active {
+      background-color: rgba(44, 54, 90, 0.15) !important;
+      color: inherit !important;
     }
 
     .footer {
@@ -124,15 +151,15 @@
 
     <div class="container">
 
-      <a class="navbar-brand fw-bold" href="#" style="color: #2C365A; font-family: Georgia, serif; font-size: 25px;">
-        Pintarkia.
+      <a class="navbar-brand fw-bold" href="#page-1"
+        style="color: #2C365A; font-family: Georgia, serif; font-size: 25px;">
+        Cendekia.
         <span class="d-block text-uppercase" style="font-family: Arial; font-size: 9px; letter-spacing: 2px;">
-          Beasiswa-Palsu
+          Beasiswa-Info
         </span>
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBeasiswa">
-
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -157,7 +184,7 @@
 
               <h6 class="fw-bold mb-2 small text-uppercase fw-bold text-secondary tracking-wider"
                 style="letter-spacing: 1px;">
-                JELAJAHI PINTARKIA
+                JELAJAHI CENDEKIA
               </h6>
 
               <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap"
@@ -263,7 +290,7 @@
 
               <h6 class="fw-bold mb-2 small text-uppercase fw-bold text-secondary tracking-wider"
                 style="letter-spacing: 1px;">
-                PINTARKIA BELAJAR
+                CENDEKIA BELAJAR
               </h6>
 
               <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 mb-2 text-wrap" href="katalog.html">
@@ -285,7 +312,7 @@
                 </div>
               </a>
 
-              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 text-wrap" href="artikel.html">
+              <a class="dropdown-item rounded-3 p-2 d-flex align-items-start gap-3 text-wrap" href="#page-1">
 
                 <div class="d-flex align-items-center justify-content-center rounded-2 flex-shrink-0"
                   style="width: 38px; height: 38px; background-color: rgba(44, 54, 90, 0.1); color: #2C365A;">
@@ -305,7 +332,7 @@
                 </div>
               </a>
               <hr class="my-3">
-              <a href="belajar.html" class="btn w-100 rounded-pill py-2 fw-semibold"
+              <a href="katalog.html" class="btn w-100 rounded-pill py-2 fw-semibold"
                 style="background-color: #2C365A; color: #EEE8DF;">
                 Lihat Semua Kursus →
               </a>
@@ -355,7 +382,7 @@
                 <div>
                   <div class="fw-semibold" style="color: #2C365A;">Donasi</div>
                   <small class="d-block text-secondary lh-sm">
-                    Dukungan operasional Pintarkia secara sukarela.
+                    Dukungan operasional Cendekia secara sukarela.
                   </small>
                 </div>
               </a>
@@ -373,7 +400,7 @@
                 <div>
                   <div class="fw-semibold" style="color: #2C365A;">Tentang Kami</div>
                   <small class="d-block text-secondary lh-sm">
-                    Kenali misi dan cerita di balik Pintarkia.
+                    Kenali misi dan cerita di balik Cendekia.
                   </small>
                 </div>
               </a>
@@ -411,11 +438,11 @@
     </div>
   </nav>
 
-  <div class="container my-5">
+  <div id="view-list-artikel" class="container my-5">
     <div class="row justify-content-center">
       <div class="col-12 col-md-12 col-lg-10">
         <div class="mb-4">
-          <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">PINTARKIA BELAJAR
+          <h6 class="text-uppercase fw-bold text-secondary tracking-wider" style="letter-spacing: 1px;">CENDEKIA BELAJAR
           </h6>
           <h1 class="fw-bold display-6" style="font-family: 'Times New Roman', Times, serif;">Artikel & Panduan</h1>
           <p class="text-muted">
@@ -423,192 +450,56 @@
           </p>
         </div>
 
-        <div class="col-12">
-          <div class="input-group input-group-lg shadow-sm rounded-3 my-4 bg-white border">
-            <span class="input-group-text bg-transparent border-0 pe-2 text-muted p-3">
-              <i class="bi bi-search small"></i>
-            </span>
-            <input type="text" class="form-control fs-6 border-0 shadow-none ps-1 p-3 placeholder-kecil"
-              placeholder="Cari judul atau topik artikel...">
-          </div>
+        <div class="input-group input-group-lg shadow-sm rounded-3 mb-4 bg-white border">
+          <span class="input-group-text bg-transparent border-0 pe-2 text-muted p-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+          </span>
+          <label for="inputCari" class="visually-hidden">Cari artikel</label>
+          <input type="text" id="inputCari" class="form-control fs-6 border-0 shadow-none ps-1 p-3 placeholder-kecil"
+            placeholder="Cari judul atau topik artikel...">
         </div>
 
-        <div class="row g-4">
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  10 November 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Cara Mendapatkan Preliminary Agreement dari Profesor Luar Negeri untuk Beasiswa
-                  S3</h5>
-                <p class="card-text small text-secondary">
-                  Langkah mendekati dan meyakinkan calon profesor pembimbing di luar negeri agar bersedia memberikan
-                  preliminary agreement untuk aplikasi beasiswa S3.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  10 November 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Swiss Government Excellence Scholarship 2027: Syarat dan Cara Daftar untuk
-                  Peneliti dan Kandidat PhD S3</h5>
-                <p class="card-text small text-secondary">
-                  Panduan Swiss Government Excellence Scholarship (ESKAS) 2027-2028: skema PhD dan Research Fellowship,
-                  syarat preliminary agreement, dan cara daftar hingga 30 November 2026.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  12 Oktober 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Perbedaan Beasiswa Berbasis Prestasi vs Berbasis Kebutuhan Ekonomi</h5>
-                <p class="card-text small text-secondary">
-                  Kenali perbedaan filosofi beasiswa merit-based dan need-based, serta cara mengenali kategori mana yang
-                  paling sesuai dengan profil Anda.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  12 Oktober 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Beasiswa Stimulan Sultra Cerdas (BSSC) 2026: Syarat dan Cara Daftar</h5>
-                <p class="card-text small text-secondary">
-                  Panduan Beasiswa Stimulan Sultra Cerdas (BSSC) 2026 untuk mahasiswa Sulawesi Tenggara jenjang S1
-                  hingga S3, syarat semester, dan cara daftar.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  12 November 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">BSI Scholarship Talenta 2026: Panduan untuk Mahasiswa Semester Akhir</h5>
-                <p class="card-text small text-secondary">
-                  Panduan BSI Scholarship Talenta 2026: syarat semester 7, jurusan terpilih, dan bantuan tugas akhir
-                  hingga deadline 30 Oktober 2026.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  28 September 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Beasiswa Bidang Teknologi dan Software Engineering: Daftar Program untuk Calon
-                  Programmer</h5>
-                <p class="card-text small text-secondary">
-                  Rangkuman beasiswa dan jalur pendanaan bagi calon programmer dan talenta IT, dari SEMESTA SEVIMA
-                  hingga beasiswa STEM LPDP.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  28 September 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Cara Mempersiapkan Diri untuk Seleksi Beasiswa Berbasis Hackathon atau Kompetisi
-                  Coding</h5>
-                <p class="card-text small text-secondary">
-                  Tips menghadapi tahap hackathon dalam seleksi beasiswa teknologi seperti SEMESTA, dari persiapan
-                  teknis hingga strategi kerja tim.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  7 September 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Cara Menonjol di Kategori Prestasi Non-Akademis Beasiswa</h5>
-                <p class="card-text small text-secondary">
-                  Strategi menyusun dokumen dan video pendukung agar bersaing di kategori prestasi non-akademis seperti
-                  olahraga, seni, dan budaya pada seleksi beasiswa.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  7 September 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Beasiswa Bakti BCA 2026: 3 Kategori, Syarat, dan Cara Daftar</h5>
-                <p class="card-text small text-secondary">
-                  Panduan Beasiswa Bakti BCA 2026: kategori Bantuan Finansial, Prestasi Akademis, dan Non-Akademis,
-                  syarat, serta cara daftar hingga 30 September 2026.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="card h-100 shadow-sm border-0 rounded-custom overflow-hidden p-2" style="border-radius: 20px;">
-              <div class="card-body bg-white">
-                <div class="text-secondary small fw-medium mb-2">
-                  25 Agustus 2026 &middot; 2 menit baca
-                </div>
-                <h5 class="card-title">Beasiswa DJITU Profesi 2026: Syarat dan Cara Daftar untuk Mahasiswi Profesi
-                  Kesehatan</h5>
-                <p class="card-text small text-secondary">
-                  Panduan Beasiswa DJITU Profesi 2026 untuk mahasiswi Apoteker, Bidan, Fisioterapi, Gizi, Perawat, dan
-                  Psikologi Klinis, deadline 31 Agustus 2026.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div id="container-artikel" class="row g-4">
         </div>
+
+        <nav aria-label="Page navigation example" class="my-5">
+          <ul id="pagination-artikel" class="pagination pagination-custom justify-content-center flex-wrap gap-2">
+          </ul>
+        </nav>
+
       </div>
     </div>
   </div>
-  <nav aria-label="Page navigation example" class="my-5">
-    <ul class="pagination pagination-custom justify-content-center gap-2">
-      <li class="page-item disabled">
-        <a class="page-link">&laquo; Previous</a>
-      </li>
 
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">4</a></li>
-      <li class="page-item"><a class="page-link" href="#">5</a></li>
-      <li class="page-item"><a class="page-link" href="#">6</a></li>
-      <li class="page-item"><a class="page-link" href="#">7</a></li>
+ 
+  <div id="view-baca-artikel" class="container my-5 d-none">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
 
-      <li class="page-item">
-        <a class="page-link" href="#">Next &raquo;</a>
-      </li>
-    </ul>
-  </nav>
+        <a id="btn-kembali-artikel" href="#page-1"
+          class="text-decoration-none text-secondary small fw-semibold d-inline-block mb-3">
+          &larr; Semua artikel
+        </a>
 
-  </div>
+        <div id="baca-meta" class="text-muted small mb-2">
+          10 November 2026 &middot; 2 menit baca &middot; Admin Cendekia
+        </div>
+        <h1 id="baca-judul" class="fw-bold display-5 text-deep-ocean mb-4"
+          style="font-family: 'Times New Roman', Georgia, serif; line-height: 1.2;">
+          Judul Artikel
+        </h1>
 
-  </div>
+        <img id="baca-gambar" src="" alt="Gambar Artikel" class="img-fluid rounded-4 shadow-sm w-100 mb-4 d-none"
+          style="max-height: 420px; object-fit: cover;">
 
+        <div id="baca-isi" class="text-deep-ocean lh-lg" style="font-size: 1.05rem;">
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <footer class="pt-5 pb-4" style="background-color: #1E253D; color: #EEE8DF;">
@@ -619,8 +510,8 @@
         <div class="col-lg-4 col-md-6 pe-lg-5">
           <div class="d-flex align-items-center gap-2 mb-3">
             <div>
-              <div class="fw-bold lh-1" style="font-family: Georgia, serif; font-size: 1.1rem;">Pintarkia.</div>
-              <small style="font-size: 0.65rem; letter-spacing: 1.5px; color: #EEE8DF;">BEASISWA-PALSU</small>
+              <div class="fw-bold lh-1" style="font-family: Georgia, serif; font-size: 1.1rem;">Cendekia.</div>
+              <small style="font-size: 0.65rem; letter-spacing: 1.5px; color: #EEE8DF;">BEASISWA-INFO</small>
             </div>
           </div>
           <p class="small opacity-75 lh-base mb-0">
@@ -642,8 +533,8 @@
         <div class="col-lg-3 col-md-6">
           <h6 class="fw-bold mb-3 small">Belajar</h6>
           <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
-            <li><a href="belajar.html" class="text-decoration-none text-light opacity-75">Katalog kursus</a></li>
-            <li><a href="artikel.html" class="text-decoration-none text-light opacity-75">Artikel & panduan</a></li>
+            <li><a href="katalog.html" class="text-decoration-none text-light opacity-75">Katalog kursus</a></li>
+            <li><a href="#page-1" class="text-decoration-none text-light opacity-75">Artikel & panduan</a></li>
             <li><a href="#" class="text-decoration-none text-light opacity-75">Kursus saya</a></li>
             <li><a href="#" class="text-decoration-none text-light opacity-75">Sertifikat saya</a></li>
           </ul>
@@ -665,7 +556,7 @@
         class="pt-4 border-top border-secondary border-opacity-25 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3 small opacity-75"
         style="font-size: 0.78rem;">
         <div>
-          <div class="mb-1">© 2026 Pintarkia Beasiswa Palsu. Dibuat untuk pencari beasiswa Indonesia.</div>
+          <div class="mb-1">© 2026 Cendekia Beasiswa Info. Dibuat untuk pencari beasiswa Indonesia.</div>
           <div class="d-flex gap-3">
             <a href="#" class="text-decoration-none text-light">Syarat & Ketentuan</a>
             <a href="#" class="text-decoration-none text-light">Kebijakan Privasi</a>
@@ -680,8 +571,440 @@
     </div>
   </footer>
 
-
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    const semuaArtikel = [
+      {
+        slug: 'cara-mendapatkan-preliminary-agreement-dari-profesor-luar-negeri',
+        tanggal: '10 November 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Cara Mendapatkan Preliminary Agreement dari Profesor Luar Negeri untuk Beasiswa S3',
+        gambar: 'img/3015319844.jpg',
+        ringkasan: 'Langkah mendekati dan meyakinkan calon profesor pembimbing di luar negeri agar bersedia memberikan preliminary agreement untuk aplikasi beasiswa S3.',
+        isi: `
+          <p class="lead text-secondary mb-4">Langkah mendekati dan meyakinkan calon profesor pembimbing di luar negeri agar bersedia memberikan preliminary agreement untuk aplikasi beasiswa S3.</p>
+          <p>Sejumlah beasiswa S3 berbasis riset seperti Swiss Government Excellence Scholarship mensyaratkan preliminary agreement — surat kesediaan awal dari profesor di universitas tujuan untuk membimbing riset Anda — sebagai dokumen wajib sebelum aplikasi bisa diproses. Mendapatkan dokumen ini sering menjadi tahap paling menantang karena melibatkan komunikasi langsung dengan akademisi yang mungkin belum pernah mengenal Anda sebelumnya.</p>
+          <p>Langkah pertama adalah melakukan riset mendalam terhadap publikasi terbaru calon profesor, bukan sekadar membaca profil singkat di halaman jurusan. Pahami arah riset terkininya, bukan hanya topik riset yang pernah ditulis bertahun-tahun lalu, karena fokus riset seorang akademisi bisa bergeser signifikan dari waktu ke waktu seiring perkembangan bidang keilmuannya.</p>
+          <p>Saat mengirim email pertama, hindari template generik yang terlihat dikirim ke banyak profesor sekaligus. Sebutkan secara spesifik publikasi atau proyek riset mereka yang menarik perhatian Anda, jelaskan bagaimana latar belakang dan rencana riset Anda relevan dengan arah riset mereka, dan lampirkan CV akademik beserta draf singkat proposal riset (1-2 halaman) sebagai bahan diskusi awal — bukan proposal final yang sudah sepenuhnya matang.</p>
+          <p>Bersiaplah menghadapi tingkat respons yang rendah pada percobaan pertama. Banyak kandidat berhasil mendapat preliminary agreement setelah menghubungi lebih dari sepuluh profesor berbeda, karena sebagian profesor mungkin sudah penuh kuota bimbingan, sedang cuti riset, atau sekadar tidak sempat membalas email yang masuk dalam jumlah besar. Jangan menyerah setelah dua atau tiga email tidak berbalas.</p>
+          <p>Jika mendapat respons positif awal, profesor biasanya akan meminta diskusi lebih lanjut via email atau panggilan video sebelum bersedia menandatangani preliminary agreement. Manfaatkan sesi ini untuk menunjukkan pemahaman mendalam tentang arah riset mereka, bukan sekadar antusiasme umum terhadap bidang studi secara luas. Siapkan juga pertanyaan relevan tentang fasilitas riset, pendanaan proyek yang sedang berjalan, atau kesempatan kolaborasi yang tersedia di laboratorium mereka.</p>
+          <p>Terakhir, jaga komunikasi profesional dan responsif sepanjang proses ini, karena hubungan dengan calon supervisor tidak berhenti setelah preliminary agreement diperoleh — ini justru menjadi awal dari relasi kerja jangka panjang yang akan sangat menentukan kualitas pengalaman riset Anda selama masa studi S3 nantinya.</p>
+        `
+      },
+      {
+        slug: 'swiss-government-excellence-scholarship-2027',
+        tanggal: '10 November 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Swiss Government Excellence Scholarship 2027: Syarat dan Cara Daftar untuk Peneliti dan Kandidat PhD S3',
+        gambar: 'img/gambar.jpg',
+        ringkasan: 'Panduan Swiss Government Excellence Scholarship (ESKAS) 2027-2028: skema PhD dan Research Fellowship, syarat preliminary agreement, dan cara daftar hingga 30 November 2026.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan Swiss Government Excellence Scholarship (ESKAS) 2027-2028: skema PhD dan Research Fellowship, syarat preliminary agreement, dan cara daftar hingga 30 November 2026.</p>
+          <p>Swiss Government Excellence Scholarship, atau yang lebih dikenal dengan singkatan ESKAS, menjadi salah satu beasiswa riset dan doktoral paling bergengsi dari Eropa yang terbuka bagi pelamar Indonesia. Dikelola oleh State Secretariat for Education, Research and Innovation (SBFI), program ini menyediakan dua skema utama: PhD Scholarship bagi yang ingin menempuh program doktoral penuh, dan Research Fellowship bagi dosen atau peneliti yang ingin melakukan riset non-gelar dalam jangka waktu tertentu di universitas Swiss.</p>
+          <p>Target utama program ini adalah early career researcher — peneliti di awal kariernya yang sudah menyelesaikan gelar Master dan ingin melanjutkan pengembangan riset di lingkungan akademik Swiss yang terkenal dengan kualitas risetnya di bidang sains, teknologi, dan humaniora. Berbeda dari beasiswa gelar konvensional, ESKAS sangat menekankan kesesuaian topik riset pelamar dengan bidang keahlian profesor pembimbing di universitas Swiss tujuan.</p>
+          <p>Syarat paling krusial dan sering terlewat pendaftar adalah preliminary agreement, yakni surat kesediaan awal dari profesor atau supervisor di universitas Swiss yang bersedia membimbing riset Anda. Tanpa dokumen ini, aplikasi ESKAS tidak akan diproses lebih jauh, karena program ini pada dasarnya mencocokkan kandidat dengan supervisor yang relevan, bukan sekadar menyeleksi berdasarkan nilai akademik semata.</p>
+          <p>Dari sisi manfaat, penerima ESKAS mendapat pembebasan biaya kuliah penuh, tunjangan biaya hidup bulanan sekitar CHF 2.450 (setara lebih dari Rp40 juta), serta asuransi kesehatan selama masa studi atau riset. Nominal tunjangan ini tergolong sangat kompetitif dibanding beasiswa riset Eropa lain, mengingat biaya hidup di Swiss yang memang dikenal tinggi.</p>
+          <p>Proses pendaftaran dilakukan melalui Kedutaan Besar Swiss di Jakarta, bukan langsung ke SBFI, sehingga pelamar perlu memperhitungkan waktu tambahan untuk proses administrasi di tingkat kedutaan sebelum berkas diteruskan ke Swiss. Siapkan dokumen pendukung seperti ijazah dan transkrip S2, proposal riset, CV akademik, surat rekomendasi, dan sertifikat bahasa jauh-jauh hari agar tidak terburu-buru menjelang tenggat waktu.</p>
+          <p>Pendaftaran ESKAS periode 2027-2028 ditutup 30 November 2026, tanpa dipungut biaya apa pun di setiap tahap prosesnya. Karena mendapatkan preliminary agreement dari profesor Swiss membutuhkan waktu komunikasi yang tidak sebentar — biasanya berupa pertukaran email dan diskusi proposal riset — mulailah menghubungi calon supervisor jauh sebelum musim pendaftaran dibuka, idealnya tiga hingga enam bulan sebelumnya.</p>
+        `
+      },
+      {
+        slug: 'perbedaan-beasiswa-berbasis-prestasi-vs-kebutuhan-ekonomi',
+        tanggal: '12 Oktober 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Perbedaan Beasiswa Berbasis Prestasi vs Berbasis Kebutuhan Ekonomi',
+        gambar : 'img/images.png',
+        ringkasan: 'Kenali perbedaan filosofi beasiswa merit-based dan need-based, serta cara mengenali kategori mana yang paling sesuai dengan profil Anda.',
+        isi: `
+          <p class="lead text-secondary mb-4">Kenali perbedaan filosofi beasiswa merit-based dan need-based, serta cara mengenali kategori mana yang paling sesuai dengan profil Anda.</p>
+          <p>Dua filosofi utama mendasari hampir semua program beasiswa di dunia: beasiswa berbasis prestasi (merit-based) yang menilai pencapaian akademik atau non-akademik sebagai kriteria utama, dan beasiswa berbasis kebutuhan ekonomi (need-based) yang memprioritaskan kondisi finansial keluarga sebagai penentu kelayakan. Memahami perbedaan ini membantu Anda menyusun strategi pendaftaran yang lebih tepat sasaran.</p>
+          <p>Beasiswa merit-based, seperti BSI Scholarship Talenta yang mensyaratkan IPK minimal 3,30 plus prestasi dan pengalaman organisasi kuat, pada dasarnya berfungsi sebagai alat pencarian talenta unggulan. Penyelenggara tidak terlalu mempertimbangkan kondisi ekonomi pendaftar — fokus utamanya adalah menjaring individu dengan kapasitas tertinggi, dengan asumsi investasi pada mereka akan memberi dampak atau kontribusi balik yang signifikan bagi penyelenggara atau masyarakat luas.
+          <p>Beasiswa need-based, seperti BSI Scholarship Afirmasi atau KIP Kuliah, sebaliknya memprioritaskan pendaftar dari keluarga kurang mampu, kadang dengan syarat akademik yang jauh lebih ringan (misalnya IPK minimal 2,75 atau bahkan tanpa syarat IPK ketat). Filosofi di baliknya adalah pemerataan akses pendidikan — memastikan keterbatasan ekonomi tidak menjadi penghalang mutlak bagi seseorang untuk mengakses pendidikan tinggi, terlepas dari seberapa menonjol prestasinya.
+          <p>Banyak program modern kini menggabungkan kedua pendekatan ini dalam skema hybrid, menilai baik prestasi maupun kebutuhan ekonomi secara bersamaan namun dengan bobot berbeda-beda. Beasiswa Gratispol Kaltim misalnya, meski terbuka luas, tetap mempertimbangkan akreditasi program studi dan embel-embel prestasi sebagai nilai tambah di tengah basis utama yang inklusif bagi seluruh mahasiswa asal daerah.
+          <p>Mengenali kategori mana yang dominan dalam suatu program membantu Anda memprioritaskan dokumen pendukung yang tepat. Jika mendaftar beasiswa merit-based, curahkan energi lebih pada penyusunan portofolio prestasi dan sertifikat pendukung. Jika mendaftar beasiswa need-based, pastikan dokumen kondisi ekonomi (SKTM, data DTSEN, atau surat keterangan penghasilan orang tua) benar-benar akurat dan terkini, karena inilah yang menjadi penentu utama kelayakan Anda.
+          <p>Jangan pernah memalsukan atau melebih-lebihkan kondisi ekonomi untuk lolos beasiswa need-based, atau mengada-ada prestasi untuk beasiswa merit-based. Selain berisiko didiskualifikasi jika terbukti, banyak penyelenggara kini melakukan verifikasi silang data yang semakin ketat — kejujuran tetap jadi strategi paling aman dan berkelanjutan dalam jangka panjang.
+        `
+      },
+      {
+        slug: 'beasiswa-stimulan-sultra-cerdas-bssc-2026',
+        tanggal: '12 Oktober 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa Stimulan Sultra Cerdas (BSSC) 2026: Syarat dan Cara Daftar',
+        gambar : 'img/gambar2.jpg',
+        ringkasan: 'Panduan Beasiswa Stimulan Sultra Cerdas (BSSC) 2026 untuk mahasiswa Sulawesi Tenggara jenjang S1 hingga S3, syarat semester, dan cara daftar.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan Beasiswa Stimulan Sultra Cerdas (BSSC) 2026 untuk mahasiswa Sulawesi Tenggara jenjang S1 hingga S3, syarat semester, dan cara daftar.</p>
+          <p>Pemerintah Provinsi Sulawesi Tenggara kembali membuka Beasiswa Stimulan Sultra Cerdas (BSSC) 2026, program bantuan pendidikan bagi mahasiswa asal Sultra yang berkuliah di jenjang S1/D4 hingga S3, baik di dalam maupun luar provinsi. Program ini menjadi salah satu opsi bantuan daerah yang mencakup rentang jenjang pendidikan paling luas dibanding kebanyakan beasiswa provinsi lain di Indonesia.</p>
+          <p>Yang membedakan BSSC dari beasiswa daerah pada umumnya adalah syarat semester yang spesifik per jenjang: mahasiswa S1/D4 harus berada di semester 3 hingga 5, mahasiswa S2 di semester 2 hingga 3, dan mahasiswa S3 di semester 2 hingga maksimal semester 5. Perhatikan baik-baik rentang semester ini karena pendaftar di luar rentang yang ditentukan otomatis tidak memenuhi syarat dasar, terlepas dari seberapa baik rekam jejak akademiknya.</p>
+          <p>Dokumen yang diperlukan juga bervariasi sesuai jenjang. Mahasiswa S1/D4 perlu menyertakan motivation letter sebagai bagian dari berkas, sementara mahasiswa S2 diwajibkan menulis esai kontribusi daerah lima tahun — dokumen yang menuntut pendaftar memaparkan rencana konkret kontribusi bagi pembangunan Sulawesi Tenggara dalam jangka waktu lima tahun setelah lulus, bukan sekadar janji normatif.</p>
+          <p>Mengenai besaran bantuan, situs resmi BSSC menyatakan nilainya disesuaikan dengan kemampuan keuangan daerah dan ketentuan yang berlaku pada tahun anggaran berjalan — artinya nominal bisa berubah dari tahun ke tahun mengikuti kondisi APBD provinsi. Jangan berpatokan pada angka dari pemberitaan tahun-tahun sebelumnya; selalu cek petunjuk teknis resmi terbaru di bssc.akusahabatrakyat.com untuk nominal yang berlaku pada periode pendaftaran Anda.</p>
+          <p>Proses pendaftaran sepenuhnya online: buat akun di sistem BSSC, isi formulir data diri dan akademik, unggah seluruh dokumen persyaratan (surat permohonan, surat pernyataan bermaterai elektronik, dan dokumen sesuai jenjang), lalu kirim permohonan melalui sistem. Pastikan KTP Sultra Anda masih berlaku dan sesuai domisili yang disyaratkan sebelum memulai proses pendaftaran.</p>
+          <p>Pendaftaran BSSC 2026 hanya berlangsung 1-18 Oktober 2026 — jendela waktu yang sangat singkat dibanding kebanyakan beasiswa daerah lain. Karena waktunya terbatas, jangan menunda penyusunan motivation letter atau esai kontribusi daerah hingga mendekati tenggat, mengingat kedua dokumen ini membutuhkan waktu refleksi dan revisi yang tidak sedikit untuk menghasilkan tulisan yang benar-benar meyakinkan.</p>
+        `
+      },
+      {
+        slug: 'bsi-scholarship-talenta-2026',
+        tanggal: '12 November 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'BSI Scholarship Talenta 2026: Panduan untuk Mahasiswa Semester Akhir',
+        gambar : 'img/gambar3.png',
+        ringkasan: 'Panduan BSI Scholarship Talenta 2026: syarat semester 7, jurusan terpilih, dan bantuan tugas akhir hingga deadline 30 Oktober 2026.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan BSI Scholarship Talenta 2026: syarat semester 7, jurusan terpilih, dan bantuan tugas akhir hingga deadline 30 Oktober 2026.</p>
+          <p>BSI Maslahat menambah satu lagi skema dalam jajaran BSI Scholarship, kali ini bertajuk Talenta — program yang secara khusus menyasar mahasiswa semester 7 atau tingkat akhir, berbeda dari skema Unggulan, Berdampak, Pelajar, dan Afirmasi yang sudah ada sebelumnya. Skema ini mengisi celah penting: dukungan finansial bagi mahasiswa yang sudah dekat dengan garis kelulusan namun masih menghadapi tantangan tugas akhir dan biaya terkait.</p>
+          <p>Program ini tidak terbuka untuk semua jurusan — hanya mahasiswa dari 10 perguruan tinggi dan jurusan terpilih yang bisa mendaftar, mencakup Ekonomi dan Bisnis, IT/Ilmu Komputer, Hukum, MIPA (khususnya Aktuaria dan Statistik), Psikologi, Administrasi Niaga/Bisnis, dan Teknik. Fokus pada jurusan tertentu ini mencerminkan kebutuhan talenta spesifik yang relevan dengan bisnis perbankan syariah BSI ke depan.</p>
+          <p>Syarat akademik cukup tinggi dibanding skema BSI lain: IPK minimal 3,30, ditambah rekam jejak prestasi dan pengalaman organisasi yang kuat, serta kemampuan bahasa Inggris dan komunikasi yang baik. Kombinasi syarat ini menunjukkan bahwa Talenta lebih menyerupai program pencarian talenta unggulan (talent scouting) dibanding sekadar bantuan finansial berbasis kebutuhan ekonomi semata.</p>
+          <p>Dari sisi manfaat, penerima mendapat bantuan pendidikan Rp5.000.000 per semester selama dua semester, ditambah bantuan khusus tugas akhir sebesar Rp2.000.000 — komponen yang jarang ditemukan di beasiswa lain dan sangat relevan mengingat biaya penelitian, cetak, dan sidang skripsi/tugas akhir kerap menjadi beban tak terduga di semester-semester akhir. Program ini juga menyediakan mentorship dan pelatihan tambahan.</p>
+          <p>Proses seleksi terdiri dari beberapa tahap: administrasi, assessment psikologi, hingga walk-in interview — format wawancara langsung yang menuntut kesiapan lebih dibanding wawancara daring konvensional. Siapkan diri menghadapi sesi tatap muka ini dengan matang, termasuk kemungkinan pertanyaan situasional terkait rencana tugas akhir dan kontribusi pasca-lulus.</p>
+          <p>Pendaftaran BSI Scholarship Talenta 2026 dibuka 1-30 Oktober 2026 melalui bsischolarship.id. Siapkan dokumen pendukung sejak awal, terutama bukti pembayaran UKT semester terakhir dan sertifikat prestasi (maksimal 3 dokumen terbaik), serta pantau akun Instagram resmi @bsi_scholarship untuk informasi tahap seleksi lanjutan setelah pendaftaran ditutup.</p>
+          `
+      },
+      {
+        slug: 'beasiswa-bidang-teknologi-dan-software-engineering',
+        tanggal: '28 September 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa Bidang Teknologi dan Software Engineering: Daftar Program untuk Calon Programmer',
+        gambar : 'img/gambar4.png',
+        ringkasan: 'Rangkuman beasiswa dan jalur pendanaan bagi calon programmer dan talenta IT, dari SEMESTA SEVIMA hingga beasiswa STEM LPDP.',
+        isi: `
+          <p class="lead text-secondary mb-4">Rangkuman beasiswa dan jalur pendanaan bagi calon programmer dan talenta IT, dari SEMESTA SEVIMA hingga beasiswa STEM LPDP.</p>
+          <p>Minat besar terhadap karier di bidang teknologi membuat semakin banyak jalur beasiswa yang secara khusus menyasar calon programmer, data scientist, dan talenta digital lainnya. Memahami peta jalur-jalur ini membantu Anda memilih opsi yang paling sesuai dengan tahap pendidikan dan tujuan karier di industri teknologi.</p>
+          <p>Bagi lulusan SMA/SMK yang ingin langsung terjun ke dunia kerja teknologi sambil kuliah, Beasiswa SEMESTA dari SEVIMA menawarkan model unik: kuliah S1 gratis di bidang Software Engineering sambil bekerja dan bergaji sejak semester awal, dengan skema ikatan dinas delapan tahun secara keseluruhan. Jalur ini paling cocok bagi yang sudah yakin dengan pilihan karier teknologi dan siap dengan komitmen jangka panjang.</p>
+          <p>Untuk jenjang S2/S3, LPDP Beasiswa STEM Industri Strategis menjadi opsi utama bagi yang ingin mendalami keilmuan teknologi lebih jauh, termasuk kecerdasan buatan, keamanan siber, dan pengembangan perangkat lunak tingkat lanjut, dengan pembiayaan penuh di dalam maupun luar negeri di kampus-kampus unggulan yang telah ditetapkan.</p>
+          <p>Selain jalur gelar formal, sejumlah bootcamp dan pelatihan intensif seperti Digital Talent Scholarship dari Komdigi atau program serupa dari perusahaan teknologi besar menawarkan sertifikasi keterampilan spesifik (seperti data analytics, cloud computing, atau cybersecurity) dalam waktu lebih singkat, cocok bagi yang ingin mempercepat transisi karier ke bidang teknologi tanpa menempuh gelar formal baru.</p>
+          <p>Program Kreativitas Mahasiswa (PKM) bidang teknologi dan kompetisi coding/hackathon tingkat nasional maupun internasional juga menjadi jalur tidak langsung yang berguna — selain berpotensi mendapat pendanaan proyek, pengalaman ini membangun portofolio nyata yang sangat dihargai perusahaan teknologi maupun panitia beasiswa lanjutan yang menilai rekam jejak praktis, bukan sekadar nilai akademik.</p>
+          <p>Sebelum memilih jalur, petakan dulu tujuan karier jangka panjang Anda: apakah ingin segera bekerja sambil kuliah seperti skema SEMESTA, mendalami riset teknologi lewat jalur S2/S3, atau mempercepat penguasaan keterampilan praktis lewat bootcamp bersertifikat. Setiap jalur punya trade-off berbeda antara kecepatan masuk dunia kerja, kedalaman keilmuan, dan fleksibilitas eksplorasi minat selama masa belajar.</p>
+        `
+      },
+      {
+        slug: 'cara-mempersiapkan-diri-seleksi-beasiswa-hackathon',
+        tanggal: '28 September 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Cara Mempersiapkan Diri untuk Seleksi Beasiswa Berbasis Hackathon atau Kompetisi Coding',
+        gambar : 'img/gambar5.png',
+        ringkasan: 'Tips menghadapi tahap hackathon dalam seleksi beasiswa teknologi seperti SEMESTA, dari persiapan teknis hingga strategi kerja tim.',
+        isi: `
+          <p class="lead text-secondary mb-4">Tips menghadapi tahap hackathon dalam seleksi beasiswa teknologi seperti SEMESTA, dari persiapan teknis hingga strategi kerja tim.</p>
+          <p>Beberapa beasiswa bidang teknologi kini menggunakan hackathon sebagai salah satu tahap seleksi, menggantikan atau melengkapi tes tertulis konvensional. Format ini menuntut persiapan yang jauh berbeda dari sekadar belajar teori — Anda perlu siap menghasilkan solusi nyata dalam waktu terbatas, seringkali sambil bekerja dalam tim.</p>
+          <p>Sebelum hari-H, kuasai fundamental logika pemrograman dan struktur data, karena hackathon biasanya menuntut Anda membangun solusi fungsional dengan cepat, bukan sekadar memahami konsep secara teoritis. Latihan di platform coding seperti HackerRank, LeetCode, atau mengikuti hackathon skala kecil sebelumnya (bahkan yang bersifat internal kampus) akan sangat membantu membiasakan diri dengan tekanan waktu yang ketat.</p>
+          <p>Pelajari juga dasar-dasar pengembangan produk cepat (rapid prototyping) — kemampuan membangun versi minimal namun berfungsi dari sebuah ide (Minimum Viable Product) jauh lebih dihargai dalam hackathon dibanding solusi sempurna yang tidak selesai tepat waktu. Juri hackathon umumnya menilai kreativitas solusi dan kemampuan eksekusi, bukan kesempurnaan kode di setiap barisnya.</p>
+          <p>Jika hackathon dilakukan secara berkelompok, kemampuan kolaborasi tim menjadi penentu sama pentingnya dengan kemampuan teknis individu. Latih diri berkomunikasi jelas saat bekerja dalam tekanan waktu, membagi tugas sesuai kekuatan masing-masing anggota, dan tetap fleksibel mengubah arah solusi jika pendekatan awal ternyata tidak berjalan sesuai rencana.</p>
+          <p>Siapkan juga kebutuhan logistik dan fisik untuk sesi hackathon yang biasanya berlangsung berjam-jam bahkan semalaman: laptop dengan software development yang sudah terpasang lengkap, koneksi internet cadangan, serta stamina fisik yang cukup karena hackathon sering kali menuntut konsentrasi tinggi dalam durasi panjang tanpa istirahat memadai.</p>
+          <p>Terakhir, jangan lupakan kemampuan presentasi. Sebagian besar hackathon menutup sesi dengan presentasi singkat di hadapan juri — kemampuan menjelaskan solusi Anda secara ringkas, meyakinkan, dan mudah dipahami audiens non-teknis sama pentingnya dengan kualitas kode yang Anda tulis, karena juri tidak selalu sempat menelusuri setiap baris kode yang dikerjakan dalam waktu singkat.</p>
+        `
+      },
+      {
+        slug: 'cara-menonjol-di-kategori-prestasi-non-akademis',
+        tanggal: '7 September 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Cara Menonjol di Kategori Prestasi Non-Akademis Beasiswa',
+        gambar : 'img/gambar6.png',
+        ringkasan: 'Strategi menyusun dokumen dan video pendukung agar bersaing di kategori prestasi non-akademis seperti olahraga, seni, dan budaya pada seleksi beasiswa.',
+        isi: `
+          <p class="lead text-secondary mb-4">Strategi menyusun dokumen dan video pendukung agar bersaing di kategori prestasi non-akademis seperti olahraga, seni, dan budaya pada seleksi beasiswa.</p>
+          <p>Kategori Prestasi Non-Akademis, seperti yang ditemukan pada Beasiswa Bakti BCA, memberi peluang bagi pendaftar dengan pencapaian di bidang olahraga, kesenian, budaya, atau bidang non-akademik lain untuk bersaing tanpa harus unggul dari sisi IPK semata. Namun kategori ini punya tantangan tersendiri karena penilaiannya lebih subjektif dibanding kategori akademik yang terukur lewat angka.</p>
+          <p>Langkah pertama adalah memilih pencapaian yang benar-benar memenuhi syarat minimal yang diminta — biasanya tingkat provinsi ke atas dalam kurun waktu tertentu (misalnya tiga tahun terakhir). Jangan melampirkan sertifikat tingkat kampus atau kabupaten jika syaratnya eksplisit minimal provinsi, karena dokumen yang tidak memenuhi syarat dasar akan langsung gugur di tahap administrasi tanpa dipertimbangkan lebih jauh.</p>
+          <p>Untuk beasiswa yang mensyaratkan video keahlian singkat (seperti Bakti BCA dengan durasi maksimal 30 detik), manfaatkan setiap detik secara maksimal. Hindari intro panjang atau basa-basi di awal video — langsung tunjukkan keahlian inti Anda dalam beberapa detik pertama, karena reviewer yang menonton puluhan hingga ratusan video serupa cenderung membentuk penilaian awal dengan sangat cepat.</p>
+          <p>Pastikan kualitas teknis video memadai: pencahayaan cukup, suara jernih (jika relevan, misalnya untuk keahlian musik), dan sudut pengambilan gambar yang menampilkan aksi/keahlian secara jelas tanpa terpotong frame. Video berkualitas rendah bisa mengurangi kredibilitas prestasi Anda meski kemampuan sebenarnya sudah teruji, karena kesan pertama visual tetap berpengaruh pada penilaian.</p>
+          <p>Lengkapi dokumen prestasi dengan konteks tambahan jika memungkinkan — misalnya, jumlah peserta kompetisi yang diikuti, tingkat kesulitan kategori yang dilombakan, atau signifikansi penghargaan tersebut di bidang terkait. Reviewer yang tidak familiar dengan bidang spesifik Anda (misalnya cabang olahraga yang kurang populer) akan lebih mudah menilai pencapaian Anda jika diberi konteks yang membantu memahami skala prestasi tersebut.</p>
+          <p>Terakhir, jangan mengecilkan pencapaian di bidang non-akademik hanya karena dianggap kurang serius" dibanding prestasi akademik. Banyak penyelenggara beasiswa justru sengaja menyediakan kategori ini untuk menjaring talenta beragam yang tidak selalu tercermin dari nilai rapor atau IPK — tunjukkan kepercayaan diri dan kebanggaan yang proporsional terhadap pencapaian Anda saat menyusun dokumen pendukung."</p>
+        `
+      },
+      {
+        slug: 'beasiswa-bakti-bca-2026',
+        tanggal: '7 September 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa Bakti BCA 2026: 3 Kategori, Syarat, dan Cara Daftar',
+        gambar : 'img/gambar7.png',
+        ringkasan: 'Panduan Beasiswa Bakti BCA 2026: kategori Bantuan Finansial, Prestasi Akademis, dan Non-Akademis, syarat, serta cara daftar hingga 30 September 2026.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan Beasiswa Bakti BCA 2026: kategori Bantuan Finansial, Prestasi Akademis, dan Non-Akademis, syarat, serta cara daftar hingga 30 September 2026.</p>
+          <p>Bank Central Asia (BCA) kembali membuka pendaftaran Beasiswa Bakti BCA 2026, program CSR tahunan yang menyasar mahasiswa aktif S1 non-vokasi semester 3. Berbeda dari beasiswa umum yang hanya menilai kondisi ekonomi atau prestasi akademik, Bakti BCA menyediakan tiga jalur kategori berbeda sehingga pendaftar bisa memilih jalur yang paling sesuai dengan kekuatan masing-masing.</p>
+          <p>Kategori pertama, Bantuan Finansial, ditujukan bagi mahasiswa berpotensi yang membutuhkan dukungan ekonomi, dengan syarat menyertakan surat rekomendasi kondisi finansial dari RT/RW domisili asal. Kategori kedua, Prestasi Akademis, menyasar mahasiswa dengan capaian akademik membanggakan di luar syarat IPK minimal standar. Kategori ketiga, Prestasi Non-Akademis, terbuka bagi mahasiswa berprestasi di bidang olahraga, kesenian, budaya, atau bidang lain minimal tingkat provinsi dalam tiga tahun terakhir.</p>
+          <p>Yang membuat kategori Prestasi Non-Akademis cukup unik adalah syarat menyertakan video keahlian atau talenta berdurasi maksimal 30 detik sebagai bukti pendukung sertifikat prestasi. Format video singkat ini menuntut pendaftar mampu menunjukkan kemampuan secara ringkas dan meyakinkan — sangat berbeda dari sekadar melampirkan sertifikat di atas kertas.</p>
+          <p>Syarat dasar yang berlaku di semua kategori meliputi status WNI dan belum menikah, usia maksimal 21 tahun per 31 Desember 2026, mahasiswa aktif S1 non-vokasi semester 3 dengan IPK minimal 3,00, tidak sedang menerima beasiswa lain, serta tidak bekerja penuh waktu atau terikat dinas dengan instansi lain. Pendaftar juga diharapkan memiliki kepedulian sosial dan aktif dalam organisasi atau kepanitiaan kampus.</p>
+          <p>Selain bantuan Uang Kuliah Tunggal (UKT), penerima Bakti BCA juga mendapat pelatihan pengembangan karier — nilai tambah yang relevan mengingat BCA sebagai institusi keuangan besar memiliki jaringan luas untuk membekali penerima dengan keterampilan siap kerja sebelum lulus kuliah.</p>
+          <p>Pendaftaran dibuka 3 Agustus hingga 30 September 2026 secara online melalui bca.id/beasiswabaktibca. Proses seleksi cukup panjang: pengumuman administrasi 13 Oktober, assessment online 14-18 Oktober, assessment tahap II dan wawancara 27 Oktober-1 November, hingga pengumuman final 25 November 2026. Siapkan dokumen sesuai kategori yang dipilih jauh-jauh hari, terutama video talenta bagi yang mendaftar jalur Prestasi Non-Akademis.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '25 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa DJITU Profesi 2026: Syarat dan Cara Daftar untuk Mahasiswi Profesi Kesehatan',
+        gambar : 'img/gambar8.png',
+        ringkasan: 'Panduan Beasiswa DJITU Profesi 2026 untuk mahasiswi Apoteker, Bidan, Fisioterapi, Gizi, Perawat, dan Psikologi Klinis, deadline 31 Agustus 2026.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan Beasiswa DJITU Profesi 2026 untuk mahasiswi Apoteker, Bidan, Fisioterapi, Gizi, Perawat, dan Psikologi Klinis, deadline 31 Agustus 2026.</p>
+          <p>Yayasan Khouw Kalbe membuka Beasiswa DJITU Profesi 2026, jalur khusus bagi mahasiswi semester 1 program profesi kesehatan yang ingin melanjutkan pendidikan sekaligus berkontribusi bagi pemerataan tenaga kesehatan di daerah tertinggal. Berbeda dari DJITU Reguler yang menyasar siswi SMA dan mahasiswi baru S1, DJITU Profesi secara khusus menargetkan jenjang pendidikan profesi — tahap yang sering kali justru lebih mahal dan kurang mendapat perhatian program beasiswa dibanding jenjang sarjana.</p>
+          <p>Program studi profesi yang dicakup meliputi Apoteker, Bidan, Fisioterapi, Gizi, Perawat (Ners), Psikologi Klinis, dan Fisikawan Medis — cakupan yang cukup luas untuk rumpun kesehatan non-kedokteran yang selama ini minim opsi beasiswa dibanding jenjang profesi dokter. Program ini eksklusif bagi perempuan WNI yang berasal dari salah satu dari 22 provinsi target yang ditetapkan yayasan.</p>
+          <p>Syarat akademik cukup ketat: IPK minimal 3,50 dari skala 4,00 pada jenjang Sarjana atau Sarjana Terapan, ditambah rekam jejak pengalaman mentoring atau mengajar serta keaktifan berorganisasi. Yang membedakan program ini dari beasiswa kesehatan lain adalah penekanan pada komitmen jangka panjang: pendaftar diminta menuliskan esai komitmen kontribusi bagi pengembangan sumber daya kesehatan di daerah 4T (Terdepan, Terluar, Tertinggal, dan Transmigrasi) setelah lulus.</p>
+          <p>Dari sisi manfaat, DJITU Profesi menyediakan dukungan biaya pendidikan hingga Rp10.000.000 per semester ditambah tunjangan pengembangan kapasitas Rp1.200.000 per semester — nominal yang cukup signifikan mengingat biaya pendidikan profesi kesehatan memang tergolong tinggi. Penerima juga mendapat akses ke pelatihan, mentoring, dan jejaring nasional-internasional dalam ekosistem Yayasan Khouw Kalbe (YKK).</p>
+          <p>Karena beasiswa ini menyasar mahasiswi semester 1 program profesi, timing pendaftaran menjadi krusial — Anda perlu memastikan sudah diterima atau sedang menjalani semester pertama program profesi saat mendaftar, bukan masih dalam proses menunggu kelulusan S1. Siapkan dokumen dari jauh-jauh hari, terutama transkrip nilai S1 dan bukti diterima program profesi, karena kedua dokumen ini menjadi syarat mutlak verifikasi kelayakan.</p>
+          <p>Pendaftaran DJITU Profesi 2026 ditutup 31 Agustus 2026 melalui situs resmi yayasankhouwkalbe.org. Karena esai komitmen kontribusi ke daerah 4T menjadi salah satu komponen penilaian penting, luangkan waktu khusus menulis esai yang jujur dan spesifik — bukan sekadar pernyataan formalitas — tentang bagaimana Anda membayangkan kontribusi nyata di bidang kesehatan daerah tertinggal setelah menyelesaikan pendidikan profesi.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-pns-asn',
+        tanggal: '20 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa untuk PNS dan ASN yang Ingin Melanjutkan Kuliah',
+        ringkasan: 'Kenali jalur beasiswa khusus PNS dan ASN untuk melanjutkan S1, S2, atau S3, termasuk syarat izin belajar dan tugas belajar dari instansi.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan Beasiswa DJITU Profesi 2026 untuk mahasiswi Apoteker, Bidan, Fisioterapi, Gizi, Perawat, dan Psikologi Klinis, deadline 31 Agustus 2026.</p>
+          <p>Aparatur Sipil Negara (ASN) yang ingin meningkatkan jenjang pendidikan punya sejumlah jalur beasiswa khusus yang mempertimbangkan status kepegawaian mereka, berbeda dari beasiswa umum yang menyasar masyarakat sipil pada umumnya. Memahami jalur mana yang tersedia bisa membantu ASN merencanakan pengembangan karier akademik tanpa harus resign dari instansi.</p>
+          <p>Beasiswa Unggulan Kemendikdasmen memiliki kategori khusus Pegawai Kemendikbudristek yang secara eksplisit menyasar ASN di lingkungan kementerian tersebut yang ingin melanjutkan studi S1, S2, atau S3. Kategori ini terpisah dari kategori Masyarakat Berprestasi yang terbuka untuk publik, sehingga persaingannya relatif lebih terbatas hanya di antara sesama pegawai internal.</p>
+          <p>Bagi ASN dari instansi lain, skema Tugas Belajar dan Izin Belajar menjadi dua jalur utama yang perlu dipahami perbedaannya. Tugas Belajar berarti ASN dibebaskan sementara dari tugas kedinasan sehari-hari untuk fokus penuh pada studi, biasanya dengan pembiayaan penuh dari instansi atau lembaga beasiswa mitra. Izin Belajar, sebaliknya, berarti ASN tetap menjalankan tugas kedinasan seperti biasa sambil kuliah di waktu luang, umumnya untuk program kelas karyawan atau kelas eksekutif di akhir pekan.</p>
+          <p>LPDP juga terbuka bagi ASN yang mendaftar sebagai pendaftar reguler, tanpa batasan status kepegawaian sebagai penghalang. Namun ASN yang ingin mendaftar LPDP dengan skema Tugas Belajar tetap perlu mengurus surat izin dan rekomendasi dari atasan langsung atau instansi tempat bekerja sebagai bagian dari syarat administrasi, di luar persyaratan umum LPDP itu sendiri.</p>
+          <p>Beberapa kementerian dan lembaga juga memiliki program beasiswa internal khusus pegawainya, seperti halnya Beasiswa Unggulan bagi pegawai Kemendikbudristek. Jika Anda ASN di instansi lain, tanyakan ke bagian kepegawaian apakah instansi Anda memiliki program serupa, karena informasi semacam ini sering kali tidak dipublikasikan secara luas ke publik.</p>
+          <p>Sebelum mendaftar beasiswa apa pun sebagai ASN, pastikan Anda memahami konsekuensi terhadap jenjang karier dan tunjangan kinerja selama masa studi, terutama jika mengambil skema Tugas Belajar yang berarti absen dari tugas kedinasan dalam jangka waktu cukup lama. Konsultasikan rencana ini dengan atasan dan bagian kepegawaian sejak dini agar tidak menimbulkan kendala administratif di kemudian hari.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '20 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa untuk Penyandang Disabilitas: Daftar Program dan Fasilitas Pendampingan',
+        ringkasan: 'Rangkuman beasiswa yang menyediakan jalur afirmasi bagi penyandang disabilitas, dari Beasiswa Unggulan hingga LPDP dan Australia Awards.',
+        isi: `
+          <p class="lead text-secondary mb-4">Rangkuman beasiswa yang menyediakan jalur afirmasi bagi penyandang disabilitas, dari Beasiswa Unggulan hingga LPDP dan Australia Awards.</p>
+          <p>Pemerintah Provinsi Sulawesi Tenggara kembali membuka Beasiswa Stimulan Sultra Cerdas (BSSC) 2026, program bantuan pendidikan bagi mahasiswa asal Sultra yang berkuliah di jenjang S1/D4 hingga S3, baik di dalam maupun luar provinsi. Program ini menjadi salah satu opsi bantuan daerah yang mencakup rentang jenjang pendidikan paling luas dibanding kebanyakan beasiswa provinsi lain di Indonesia.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '20 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Panduan Lengkap 4 Skema BSI Scholarship: Unggulan, Berdampak, Pelajar, dan Afirmasi',
+        ringkasan: 'Bandingkan empat skema BSI Scholarship — Unggulan, Berdampak, Pelajar, dan Afirmasi — agar tahu mana yang paling sesuai dengan status dan kebutuhan Anda.',
+        isi: `
+          <p class="lead text-secondary mb-4">Bandingkan empat skema BSI Scholarship — Unggulan, Berdampak, Pelajar, dan Afirmasi — agar tahu mana yang paling sesuai dengan status dan kebutuhan Anda.</p>
+          
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '19 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'BSI Scholarship Afirmasi 2026: Syarat dan Cara Daftar untuk Mahasiswa D3-S1',
+        ringkasan: 'Panduan BSI Scholarship Afirmasi 2026: syarat semester prioritas, dokumen SKTM, dan cara daftar hingga 21 Agustus 2026.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan BSI Scholarship Afirmasi 2026: syarat semester prioritas, dokumen SKTM, dan cara daftar hingga 21 Agustus 2026.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '19 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa Bidang Teknologi dan Software Engineering: Daftar Program untuk Calon Programmer',
+        ringkasan: 'Rangkuman beasiswa dan jalur pendanaan bagi calon programmer dan talenta IT, dari SEMESTA SEVIMA hingga beasiswa STEM LPDP.',
+        isi: `
+          <p class="lead text-secondary mb-4">Rangkuman beasiswa dan jalur pendanaan bagi calon programmer dan talenta IT, dari SEMESTA SEVIMA hingga beasiswa STEM LPDP.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '1 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa yang Mensyaratkan Buka Rekening Bank: Untung Rugi dan Hal yang Perlu Diperhatikan',
+        ringkasan: 'Pertimbangan sebelum mendaftar beasiswa yang mengharuskan pembukaan rekening di bank penyelenggara, termasuk biaya administrasi dan kemudahan pencairan.',
+        isi: `
+          <p class="lead text-secondary mb-4">Pertimbangan sebelum mendaftar beasiswa yang mengharuskan pembukaan rekening di bank penyelenggara, termasuk biaya administrasi dan kemudahan pencairan.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '1 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa untuk Mahasiswa Kedokteran, Keperawatan, dan Farmasi: Daftar Program Semasa Kuliah',
+        ringkasan: 'Rangkuman beasiswa yang bisa didaftar mahasiswa aktif kedokteran, keperawatan, dan farmasi selama masa kuliah, dari KSE hingga BSI Scholarship.',
+        isi: `
+          <p class="lead text-secondary mb-4">Rangkuman beasiswa yang bisa didaftar mahasiswa aktif kedokteran, keperawatan, dan farmasi selama masa kuliah, dari KSE hingga BSI Scholarship.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '1 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Xiamen University Scholarship 2027: Cara Kuliah Gratis di China Tanpa CSC',
+        ringkasan: 'Panduan Xiamen University New International Students Scholarship 2027: cakupan beasiswa, syarat usia per jenjang, dan cara mendaftar di luar jalur CSC.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan Xiamen University New International Students Scholarship 2027: cakupan beasiswa, syarat usia per jenjang, dan cara mendaftar di luar jalur CSC.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '1 Agustus 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Beasiswa KSE Gelombang 2 2026: Panduan untuk Mahasiswa Kedokteran, Keperawatan, dan Farmasi',
+        ringkasan: 'Panduan Beasiswa KSE Gelombang 2 2026 khusus rumpun kesehatan: program studi yang dicakup, syarat, dan cara daftar hingga 9 Agustus 2026.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan Beasiswa KSE Gelombang 2 2026 khusus rumpun kesehatan: program studi yang dicakup, syarat, dan cara daftar hingga 9 Agustus 2026.</p>
+        `
+      },
+      {
+        slug: 'beasiswa-djitu-profesi-2026',
+        tanggal: '30 Juli 2026',
+        durasi: '2 menit baca',
+        penulis: 'Admin Cendekia',
+        judul: 'Cara Memvalidasi Data NIK dan KK agar Tidak Gagal Verifikasi Beasiswa',
+        ringkasan: 'Panduan memeriksa dan memperbaiki data kependudukan (NIK/KK) di Dukcapil sebelum mendaftar beasiswa yang mensyaratkan validasi data.',
+        isi: `
+          <p class="lead text-secondary mb-4">Panduan memeriksa dan memperbaiki data kependudukan (NIK/KK) di Dukcapil sebelum mendaftar beasiswa yang mensyaratkan validasi data.</p>
+        `
+      },
+    ];
+
+    const artikelPerHalaman = 10;
+    let halamanAktif = 1;
+    let kataKunciCari = '';
+
+    function dapatkanArtikelTerfilter() {
+      if (!kataKunciCari.trim()) return semuaArtikel;
+      const q = kataKunciCari.toLowerCase();
+      return semuaArtikel.filter(item =>
+        item.judul.toLowerCase().includes(q) ||
+        item.ringkasan.toLowerCase().includes(q)
+      );
+    }
+    function tampilkanHalamanArtikel(nomorHalaman) {
+      const dataTampil = dapatkanArtikelTerfilter();
+      const totalHalaman = Math.max(1, Math.ceil(dataTampil.length / artikelPerHalaman));
+
+      if (nomorHalaman < 1) nomorHalaman = 1;
+      if (nomorHalaman > totalHalaman) nomorHalaman = totalHalaman;
+      halamanAktif = nomorHalaman;
+
+      const indexAwal = (nomorHalaman - 1) * artikelPerHalaman;
+      const potonganArtikel = dataTampil.slice(indexAwal, indexAwal + artikelPerHalaman);
+
+      const container = document.getElementById('container-artikel');
+
+      if (potonganArtikel.length === 0) {
+        container.innerHTML = `
+          <div class="col-12">
+            <div class="card border-0 shadow-sm p-5 bg-white text-center" style="border-radius: 20px;">
+              <p class="text-muted mb-0">Tidak ada artikel yang cocok dengan pencarian "<strong>${kataKunciCari}</strong>".</p>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = potonganArtikel.map(art => `
+          <div class="col-12 col-md-6">
+            <a href="#artikel/${art.slug}" class="card h-100 shadow-sm border-0 overflow-hidden p-2 bg-white article-card-link">
+              <div class="card-body bg-white">
+                <div class="text-secondary small fw-medium mb-2">
+                  ${art.tanggal} &middot; ${art.durasi}
+                </div>
+                <h5 class="card-title fw-bold text-deep-ocean mb-2">${art.judul}</h5>
+                <p class="card-text small text-secondary mb-0">
+                  ${art.ringkasan}
+                </p>
+              </div>
+            </a>
+          </div>
+        `).join('');
+      }
+
+      const paginationEl = document.getElementById('pagination-artikel');
+      let htmlPagination = '';
+
+      htmlPagination += `
+        <li class="page-item ${nomorHalaman === 1 ? 'disabled' : ''}">
+          <a class="page-link" href="#page-${nomorHalaman - 1}">&laquo; Sebelumnya</a>
+        </li>
+      `;
+
+      for (let i = 1; i <= totalHalaman; i++) {
+        htmlPagination += `
+          <li class="page-item ${i === nomorHalaman ? 'active' : ''}">
+            <a class="page-link" href="#page-${i}">${i}</a>
+          </li>
+        `;
+      }
+
+      htmlPagination += `
+        <li class="page-item ${nomorHalaman === totalHalaman ? 'disabled' : ''}">
+          <a class="page-link" href="#page-${nomorHalaman + 1}">Berikutnya &raquo;</a>
+        </li>
+      `;
+
+      paginationEl.innerHTML = htmlPagination;
+
+      document.getElementById('view-baca-artikel').classList.add('d-none');
+      document.getElementById('view-list-artikel').classList.remove('d-none');
+    }
+
+    function tampilkanDetailArtikel(slug) {
+      const artikel = semuaArtikel.find(item => item.slug === slug);
+      if (!artikel) {
+        tampilkanHalamanArtikel(1);
+        return;
+      }
+
+      document.getElementById('baca-meta').innerHTML = `${artikel.tanggal} &middot; ${artikel.durasi} &middot; ${artikel.penulis}`;
+      document.getElementById('baca-judul').textContent = artikel.judul;
+
+      const imgEl = document.getElementById('baca-gambar');
+      if (artikel.gambar) {
+        imgEl.src = artikel.gambar;
+        imgEl.alt = artikel.judul;
+        imgEl.classList.remove('d-none');
+      } else {
+        imgEl.src = '';
+        imgEl.classList.add('d-none');
+      }
+
+      document.getElementById('baca-isi').innerHTML = artikel.isi;
+      document.getElementById('btn-kembali-artikel').setAttribute('href', `#page-${halamanAktif}`);
+
+      document.getElementById('view-list-artikel').classList.add('d-none');
+      document.getElementById('view-baca-artikel').classList.remove('d-none');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prosesRuteURL() {
+      const hash = window.location.hash;
+
+      if (hash.startsWith('#artikel/')) {
+        const slug = hash.replace('#artikel/', '');
+        tampilkanDetailArtikel(slug);
+      } else if (hash.startsWith('#page-')) {
+        const nomor = parseInt(hash.replace('#page-', ''), 10) || 1;
+        tampilkanHalamanArtikel(nomor);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        tampilkanHalamanArtikel(1);
+      }
+    }
+
+    document.getElementById('inputCari').addEventListener('input', function (e) {
+      kataKunciCari = e.target.value;
+      tampilkanHalamanArtikel(1);
+    });
+
+    window.addEventListener('hashchange', prosesRuteURL);
+    window.addEventListener('DOMContentLoaded', prosesRuteURL);
+  </script>
 </body>
 
 </html>
