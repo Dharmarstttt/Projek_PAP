@@ -565,7 +565,7 @@
                     <p class="card-text small text-secondary mb-3">
                         Kirimkan pertanyaanmu di bawah ini dan tim kami akan membalas melalui email.
                     </p>
-                    <form action="#" method="POST">
+                    <form id="formPertanyaan" action="#" method="POST">
                         <div class="mb-3">
                             <textarea name="pertanyaan" class="form-control bg-light border-0 p-3" rows="3" style="border-radius: 14px;" placeholder="Ketik pertanyaanmu di sini..." aria-label="Ketik pertanyaanmu di sini..." required></textarea>
                         </div>
@@ -773,10 +773,34 @@
             </div>
             <div class="toast-body">Pendaftaran berhasil! Silakan masuk.</div>
         </div>
+
+        <!-- Toast untuk kirim pertanyaan -->
+         <div id="toastPertanyaan" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Notifikasi</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Tutup"></button>
+            </div>
+            <div class="toast-body">Pertanyaan berhasil dikirim! Terima kasih.</div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Script untuk toast notifikasi -->
+     <script>
+        document.getElementById('formPertanyaan').addEventListener('submit', function(e) {
+            e.preventDefault(); // Mencegah halaman reload saat tombol diklik
+
+            // Menampilkan toastPertanyaan
+            const toastEl = document.getElementById('toastPertanyaan');
+            const toast = bootstrap.Toast.getOrCreateInstance(toastEl);
+            toast.show();
+
+            // Mengosongkan isi form setelah terkirim
+            this.reset();
+        });
+    </script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
